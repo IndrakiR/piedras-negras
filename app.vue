@@ -27,7 +27,7 @@
             <img
               src="/images/logo_footer.png"
               alt="Logo Piedras Negras"
-              class="h-40 w-auto mx-auto hover:scale-105 transition-transform duration-300"
+              class="h-48 w-auto mx-auto hover:scale-105 transition-transform duration-300"
             />
           </div>
 
@@ -61,6 +61,28 @@
             <div class="flex items-center justify-center gap-3 text-gray-600 animate-fadeIn animation-delay-400">
               <Icon name="material-symbols:timer-outline" class="w-6 h-6 text-[#611232]" />
               <span>Tiempo estimado: Próximamente</span>
+            </div>
+
+            <!-- Información de contacto -->
+            <div class="mt-8 space-y-4 animate-fadeIn animation-delay-400">
+              <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+                <Icon name="material-symbols:phone-enabled" class="w-6 h-6 text-[#611232] flex-shrink-0" />
+                <a href="tel:8787626666" class="hover:text-[#611232] transition-colors">
+                  878 762 6666
+                </a>
+              </div>
+              
+              <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+                <Icon name="material-symbols:water-drop" class="w-6 h-6 text-[#611232] flex-shrink-0" />
+                <a 
+                  href="https://www.simaspiedrasnegras.gob.mx" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  class="hover:text-[#611232] transition-colors"
+                >
+                  Simas Piedras Negras
+                </a>
+              </div>
             </div>
           </div>
 
