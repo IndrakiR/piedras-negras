@@ -48,7 +48,7 @@
             </h1>
 
             <p class="text-gray-700 text-xl mb-8 animate-fadeIn animation-delay-200">
-              Estamos mejorando esta sección para brindarte una mejor experiencia
+              Estamos mejorando esta sección para brindarte una mejor experiencia pronto
             </p>
 
             <!-- Barra de progreso mejorada -->
