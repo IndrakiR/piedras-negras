@@ -105,7 +105,7 @@
 </template>
 
 <script setup>
-const mostrarEnConstruccion = ref(true)
+const mostrarEnConstruccion = ref(false)
 </script>
 
 <style scoped>
