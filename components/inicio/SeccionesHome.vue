@@ -4,11 +4,12 @@
             <!-- Header with decorative elements -->
             <div class="relative mb-16 text-center">
                 <div class="relative">
-                    <span class="bg-white px-6 text-sm text-[#611232] font-semibold tracking-wider uppercase">
+                    <!-- Ajuste el tamaño de la fuente a text-2xl -->
+                    <span class="bg-white px-6 text-2xl text-[#611232] font-semibold tracking-wider uppercase">
                         Servicios Municipales
                     </span>
                 </div>
-                <h1 class="mt-8 text-5xl font-bold text-gray-900">Secciones</h1>
+                <!-- Se eliminó la línea de "Secciones" -->
                 <div class="relative mt-4">
                     <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-gray-200"></div>
@@ -42,14 +43,14 @@
                              :aria-label="section.title">
                         <!-- Card Container -->
                         <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 
-                                  group-hover:bg-white group-hover:shadow-xl group-hover:-translate-y-1
-                                  focus-within:ring-2 focus-within:ring-[#611232]">
+                                    group-hover:bg-white group-hover:shadow-xl group-hover:-translate-y-1
+                                    focus-within:ring-2 focus-within:ring-[#611232]">
                             <!-- Icon -->
                             <div class="relative w-20 h-20 mb-6">
                                 <div class="absolute inset-0 bg-[#611232]/10 rounded-xl transform 
-                                          rotate-6 transition-transform group-hover:rotate-12"></div>
+                                            rotate-6 transition-transform group-hover:rotate-12"></div>
                                 <div class="absolute inset-0 bg-white rounded-xl transform 
-                                          -rotate-3 transition-transform group-hover:rotate-0">
+                                            -rotate-3 transition-transform group-hover:rotate-0">
                                     <img :src="section.image" 
                                          :alt="section.title"
                                          class="w-full h-full object-contain p-3"
@@ -59,7 +60,7 @@
 
                             <!-- Content -->
                             <h2 class="text-xl font-bold text-gray-900 mb-2 
-                                     group-hover:text-[#611232] transition-colors">
+                                       group-hover:text-[#611232] transition-colors">
                                 {{ section.title }}
                             </h2>
                             <p class="text-gray-600 mb-4">{{ section.description }}</p>
@@ -82,8 +83,8 @@
 
                         <!-- Decorative corner pattern -->
                         <div class="absolute top-0 right-0 w-24 h-24 transform translate-x-1/2 -translate-y-1/2
-                                  bg-gradient-to-br from-[#611232]/20 to-[#611232]/5 rounded-full opacity-0
-                                  group-hover:opacity-50 transition-opacity"></div>
+                                    bg-gradient-to-br from-[#611232]/20 to-[#611232]/5 rounded-full opacity-0
+                                    group-hover:opacity-50 transition-opacity"></div>
                     </NuxtLink>
                 </div>
             </div>
@@ -107,12 +108,6 @@ const sections = ref([
         title: 'Paga Tu Predial',
         description: 'Realiza tu pago de manera fácil y segura',
         image: '/images/iconos_secciones/Predial_guindo.png',
-        link: '#'
-    },
-    {
-        title: 'Brigada en tu Colonia',
-        description: 'Servicios comunitarios cerca de ti',
-        image: '/images/iconos_secciones/Bienestar_guindo.png',
         link: '#'
     },
     {

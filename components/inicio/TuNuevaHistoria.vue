@@ -8,72 +8,109 @@
             <span class="bg-gradient-to-r from-[#611232] to-[#8B1C4C] bg-clip-text text-transparent">
               Tu Nueva Historia
             </span>
-            <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-1 
-                        bg-gradient-to-r from-[#611232] to-[#8B1C4C] rounded-full"></div>
+            <div
+              class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-1 
+                     bg-gradient-to-r from-[#611232] to-[#8B1C4C] rounded-full"
+            ></div>
           </h2>
 
           <!-- Contenedor de tarjetas -->
           <div class="flex flex-wrap justify-center items-center gap-14">
             <!-- Tarjeta izquierda -->
             <div class="flex flex-col items-center">
-              <div class="w-64 h-64 rounded-xl bg-white shadow-lg 
-                          border border-[#611232]/10 mb-6 
-                          flex items-center justify-center relative overflow-hidden group
-                          hover:border-[#611232]/30 transition-all duration-500">
+              <div
+                class="w-64 h-64 rounded-xl bg-white shadow-lg 
+                       border border-[#611232]/10 mb-6 
+                       flex items-center justify-center relative overflow-hidden group
+                       hover:border-[#611232]/30 transition-all duration-500"
+              >
                 <!-- Círculos decorativos con contorno -->
-                <div class="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"></div>
-                <div class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"></div>
-                <div class="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"></div>
-                <div class="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"></div>
+                <div
+                  class="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"
+                ></div>
                 
-                <Icon 
-                  name="lucide:file-text" 
+                <Icon
+                  name="lucide:file-text"
                   class="w-20 h-20 text-[#611232]/80 group-hover:scale-110 transition-all duration-500"
                 />
               </div>
-              <button class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C] 
-                           text-white text-base font-medium rounded-lg
-                           shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
-                           transition-all duration-300 transform hover:-translate-y-0.5
-                           relative overflow-hidden group">
-                <span class="relative z-10">Generar Reporte</span>
-                <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 
-                            translate-x-[-100%] group-hover:translate-x-[100%] 
-                            transition-transform duration-1000"></div>
+              <!-- Botón de la tarjeta izquierda -->
+              <button
+                class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C]
+                       text-white text-base font-medium rounded-lg
+                       shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
+                       transition-all duration-300 transform hover:-translate-y-0.5
+                       relative overflow-hidden group"
+              >
+                <span class="relative z-10">Contactate aqui</span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0
+                         translate-x-[-100%] group-hover:translate-x-[100%]
+                         transition-transform duration-1000"
+                ></div>
               </button>
             </div>
 
             <!-- Separador elegante -->
             <div class="h-64 hidden md:flex items-center">
-              <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#611232]/20 to-transparent"></div>
+              <div
+                class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#611232]/20 to-transparent"
+              ></div>
             </div>
 
             <!-- Tarjeta derecha -->
             <div class="flex flex-col items-center">
-              <div class="w-64 h-64 rounded-xl bg-white shadow-lg 
-                          border border-[#611232]/10 mb-6 
-                          flex items-center justify-center relative overflow-hidden group
-                          hover:border-[#611232]/30 transition-all duration-500">
+              <div
+                class="w-64 h-64 rounded-xl bg-white shadow-lg 
+                       border border-[#611232]/10 mb-6 
+                       flex items-center justify-center relative overflow-hidden group
+                       hover:border-[#611232]/30 transition-all duration-500"
+              >
                 <!-- Círculos decorativos con contorno -->
-                <div class="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"></div>
-                <div class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"></div>
-                <div class="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"></div>
-                <div class="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"></div>
+                <div
+                  class="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute bottom-3 left-3 w-1.5 h-1.5 rounded-full bg-[#8B1C4C]/30 border border-[#611232]/40"
+                ></div>
+                <div
+                  class="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"
+                ></div>
 
-                <Icon 
-                  name="lucide:download" 
-                  class="w-20 h-20 text-[#611232]/80 group-hover:scale-110 transition-all duration-500"
+                <!-- Imagen más grande y centrada -->
+                <img
+                  src="/images/iconos_secciones/Bienestar_guindo.png"
+                  alt="Bienestar"
+                  class="block w-48 h-48 object-contain 
+                         group-hover:scale-110 transition-all duration-500"
                 />
               </div>
-              <button class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C] 
-                           text-white text-base font-medium rounded-lg
-                           shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
-                           transition-all duration-300 transform hover:-translate-y-0.5
-                           relative overflow-hidden group">
-                <span class="relative z-10">Descargar Reporte</span>
-                <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 
-                            translate-x-[-100%] group-hover:translate-x-[100%] 
-                            transition-transform duration-1000"></div>
+              <!-- Botón de la tarjeta derecha -->
+              <button
+                class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C]
+                       text-white text-base font-medium rounded-lg
+                       shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
+                       transition-all duration-300 transform hover:-translate-y-0.5
+                       relative overflow-hidden group"
+              >
+                <span class="relative z-10">Bienestar</span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0
+                         translate-x-[-100%] group-hover:translate-x-[100%]
+                         transition-transform duration-1000"
+                ></div>
               </button>
             </div>
           </div>
@@ -89,7 +126,11 @@
 
 <style scoped>
 @keyframes draw {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 </style>

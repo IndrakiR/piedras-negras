@@ -121,7 +121,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const isMenuOpen = ref(false)
 
-// Navigation items array for better maintenance
+// Navigation items array
 const navigationItems = [
   { name: 'Inicio', path: '/' },
   { name: 'Noticias', path: '/noticias' },
@@ -140,10 +140,9 @@ const socialLinks = [
   { name: 'YouTube', icon: 'mingcute:youtube-fill', url: '#' }
 ]
 
-// Toggle menu with animation handling
+// Toggle menu
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
-  // Prevent scroll when menu is open
   document.body.style.overflow = isMenuOpen.value ? 'hidden' : ''
 }
 
@@ -155,7 +154,7 @@ watch(() => route.path, () => {
   }
 })
 
-// Clean up on component unmount
+// Cleanup
 onUnmounted(() => {
   document.body.style.overflow = ''
 })
@@ -170,6 +169,6 @@ onUnmounted(() => {
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;     /* Firefox */
 }
 </style>
