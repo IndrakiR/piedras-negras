@@ -89,7 +89,7 @@
           <!-- Footer info -->
           <div class="text-center mt-8 animate-fadeIn animation-delay-500">
             <p class="text-gray-500 text-sm">
-              Copyright © 2024 R. Ayuntamiento de Piedras Negras
+              Copyright 2024 R. Ayuntamiento de Piedras Negras
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@
 </template>
 
 <script setup>
-const mostrarEnConstruccion = ref(false)
+const mostrarEnConstruccion = ref(true)
 </script>
 
 <style scoped>
