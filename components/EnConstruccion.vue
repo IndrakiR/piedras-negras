@@ -1,7 +1,7 @@
 <!-- EnConstruccion.vue -->
 <template>
   <!-- Sección de Video -->
-  <section class="relative w-full bg-black aspect-video">
+  <section class="relative w-full max-w-3xl mx-auto bg-black aspect-video">
     <client-only>
       <iframe
         class="absolute top-0 left-0 w-full h-full"
@@ -117,13 +117,28 @@
                 Simas Piedras Negras
               </a>
             </div>
+
+            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+              <Icon
+                name="material-symbols:info"
+                class="w-6 h-6 text-[#611232] flex-shrink-0"
+              />
+              <a
+                href="http://www2.icai.org.mx/ipo/dependencia.php?dep=84"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[#611232] transition-colors"
+              >
+                ICAI Información Pública de Oficio
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Footer info -->
         <div class="text-center mt-8 animate-fadeIn animation-delay-500">
           <p class="text-gray-500 text-sm">
-            Copyright 2024 R. Ayuntamiento de Piedras Negras
+            Copyright 2025 Ayuntamiento de Piedras Negras
           </p>
         </div>
       </div>
