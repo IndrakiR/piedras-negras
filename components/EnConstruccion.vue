@@ -1,17 +1,6 @@
 <!-- EnConstruccion.vue -->
 <template>
   <!-- Sección de Video -->
-  <section class="relative w-full max-w-3xl mx-auto bg-black aspect-video">
-    <client-only>
-      <iframe
-        class="absolute top-0 left-0 w-full h-full"
-        src="https://www.youtube.com/embed/amm80lJWIXE?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=amm80lJWIXE"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-      ></iframe>
-    </client-only>
-  </section>
   <!-- Fin de Sección de Video -->
 
   <!-- Sección en Construcción -->

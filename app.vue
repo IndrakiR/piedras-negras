@@ -12,5 +12,5 @@
 </template>
 
 <script setup>
-const mostrarEnConstruccion = ref(true)
+const mostrarEnConstruccion = useConstruction()
 </script>
