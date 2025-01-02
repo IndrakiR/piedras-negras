@@ -80,7 +80,7 @@
         <div class="py-3">
           <div class="flex items-center justify-between">
             <NuxtLink to="/" class="flex-shrink-0 h-6 overflow-hidden">
-              <img class="h-6 w-auto object-contain" src="/images/logo.png" alt="Piedras Negras Logo" />
+              <img class="h-6 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
             </NuxtLink>
             <button
               @click="toggleMenu"
