@@ -38,26 +38,28 @@
                   class="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-[#611232]/30 border border-[#611232]/40"
                 ></div>
                 
-                <Icon
-                  name="lucide:file-text"
-                  class="w-20 h-20 text-[#611232]/80 group-hover:scale-110 transition-all duration-500"
+                <img
+                  src="~/public/images/iconos_secciones/Atencion_ciudadana_guindo.png"
+                  alt="Atención Ciudadana"
+                  class="block w-48 h-48 object-contain group-hover:scale-110 transition-all duration-500"
                 />
               </div>
               <!-- Botón de la tarjeta izquierda -->
-              <button
+              <NuxtLink
+                to="/atencion-ciudadana"
                 class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C]
                        text-white text-base font-medium rounded-lg
                        shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
                        transition-all duration-300 transform hover:-translate-y-0.5
                        relative overflow-hidden group"
               >
-                <span class="relative z-10">Contactate aqui</span>
+                <span class="relative z-10">Atencion Ciudadana</span>
                 <div
                   class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0
                          translate-x-[-100%] group-hover:translate-x-[100%]
                          transition-transform duration-1000"
                 ></div>
-              </button>
+              </NuxtLink>
             </div>
 
             <!-- Separador elegante -->

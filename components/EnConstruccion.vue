@@ -87,8 +87,8 @@
                 name="material-symbols:phone-enabled"
                 class="w-6 h-6 text-[#611232] flex-shrink-0"
               />
-              <a href="tel:8787626666" class="hover:text-[#611232] transition-colors">
-                878 762 6666
+              <a href="tel:8787826666" class="hover:text-[#611232] transition-colors">
+                878 782 6666
               </a>
             </div>
 
