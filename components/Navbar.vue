@@ -17,7 +17,7 @@
                   <button
                     class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center group-hover:text-[#9D2449]"
                     :class=" [
-                      route.path.startsWith(item.path)
+                      (route.path.startsWith(item.path) || (item.path === '/' && route.path === '/inicio'))
                         ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                         : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                     ]"
@@ -45,7 +45,7 @@
                   :to="item.path"
                   class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap"
                   :class=" [
-                    route.path === item.path
+                    (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
                       ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                       : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                   ]"
@@ -150,7 +150,7 @@
                 :to="item.path"
                 class="block px-4 py-2 transition-colors duration-300"
                 :class=" [
-                  route.path === item.path
+                  (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
                     ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
                     : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50 font-medium'
                 ]"
@@ -193,7 +193,16 @@ const submenuHeight = ref(150) // Adjust this value based on your content
 const navigationItems = [
   { name: 'Inicio', path: '/' },
   { name: 'Noticias', path: '/noticias' },
-  { name: 'Directorio', path: '/directorio' },
+  { 
+    name: 'Directorio', 
+    path: '/directorio',
+    hasSubmenu: true,
+    submenu: [
+      { name: 'Cabildo', path: '/directorio/cabildo' },
+      { name: 'Directores', path: '/directorio/directores' },
+      { name: 'Organigrama general', path: '/directorio/organigrama' }
+    ]
+  },
   {
     name: 'Trámites',
     path: '/tramites',
