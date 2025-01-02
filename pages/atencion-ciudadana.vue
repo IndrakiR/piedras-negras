@@ -28,6 +28,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <!-- Línea Directa -->
           <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
+            
             <div class="w-24 h-24 mx-auto mb-6">
               <Icon name="mingcute:phone-line" class="w-full h-full text-[#611232]" />
             </div>
