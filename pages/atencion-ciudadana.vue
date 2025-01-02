@@ -1,4 +1,25 @@
 <template>
+  <BannerV2
+    title="Atención Ciudadana"
+    subtitle="Estamos para servirte y atender tus necesidades"
+    :cards="[
+      {
+        icon: 'fas fa-phone',
+        title: 'Línea Directa',
+        description: 'Comunícate al 070 para atención inmediata'
+      },
+      {
+        icon: 'fab fa-whatsapp',
+        title: 'WhatsApp',
+        description: 'Escríbenos al 878 119 6958'
+      },
+      {
+        icon: 'fas fa-envelope',
+        title: 'Formulario',
+        description: 'Llena nuestro formulario en línea'
+      }
+    ]"
+  />
   <section class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
@@ -46,6 +67,7 @@
 <script setup>
 import { definePageMeta } from '#imports'
 import AtencionCiudadanaForm from '~/components/AtencionCiudadana/AtencionCiudadana.vue'
+import BannerV2 from '~/components/BannerV2.vue'
 
 definePageMeta({
   layout: 'default'
