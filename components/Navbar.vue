@@ -208,13 +208,13 @@ const navigationItems = [
     path: '/tramites',
     hasSubmenu: true,
     submenu: [
-      { name: 'Información de Trámites y Servicios', path: '/tramites/informacion' },
-      { name: 'Trámites Ventanilla Universal', path: '/tramites/ventanilla-universal' },
-      { name: 'Registro de Proveedores y Contratistas', path: '/tramites/registro-proveedores' }
+      { name: 'Registro de proveedores', path: '/tramites/registro-proveedores' },
+      { name: 'Ventanilla Universal', path: '/tramites/ventanilla-universal' },
+      { name: 'Información', path: '/tramites/informacion' }
     ]
   },
   { name: 'Conferencias Matutinas', path: '/conferencias-matutinas' },
-  { name: 'Desarrollo Social', path: '/desarrollo' },
+  { name: 'Desarrollo Social', path: '/desarrollo-social' },
   { name: 'Transparencia', path: '/transparencia' }
 ]
 

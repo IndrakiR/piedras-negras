@@ -108,7 +108,7 @@ const sections = ref([
         title: 'Paga Tu Predial',
         description: 'Realiza tu pago de manera fácil y segura',
         image: '/images/iconos_secciones/Predial_guindo.png',
-        link: '#'
+        link: 'http://contupago.gob.mx/PUCC/#/contribuyente/cobropadron/2'
     },
     {
         title: 'Dispensario Medico',
@@ -126,7 +126,7 @@ const sections = ref([
         title: 'Ver Puentes Internacionales',
         description: 'Estado y tiempos de espera en cruces fronterizos',
         image: '/images/iconos_secciones/Puentes_guindo.png',
-        link: '#'
+        link: '/puentes-internacionales'
     }
 ])
 

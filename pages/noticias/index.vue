@@ -1,84 +1,109 @@
-<!-- pages/noticias/index.vue -->
 <template>
-  <section class="py-12 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Encabezado centrado con tipografías más grandes -->
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-semibold text-gray-900">Últimas Noticias</h2>
-        <p class="text-base text-gray-500 mt-2">
-          Mantente al día con los eventos más recientes de la ciudad
-        </p>
-      </div>
+  <div>
+    <BannerSection
+      title="Noticias y Comunicados"
+      subtitle="Mantente informado sobre las últimas novedades y acontecimientos en Piedras Negras"
+      :cards="[
+        {
+          icon: 'fas fa-newspaper',
+          title: 'Noticias Recientes',
+          description: 'Últimas actualizaciones y eventos del municipio'
+        },
+        {
+          icon: 'fas fa-bullhorn',
+          title: 'Comunicados Oficiales',
+          description: 'Anuncios importantes de la administración municipal'
+        },
+        {
+          icon: 'fas fa-calendar-alt',
+          title: 'Agenda Municipal',
+          description: 'Próximos eventos y actividades en la ciudad'
+        }
+      ]"
+    />
 
-      <!-- Contenedor con transition-group para animar la carga de noticias -->
-      <!-- Definimos 1 columna para móvil, 2 para sm, 3 para lg -->
-      <transition-group
-        tag="div"
-        name="fade"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center"
-      >
-        <!-- Iteración de las noticias visibles (bind con :key para animación) -->
-        <article
-          v-for="(news, index) in visibleNews"
-          :key="index"
-          class="max-w-sm w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Encabezado centrado con tipografías más grandes -->
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-semibold text-gray-900">Últimas Noticias</h2>
+          <p class="text-base text-gray-500 mt-2">
+            Mantente al día con los eventos más recientes de la ciudad
+          </p>
+        </div>
+
+        <!-- Contenedor con transition-group para animar la carga de noticias -->
+        <!-- Definimos 1 columna para móvil, 2 para sm, 3 para lg -->
+        <transition-group
+          tag="div"
+          name="fade"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center"
         >
-          <!-- Imagen más alta (h-60). Se ajusta al ancho de la tarjeta. -->
-          <img
-            :src="news.img"
-            :alt="news.title"
-            class="w-full h-60 object-cover rounded-t-lg"
-          />
+          <!-- Iteración de las noticias visibles (bind con :key para animación) -->
+          <article
+            v-for="(news, index) in visibleNews"
+            :key="index"
+            class="max-w-sm w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <!-- Imagen más alta (h-60). Se ajusta al ancho de la tarjeta. -->
+            <img
+              :src="news.img"
+              :alt="news.title"
+              class="w-full h-60 object-cover rounded-t-lg"
+            />
 
-          <!-- Transition individual para expandir/contraer el texto -->
-          <transition name="expand">
-            <!-- Contenedor de texto: se muestra/oculta sin cambiar la tarjeta en sí -->
-            <div class="p-4" v-if="true">
-              <time class="text-sm text-gray-500 block">{{ news.date }}</time>
-              <h3 class="mt-2 text-lg font-medium text-gray-900">
-                {{ news.title }}
-              </h3>
+            <!-- Transition individual para expandir/contraer el texto -->
+            <transition name="expand">
+              <!-- Contenedor de texto: se muestra/oculta sin cambiar la tarjeta en sí -->
+              <div class="p-4" v-if="true">
+                <time class="text-sm text-gray-500 block">{{ news.date }}</time>
+                <h3 class="mt-2 text-lg font-medium text-gray-900">
+                  {{ news.title }}
+                </h3>
 
-              <!-- Si la tarjeta está expandida, se muestra la descripción completa; si no, un resumen -->
-              <p 
-                class="mt-2 text-sm text-gray-600" 
-                :class="!isExpanded(index) ? 'line-clamp-2' : ''"
-              >
-                {{ isExpanded(index) ? news.fullDesc : news.shortDesc }}
-              </p>
+                <!-- Si la tarjeta está expandida, se muestra la descripción completa; si no, un resumen -->
+                <p 
+                  class="mt-2 text-sm text-gray-600" 
+                  :class="!isExpanded(index) ? 'line-clamp-2' : ''"
+                >
+                  {{ isExpanded(index) ? news.fullDesc : news.shortDesc }}
+                </p>
 
-              <!-- Botón Leer más / Leer menos -->
-              <button
-                class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
-                @click="toggleExpand(index)"
-              >
-                {{ isExpanded(index) ? 'Leer menos' : 'Leer más' }}
-                <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
-              </button>
-            </div>
-          </transition>
-        </article>
-      </transition-group>
+                <!-- Botón Leer más / Leer menos -->
+                <button
+                  class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
+                  @click="toggleExpand(index)"
+                >
+                  {{ isExpanded(index) ? 'Leer menos' : 'Leer más' }}
+                  <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
+                </button>
+              </div>
+            </transition>
+          </article>
+        </transition-group>
 
-      <!-- Botón "Cargar más" en la parte inferior, centrado -->
-      <div class="mt-8 text-center">
-        <!-- Mostrar el botón solo si hay más noticias por mostrar -->
-        <button
-          v-if="itemsToShow < allNews.length"
-          @click="loadMore"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
-        >
-          Cargar más
-        </button>
+        <!-- Botón "Cargar más" en la parte inferior, centrado -->
+        <div class="mt-8 text-center">
+          <!-- Mostrar el botón solo si hay más noticias por mostrar -->
+          <button
+            v-if="itemsToShow < allNews.length"
+            @click="loadMore"
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
+          >
+            Cargar más
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
+import BannerSection from '~/components/BannerSection.vue'
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+
 const route = useRoute()
 
 // ARRAY con TODAS las noticias (agregamos 'fullDesc' además de 'shortDesc')

@@ -1,6 +1,28 @@
 <template>
-  <div class="w-full bg-gray-50">
-    <div class="container mx-auto px-4 py-16">
+  <div>
+    <BannerSection
+      title="Registro de Proveedores"
+      subtitle="Forma parte de nuestra red de proveedores municipales y participa en licitaciones públicas"
+      :cards="[
+        {
+          icon: 'fas fa-building',
+          title: 'Registro Empresarial',
+          description: 'Proceso simplificado para empresas y personas físicas'
+        },
+        {
+          icon: 'fas fa-file-contract',
+          title: 'Documentación',
+          description: 'Requisitos y documentos necesarios para el registro'
+        },
+        {
+          icon: 'fas fa-handshake',
+          title: 'Oportunidades',
+          description: 'Acceso a licitaciones y contratos gubernamentales'
+        }
+      ]"
+    />
+    
+    <div class="container mx-auto px-4 py-8">
       <div class="max-w-4xl mx-auto">
         <!-- Header with decorative elements -->
         <div class="relative mb-16 text-center">
@@ -126,6 +148,7 @@
 </template>
 
 <script setup>
+import BannerSection from '~/components/BannerSection.vue'
 import { ref } from 'vue'
 definePageMeta({
   title: 'Registro de Proveedores y Contratistas'
