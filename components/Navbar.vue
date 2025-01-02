@@ -7,7 +7,7 @@
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <NuxtLink to="/" class="flex-shrink-0 transition-transform duration-300 hover:scale-105 h-8 overflow-hidden">
-            <img class="h-8 w-auto object-contain" src="/images/logo.png" alt="Piedras Negras Logo" />
+            <img class="h-8 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
           </NuxtLink>
 
           <div class="flex items-center justify-between flex-1 mx-4 2xl:mx-6">
