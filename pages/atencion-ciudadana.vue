@@ -22,11 +22,6 @@
   />
   <section class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-semibold text-[#611232] mb-4">Atención Ciudadana</h1>
-        <p class="text-xl text-gray-600">Estamos para servirte</p>
-      </div>
-
       <!-- Formas de Contacto -->
       <div class="mb-16">
         <h2 class="text-3xl text-center mb-12 text-gray-800">Formas De Contacto</h2>

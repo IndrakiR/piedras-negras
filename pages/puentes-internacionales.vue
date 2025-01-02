@@ -22,12 +22,6 @@
       ]"
     />
     <div class="container mx-auto px-4 py-16">
-      <!-- Header Section -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-[#611232] mb-4">Puentes Internacionales</h1>
-        <p class="text-xl text-gray-600">Información actualizada sobre los cruces fronterizos</p>
-      </div>
-
       <!-- Puentes Information Cards -->
       <div class="grid md:grid-cols-2 gap-8 mb-12">
         <!-- Puente I -->
