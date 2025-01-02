@@ -78,7 +78,11 @@
 
     <!-- Additional cards that show when clicking "Ver más" -->
     <div v-if="showMore" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-      <div v-for="n in 3" :key="n" class="bg-white rounded-lg shadow-md p-6">
+      <div v-for="n in 3" 
+           :key="n" 
+           class="bg-white rounded-lg shadow-md p-6 opacity-0 animate-slide-up"
+           :style="{ animationDelay: `${n * 100}ms`, animationFillMode: 'forwards' }"
+      >
         <div class="flex flex-col items-center text-center space-y-4">
           <div class="w-32 h-32 bg-gray-200 rounded-full overflow-hidden flex items-center justify-center">
             <Icon name="heroicons:user" class="w-20 h-20 text-[#611232]"/>
@@ -121,3 +125,20 @@ import { ref } from 'vue'
 
 const showMore = ref(false)
 </script>
+
+<style scoped>
+.animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
