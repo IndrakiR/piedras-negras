@@ -204,7 +204,7 @@ const navigationItems = [
       { name: 'Registro de Proveedores y Contratistas', path: '/tramites/registro-proveedores' }
     ]
   },
-  { name: 'Conferencias Matutinas', path: '/conferencias' },
+  { name: 'Conferencias Matutinas', path: '/conferencias-matutinas' },
   { name: 'Desarrollo Social', path: '/desarrollo' },
   { name: 'Transparencia', path: '/transparencia' }
 ]
