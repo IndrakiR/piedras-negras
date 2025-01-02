@@ -1,98 +1,14 @@
 <template>
-  <div class="w-full bg-gray-50">
-    <div class="container mx-auto px-4 py-16">
+  <div class="w-full">
+    <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <!-- Header with decorative elements -->
-        <div class="relative mb-16 text-center">
-          <div class="relative">
-            <span class="bg-gray-50 px-6 text-2xl text-[#611232] font-semibold tracking-wider uppercase">
-              Atención Ciudadana
-            </span>
-          </div>
-          <div class="relative mt-4">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-200"></div>
-            </div>
-          </div>
-          <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
-            Estamos aquí para escucharte y ayudarte. Tu opinión es importante para mejorar nuestra ciudad.
-          </p>
-        </div>
-
-        <!-- Service Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <!-- Card 1 -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl group">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-[#611232] p-3 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 group-hover:text-[#611232] transition-colors">Respuesta Rápida</h3>
-            </div>
-            <p class="text-gray-600">
-              Nos comprometemos a dar seguimiento y respuesta oportuna a todas tus solicitudes.
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl group">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-[#611232] p-3 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 group-hover:text-[#611232] transition-colors">Atención Inmediata</h3>
-            </div>
-            <p class="text-gray-600">
-              Trabajamos para resolver tus inquietudes de manera eficiente y efectiva.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl group">
-            <div class="flex items-center space-x-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-[#611232] p-3 group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </div>
-              <h3 class="text-lg font-medium text-gray-900 group-hover:text-[#611232] transition-colors">Seguimiento</h3>
-            </div>
-            <p class="text-gray-600">
-              Mantente informado sobre el estado de tu solicitud en todo momento.
-            </p>
-          </div>
-        </div>
-
-        <!-- Form Section -->
         <div class="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden">
           <!-- Loading Overlay -->
           <div v-if="isLoading" 
                class="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center z-20">
             <div class="flex flex-col items-center">
-              <div class="w-12 h-12 border-4 border-[#611232] border-t-transparent rounded-full animate-spin"></div>
-              <p class="mt-4 text-gray-600 font-medium">Procesando solicitud...</p>
-            </div>
-          </div>
-
-          <!-- Success Message -->
-          <div v-if="showSuccess" 
-               class="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center z-20 animate-fadeIn">
-            <div class="text-center px-6">
-              <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-medium text-gray-900 mb-2">¡Mensaje Enviado!</h3>
-              <p class="text-gray-600 mb-6">Gracias por contactarnos. Te responderemos pronto.</p>
-              <button @click="resetForm" 
-                      class="bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider">
-                Enviar otro mensaje
-              </button>
+              <div class="animate-spin rounded-full h-12 w-12 border-4 border-[#611232] border-t-transparent"></div>
+              <p class="mt-4 text-gray-600">Procesando solicitud...</p>
             </div>
           </div>
 
@@ -260,6 +176,24 @@
               </button>
             </div>
           </form>
+
+          <!-- Success Message -->
+          <div v-if="showSuccess" 
+               class="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center z-20 animate-fadeIn">
+            <div class="text-center px-6">
+              <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 mb-2">¡Mensaje Enviado!</h3>
+              <p class="text-gray-600 mb-6">Gracias por contactarnos. Te responderemos pronto.</p>
+              <button @click="resetForm" 
+                      class="bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider">
+                Enviar otro mensaje
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
