@@ -103,7 +103,21 @@
                 rel="noopener noreferrer"
                 class="hover:text-[#611232] transition-colors"
               >
-                Simas Piedras Negras
+                SIMAS Piedras Negras
+              </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+              <Icon
+                name="material-symbols:payments-outline"
+                class="w-6 h-6 text-[#611232] flex-shrink-0"
+              />
+              <a
+                href="http://contupago.gob.mx/PUCC/#/contribuyente/cobropadron/2"
+                target="_blank"
+                class="hover:text-[#611232] transition-colors"
+              >
+                Paga Tu Predial
               </a>
             </div>
 

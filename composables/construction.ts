@@ -1,3 +1,4 @@
 export const useConstruction = () => {
-  return useState('mostrarEnConstruccion', () => true)
-}
+  const showConstruction = import.meta.env.VITE_SHOW_CONSTRUCTION !== 'false';
+  return useState('mostrarEnConstruccion', () => showConstruction);
+};
