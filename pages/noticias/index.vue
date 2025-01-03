@@ -26,9 +26,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Encabezado centrado con tipografías más grandes -->
-        <div class="text-center mb-8">
-          <h2 class="text-3xl font-semibold text-gray-900">Últimas Noticias</h2>
-          <p class="text-base text-gray-500 mt-2">
+        <div class="text-center mb-6 md:mb-8">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900">Últimas Noticias</h2>
+          <p class="text-sm md:text-base text-gray-500 mt-2">
             Mantente al día con los eventos más recientes de la ciudad
           </p>
         </div>
@@ -38,33 +38,33 @@
         <transition-group
           tag="div"
           name="fade"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 justify-items-center"
         >
           <!-- Iteración de las noticias visibles (bind con :key para animación) -->
           <article
             v-for="(news, index) in visibleNews"
             :key="index"
-            class="max-w-sm w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            class="w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <!-- Imagen más alta (h-60). Se ajusta al ancho de la tarjeta. -->
+            <!-- Imagen más alta (h-48 en móvil, h-60 en desktop). Se ajusta al ancho de la tarjeta. -->
             <img
               :src="news.img"
               :alt="news.title"
-              class="w-full h-60 object-cover rounded-t-lg"
+              class="w-full h-48 md:h-60 object-cover rounded-t-lg"
             />
 
             <!-- Transition individual para expandir/contraer el texto -->
             <transition name="expand">
               <!-- Contenedor de texto: se muestra/oculta sin cambiar la tarjeta en sí -->
-              <div class="p-4" v-if="true">
-                <time class="text-sm text-gray-500 block">{{ news.date }}</time>
-                <h3 class="mt-2 text-lg font-medium text-gray-900">
+              <div class="p-3 md:p-4" v-if="true">
+                <time class="text-xs md:text-sm text-gray-500 block">{{ news.date }}</time>
+                <h3 class="mt-1 md:mt-2 text-base md:text-lg font-medium text-gray-900">
                   {{ news.title }}
                 </h3>
 
                 <!-- Si la tarjeta está expandida, se muestra la descripción completa; si no, un resumen -->
                 <p 
-                  class="mt-2 text-sm text-gray-600" 
+                  class="mt-1 md:mt-2 text-xs md:text-sm text-gray-600" 
                   :class="!isExpanded(index) ? 'line-clamp-2' : ''"
                 >
                   {{ isExpanded(index) ? news.fullDesc : news.shortDesc }}
@@ -72,11 +72,11 @@
 
                 <!-- Botón Leer más / Leer menos -->
                 <button
-                  class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
+                  class="mt-2 md:mt-3 inline-flex items-center text-xs md:text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
                   @click="toggleExpand(index)"
                 >
                   {{ isExpanded(index) ? 'Leer menos' : 'Leer más' }}
-                  <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
+                  <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-3 h-3 md:w-4 md:h-4" />
                 </button>
               </div>
             </transition>
@@ -84,12 +84,12 @@
         </transition-group>
 
         <!-- Botón "Cargar más" en la parte inferior, centrado -->
-        <div class="mt-8 text-center">
+        <div class="mt-6 md:mt-8 text-center">
           <!-- Mostrar el botón solo si hay más noticias por mostrar -->
           <button
             v-if="itemsToShow < allNews.length"
             @click="loadMore"
-            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
+            class="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 border border-transparent text-xs md:text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
           >
             Cargar más
           </button>

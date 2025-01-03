@@ -12,16 +12,16 @@
             class="h-40 w-auto mb-4"  <!-- LOGO MÁS GRANDE -->
           <!-- Íconos redes sociales -->
           <div class="flex space-x-6">
-            <a href="#" class="hover:opacity-75 transition-opacity">
+            <a href="https://www.facebook.com/piedrasnegras/" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
               <Icon name="fa-brands:facebook-f" size="20" class="text-[#8A2623]" />
             </a>
-            <a href="#" class="hover:opacity-75 transition-opacity">
+            <a href="https://x.com/MpioPNegras" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
               <Icon name="fa-brands:twitter" size="20" class="text-[#8A2623]" />
             </a>
-            <a href="#" class="hover:opacity-75 transition-opacity">
+            <a href="https://www.instagram.com/mpiopnegras/" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
               <Icon name="fa-brands:instagram" size="20" class="text-[#8A2623]" />
             </a>
-            <a href="#" class="hover:opacity-75 transition-opacity">
+            <a href="https://www.youtube.com/@jacoborodriguezgzz" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
               <Icon name="fa-brands:youtube" size="20" class="text-[#8A2623]" />
             </a>
           </div>
@@ -81,7 +81,7 @@
       <!-- Separador y Copyright -->
       <div class="border-t border-gray-200 mt-8 pt-4 text-center">
         <p class="text-gray-500 text-sm">
-          Copyright © 2024 R. Ayuntamiento de Piedras Negras – Aviso de Privacidad
+          Copyright 2024 R. Ayuntamiento de Piedras Negras – Aviso de Privacidad
         </p>
       </div>
     </div>
