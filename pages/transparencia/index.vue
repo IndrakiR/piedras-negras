@@ -56,7 +56,7 @@
           <p class="text-gray-600 mb-4">
             Información sobre la gestión financiera del municipio.
           </p>
-          <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/gestion-financiera" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver información →
           </NuxtLink>
         </div>
@@ -70,7 +70,7 @@
           <p class="text-gray-600 mb-4">
             Consulta las publicaciones oficiales del municipio.
           </p>
-          <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/gaceta-municipal" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver gaceta →
           </NuxtLink>
         </div>
@@ -84,7 +84,7 @@
           <p class="text-gray-600 mb-4">
             Plan anual de compras y adquisiciones municipales.
           </p>
-          <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/adquisiciones" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver programa →
           </NuxtLink>
         </div>
@@ -98,7 +98,7 @@
           <p class="text-gray-600 mb-4">
             Información sobre la distribución de recursos federales y municipales.
           </p>
-          <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/participaciones" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver distribución →
           </NuxtLink>
         </div>
@@ -106,13 +106,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import BannerSection from '~/components/BannerSection.vue'
-import { ref } from 'vue'
-
-definePageMeta({
-  title: 'Transparencia',
-  description: 'Portal de transparencia del municipio de Piedras Negras'
-})
-</script>
