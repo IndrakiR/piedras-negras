@@ -102,7 +102,7 @@ const sections = ref([
         title: 'DIF Municipal',
         description: 'Servicios y programas de asistencia social',
         image: '/images/iconos_secciones/Dif_guindo.png',
-        link: '#'
+        link: '/dif-municipal'
     },
     {
         title: 'Paga Tu Predial',
@@ -114,13 +114,13 @@ const sections = ref([
         title: 'Dispensario Medico',
         description: 'Atención médica accesible',
         image: '/images/iconos_secciones/Dispensario_medico_guindo.png',
-        link: '#'
+        link: '/dispensario-medico'
     },
     {
         title: 'Obras y Servicios Públicos',
         description: 'Información sobre obras y servicios en tu ciudad',
         image: '/images/iconos_secciones/Obras_publicas_guindo.png',
-        link: '#'
+        link: '/obras-servicios-publicos'
     },
     {
         title: 'Ver Puentes Internacionales',
