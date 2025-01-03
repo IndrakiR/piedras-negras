@@ -33,73 +33,73 @@
 
       <!-- Main Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Information Card -->
+        <!-- Plataforma de Transparencia -->
         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
           <div class="text-[#611232] mb-4">
-            <Icon name="heroicons:document-text" class="w-8 h-8" />
+            <Icon name="mdi:web" class="w-8 h-8" />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Documentos Públicos</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Plataforma de Transparencia</h3>
           <p class="text-gray-600 mb-4">
-            Accede a documentos oficiales, reportes y registros públicos del municipio.
+            Accede a la plataforma oficial de transparencia del municipio.
+          </p>
+          <a href="https://www.plataformadetransparencia.org.mx/Inicio" target="_blank" rel="noopener noreferrer" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+            Acceder a la plataforma →
+          </a>
+        </div>
+
+        <!-- Gestion Financiera -->
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+          <div class="text-[#611232] mb-4">
+            <Icon name="mdi:finance" class="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Gestión Financiera</h3>
+          <p class="text-gray-600 mb-4">
+            Información sobre la gestión financiera del municipio.
           </p>
           <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
-            Ver documentos →
+            Ver información →
           </NuxtLink>
         </div>
 
-        <!-- Budget Card -->
+        <!-- Gaceta Municipal -->
         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
           <div class="text-[#611232] mb-4">
-            <Icon name="heroicons:currency-dollar" class="w-8 h-8" />
+            <Icon name="mdi:newspaper-variant" class="w-8 h-8" />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Presupuesto y Finanzas</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Gaceta Municipal</h3>
           <p class="text-gray-600 mb-4">
-            Información sobre el presupuesto municipal y su ejercicio.
+            Consulta las publicaciones oficiales del municipio.
           </p>
           <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
-            Ver información financiera →
+            Ver gaceta →
           </NuxtLink>
         </div>
 
-        <!-- Contracts Card -->
+        <!-- Programa Anual de Adquisiciones -->
         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
           <div class="text-[#611232] mb-4">
-            <Icon name="heroicons:clipboard-document-list" class="w-8 h-8" />
+            <Icon name="mdi:cart" class="w-8 h-8" />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Contratos y Licitaciones</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Programa Anual de Adquisiciones</h3>
           <p class="text-gray-600 mb-4">
-            Consulta información sobre contratos y procesos de licitación.
+            Plan anual de compras y adquisiciones municipales.
           </p>
           <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
-            Ver contratos →
+            Ver programa →
           </NuxtLink>
         </div>
 
-        <!-- Programs Card -->
+        <!-- Distribucion de Participaciones -->
         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
           <div class="text-[#611232] mb-4">
-            <Icon name="heroicons:rocket-launch" class="w-8 h-8" />
+            <Icon name="mdi:chart-pie" class="w-8 h-8" />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Programas y Servicios</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Distribución de Participaciones Federales o Municipales</h3>
           <p class="text-gray-600 mb-4">
-            Información sobre programas y servicios municipales.
+            Información sobre la distribución de recursos federales y municipales.
           </p>
           <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
-            Ver programas →
-          </NuxtLink>
-        </div>
-
-        <!-- Reports Card -->
-        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-          <div class="text-[#611232] mb-4">
-            <Icon name="heroicons:chart-bar" class="w-8 h-8" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Informes y Estadísticas</h3>
-          <p class="text-gray-600 mb-4">
-            Reportes, estadísticas y datos sobre la gestión municipal.
-          </p>
-          <NuxtLink to="#" class="text-[#611232] hover:text-[#4D0E28] font-medium">
-            Ver informes →
+            Ver distribución →
           </NuxtLink>
         </div>
       </div>
