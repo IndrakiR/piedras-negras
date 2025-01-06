@@ -23,7 +23,6 @@
     />
     
     <div class="container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold text-[#611232] mb-6">Organigrama General</h1>
       <div class="bg-white rounded-lg shadow-md p-6">
         <div class="max-w-4xl mx-auto">
           <!-- Aquí irá el organigrama -->

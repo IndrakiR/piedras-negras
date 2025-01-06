@@ -25,11 +25,6 @@
     <div class="container mx-auto px-4 py-8">
       <section class="py-12 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-12">
-            <h1 class="text-4xl font-semibold text-[#611232] mb-4">Desarrollo Social</h1>
-            <p class="text-xl text-gray-600">Trabajando por el bienestar de nuestra comunidad</p>
-          </div>
-
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Programas Sociales -->
             <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
