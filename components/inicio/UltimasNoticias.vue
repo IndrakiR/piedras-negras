@@ -159,29 +159,48 @@ interface PayloadNewsResponse {
 
 // Ajusta la URL a tu Payload
 const { data: fetched, pending, error } = await useFetch<PayloadNewsResponse>(
-  'http://localhost:4000/api/news',
+  '/api/news',
   {
-    query: {
-      // Trae las 9 más recientes, por ejemplo (ajusta a tu gusto)
-      sort: '-publishedDate',
-      limit: 9,
-    },
+    method: 'GET',
   }
 )
 
-// ========== 2) MAPEAMOS LOS CAMPOS A NUESTRO FORMATO ==========
-// ejemplo: title => noticia.title, summary => noticia.description, slug => link
-const noticiasRaw = computed(() => {
+// Mapear los datos para el formato que necesitamos
+const mappedNews = computed(() => {
   if (!fetched.value?.docs) return []
+  
   return fetched.value.docs.map(item => {
+    const dateFormatted = new Date(item.createdAt).toLocaleDateString('es-MX', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+
     return {
-      title: item.title,
-      description: item.summary,
-      link: item.slug ? `/noticias/${item.slug}` : '#',
-      icon: 'ri:newspaper-line',
+      title: item.title || 'Sin título',
+      description: item.summary || (item.content ? getPlainText(item.content).slice(0, 150) + '...' : ''),
+      date: dateFormatted,
+      link: `/noticias/${item.id}`,
+      icon: 'heroicons:newspaper',
     }
   })
 })
+
+// Función auxiliar para extraer texto plano del contenido
+function getPlainText(content: any): string {
+  if (!content) return ''
+  if (typeof content === 'string') return content
+  if (Array.isArray(content)) {
+    return content
+      .map(item => {
+        if (typeof item === 'string') return item
+        if (item.children) return getPlainText(item.children)
+        return ''
+      })
+      .join(' ')
+  }
+  return ''
+}
 
 // ========== 3) LÓGICA ORIGINAL DE PAGINACIÓN ==========
 // cuántas noticias por página
@@ -190,13 +209,13 @@ const newsPerPage = 3
 const currentPage = ref(0)
 
 // Total de páginas según la cantidad de noticias
-const totalPages = computed(() => Math.ceil(noticiasRaw.value.length / newsPerPage))
+const totalPages = computed(() => Math.ceil(mappedNews.value.length / newsPerPage))
 
 // Noticias "paginadas" según la página actual
 const paginatedNews = computed(() => {
   const start = currentPage.value * newsPerPage
   const end = start + newsPerPage
-  return noticiasRaw.value.slice(start, end)
+  return mappedNews.value.slice(start, end)
 })
 
 // Opcionales funciones nextPage / prevPage (si quisieras botones extra)
