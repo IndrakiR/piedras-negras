@@ -10,7 +10,7 @@ export default defineEventHandler(async (event: H3Event) => {
       // query: { 'where[status][equals]': 'published', limit: 50 },
     })
 
-    // Regresa la respuesta tal cual (o mapea lo que necesites)
+    // Regresa la respuesta tal cual (o mapea lo que necesites) 
     return response
   } catch (error) {
     // Manejo de errores
