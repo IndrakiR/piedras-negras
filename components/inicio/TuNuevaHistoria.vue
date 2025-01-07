@@ -100,7 +100,8 @@
                 />
               </div>
               <!-- Botón de la tarjeta derecha -->
-              <button
+              <NuxtLink
+                to="/bienestar"
                 class="px-8 py-3 bg-gradient-to-r from-[#611232] to-[#8B1C4C]
                        text-white text-base font-medium rounded-lg
                        shadow-lg hover:shadow-xl hover:shadow-[#611232]/20 
@@ -113,7 +114,7 @@
                          translate-x-[-100%] group-hover:translate-x-[100%]
                          transition-transform duration-1000"
                 ></div>
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>
