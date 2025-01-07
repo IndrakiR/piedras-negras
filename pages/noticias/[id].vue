@@ -7,7 +7,7 @@
           Error al cargar la noticia: {{ error.message }}
         </div>
 
-        <!-- Indicador de carga (opcional) -->
+        <!-- Indicador de carga (opcional) --> 
         <div v-else-if="pending" class="text-center mb-6">
           Cargando noticia...
         </div>

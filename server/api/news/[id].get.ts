@@ -15,7 +15,7 @@ export default defineEventHandler(async (event: H3Event) => {
       method: 'GET',
     })
 
-    // Regresa la respuesta tal cual para mantener consistencia con el endpoint principal
+    // Regresa la respuesta tal cual para mantener consistencia con el endpoint principal 
     return response
 
   } catch (error) {
