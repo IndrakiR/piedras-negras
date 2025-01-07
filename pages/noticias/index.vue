@@ -62,34 +62,26 @@
               class="w-full h-60 object-cover rounded-t-lg"
             />
 
-            <transition name="expand">
-              <div class="p-4" v-if="true">
-                <time class="text-sm text-gray-500 block">{{ news.date }}</time>
-                <h3 class="mt-2 text-lg font-medium text-gray-900">
-                  {{ news.title }}
-                </h3>
+            <div class="p-4">
+              <time class="text-sm text-gray-500 block">{{ news.date }}</time>
+              <h3 class="mt-2 text-lg font-medium text-gray-900">
+                {{ news.title }}
+              </h3>
 
-                <div
-                  class="mt-2 text-sm text-gray-600"
-                  :class="!isExpanded(index) ? 'line-clamp-2' : ''"
-                >
-                  <template v-if="isExpanded(index)">
-                    <RichText :content="news.fullDesc" />
-                  </template>
-                  <template v-else>
-                    {{ news.shortDesc }}
-                  </template>
-                </div>
-
-                <button
-                  class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
-                  @click="toggleExpand(index)"
-                >
-                  {{ isExpanded(index) ? 'Leer menos' : 'Leer más' }}
-                  <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
-                </button>
+              <div
+                class="mt-2 text-sm text-gray-600 line-clamp-2"
+              >
+                {{ news.shortDesc }}
               </div>
-            </transition>
+
+              <NuxtLink
+                :to="`/noticias/${news.id}`"
+                class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
+              >
+                Leer más
+                <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
+              </NuxtLink>
+            </div>
           </article>
         </transition-group>
 
@@ -166,6 +158,7 @@ const mappedNews = computed(() => {
     }
 
     return {
+      id: item.id,
       date: dateFormatted,
       title: item.title || 'Sin título',
       shortDesc: item.summary || getPlainText(item.content).slice(0, 150) + '...',
@@ -184,15 +177,6 @@ const visibleNews = computed(() => mappedNews.value.slice(0, itemsToShow.value))
 function loadMore() {
   itemsToShow.value += 3
 }
-
-// Expandir/contraer
-const expandedIndex = ref<number | null>(null)
-function isExpanded(index: number) {
-  return expandedIndex.value === index
-}
-function toggleExpand(index: number) {
-  expandedIndex.value = expandedIndex.value === index ? null : index
-}
 </script>
 
 <style scoped>
@@ -204,16 +188,6 @@ function toggleExpand(index: number) {
 .fade-leave-to {
   opacity: 0;
   transform: scale(0.95);
-}
-
-.expand-enter-active,
-.expand-leave-active {
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-.expand-enter-from,
-.expand-leave-to {
-  max-height: 0;
-  opacity: 0;
 }
 
 .line-clamp-2 {
