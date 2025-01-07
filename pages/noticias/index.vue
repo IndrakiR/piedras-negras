@@ -182,18 +182,33 @@ function loadMore() {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s ease;
+  transition: opacity 0.5s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: scale(0.95);
+}
+
+/* Line clamp compatibility */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .line-clamp-2 {
-  display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-clamp: 2;
+}
+
+.line-clamp-3 {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.line-clamp-4 {
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 </style>

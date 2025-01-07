@@ -58,11 +58,22 @@
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 
+interface NewsImage {
+  url: string
+}
+
+interface NewsData {
+  title: string
+  content: string
+  createdAt: string
+  image?: NewsImage
+}
+
 const route = useRoute()
 const id = route.params.id
 
 // Fetch la noticia específica
-const { data: newsData, pending, error } = await useFetch(`/api/news/${id}`, {
+const { data: newsData, pending, error } = await useFetch<NewsData>(`/api/news/${id}`, {
   method: 'GET',
 })
 
