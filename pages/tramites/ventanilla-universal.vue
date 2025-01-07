@@ -97,22 +97,7 @@ const sections = ref([
     id: 'desarrollo-urbano',
     title: 'Desarrollo Urbano',
     icon: 'heroicons:building-library',
-    tramites: [
-      {
-        id: 1,
-        nombre: 'Permiso de Construcción',
-        descripcion: 'Permiso para construir un edificio',
-        tiempo: '5 días hábiles',
-        link: '/tramites/desarrollo-urbano/permiso-de-construccion'
-      },
-      {
-        id: 2,
-        nombre: 'Licencia de Uso de Suelo',
-        descripcion: 'Licencia para utilizar un terreno',
-        tiempo: '10 días hábiles',
-        link: '/tramites/desarrollo-urbano/licencia-de-uso-de-suelo'
-      }
-    ]
+    tramites: []
   },
   {
     id: 'comercio',
@@ -121,17 +106,17 @@ const sections = ref([
     tramites: [
       {
         id: 1,
-        nombre: 'Registro de Comerciante',
-        descripcion: 'Registro para comerciantes',
-        tiempo: '3 días hábiles',
-        link: '/tramites/comercio/registro-de-comerciante'
+        nombre: 'Permiso para Comercio Ambulante',
+        descripcion: 'Solicitud de permiso para ejercer comercio ambulante en la ciudad',
+        tiempo: '5 días hábiles',
+        link: '/files/02 PERMISO PARA COMERCIO AMBULANTE.pdf'
       },
       {
         id: 2,
-        nombre: 'Licencia de Funcionamiento',
-        descripcion: 'Licencia para funcionar un negocio',
+        nombre: 'Permiso para Comercio Fijo o Semi-Fijo',
+        descripcion: 'Solicitud de permiso para establecer comercio fijo o semi-fijo',
         tiempo: '5 días hábiles',
-        link: '/tramites/comercio/licencia-de-funcionamiento'
+        link: '/files/03 PERMISO PARA COMERCIO FIJO O SEMI FIJO.pdf'
       }
     ]
   },
@@ -142,17 +127,10 @@ const sections = ref([
     tramites: [
       {
         id: 1,
-        nombre: 'Permiso de Uso de Espacios Públicos',
-        descripcion: 'Permiso para utilizar espacios públicos',
+        nombre: 'Permiso para Evento en Parques',
+        descripcion: 'Solicitud de permiso para realizar eventos en parques públicos',
         tiempo: '5 días hábiles',
-        link: '/tramites/proteccion-civil/permiso-de-uso-de-espacios-publicos'
-      },
-      {
-        id: 2,
-        nombre: 'Registro de Voluntarios',
-        descripcion: 'Registro para voluntarios',
-        tiempo: '3 días hábiles',
-        link: '/tramites/proteccion-civil/registro-de-voluntarios'
+        link: '/files/04 PERMISO PARA EVENTO EN PARQUES.pdf'
       }
     ]
   },
@@ -163,17 +141,31 @@ const sections = ref([
     tramites: [
       {
         id: 1,
-        nombre: 'Permiso de Tala de Árboles',
-        descripcion: 'Permiso para talar árboles',
-        tiempo: '10 días hábiles',
-        link: '/tramites/medio-ambiente/permiso-de-tala-de-arboles'
+        nombre: 'Donación de Árboles',
+        descripcion: 'Solicitud para donación de árboles',
+        tiempo: '3 días hábiles',
+        link: '/files/01 DONACION DE ARBOLES.pdf'
       },
       {
         id: 2,
-        nombre: 'Registro de Actividades Ambientales',
-        descripcion: 'Registro de actividades ambientales',
+        nombre: 'Permiso para Tala de Árboles',
+        descripcion: 'Solicitud de permiso para tala de árboles',
         tiempo: '5 días hábiles',
-        link: '/tramites/medio-ambiente/registro-de-actividades-ambientales'
+        link: '/files/05 PERMISO PARA TALA DE ARBOLES.pdf'
+      },
+      {
+        id: 3,
+        nombre: 'Permiso para Transportación de RSU',
+        descripcion: 'Permiso para transportar Residuos Sólidos Urbanos al relleno sanitario',
+        tiempo: '5 días hábiles',
+        link: '/files/06 PERMISO PARA TRANSPORTACION DE RSU AL RELLENO.pdf'
+      },
+      {
+        id: 4,
+        nombre: 'Verificación Vehicular',
+        descripcion: 'Trámite para verificación de emisiones vehiculares',
+        tiempo: '1 día hábil',
+        link: '/files/07 VERIFICACION VEHICULAR.pdf'
       }
     ]
   }
