@@ -48,18 +48,18 @@
           v-else
           tag="div"
           name="fade"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 justify-items-center"
         >
           <!-- Iteración de las noticias visibles -->
           <article
             v-for="(news, index) in visibleNews"
             :key="index"
-            class="max-w-sm w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            class="w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             <img
               :src="news.img"
               :alt="news.title"
-              class="w-full h-60 object-cover rounded-t-lg"
+              class="w-full h-48 md:h-60 object-cover rounded-t-lg"
             />
 
             <div class="p-4">
@@ -89,7 +89,7 @@
           <button
             v-if="itemsToShow < mappedNews.length"
             @click="loadMore"
-            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
+            class="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 border border-transparent text-xs md:text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
           >
             Cargar más
           </button>

@@ -220,10 +220,26 @@ const navigationItems = [
 
 // Social media links array
 const socialLinks = [
-  { name: 'Facebook', icon: 'mingcute:facebook-fill', url: '#' },
-  { name: 'Twitter', icon: 'mingcute:twitter-fill', url: '#' },
-  { name: 'Instagram', icon: 'mingcute:instagram-fill', url: '#' },
-  { name: 'YouTube', icon: 'mingcute:youtube-fill', url: '#' }
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/piedrasnegras/',
+    icon: 'mdi:facebook'
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/mpiopnegras/',
+    icon: 'mdi:instagram'
+  },
+  {
+    name: 'Twitter',
+    url: 'https://x.com/MpioPNegras',
+    icon: 'mdi:twitter'
+  },
+  {
+    name: 'YouTube',
+    url: 'https://www.youtube.com/@jacoborodriguezgzz',
+    icon: 'mdi:youtube'
+  }
 ]
 
 // Toggle menu

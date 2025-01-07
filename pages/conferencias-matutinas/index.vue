@@ -17,16 +17,13 @@
         {
           icon: 'fas fa-calendar',
           title: 'Horarios',
-          description: 'Lunes a Viernes de 8:00 a 10:00 AM'
+          description: 'Lunes a Viernes • 8 am • Horario local'
         }
       ]"
     />
 
     <section class="py-12 bg-gray-50">
       <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 class="text-4xl font-semibold text-[#611232] text-center mb-2">Conferencias Matutinas</h2>
-        <p class="text-base text-gray-500 text-center mb-8">Mantente informado con las últimas actualizaciones del gobierno municipal</p>
-        
         <div class="bg-white rounded-xl shadow-md p-8 mb-8">
           <div class="relative pb-[56.25%] h-0">
             <iframe
@@ -42,7 +39,11 @@
         <div class="text-center mb-12">
           <p class="text-xl text-gray-600 font-medium flex items-center justify-center">
             <Icon name="mingcute:time-line" class="w-6 h-6 mr-2 text-[#611232]" />
-            Lunes a Viernes de 8 a 10am
+            <span class="text-gray-700">Lunes a Viernes</span>
+            <span class="mx-3 text-[#611232]">•</span>
+            <span class="text-[#611232] font-semibold">8 am</span>
+            <span class="mx-3 text-[#611232]">•</span>
+            <span class="text-gray-500">Horario local</span>
           </p>
         </div>
       </div>

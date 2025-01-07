@@ -102,7 +102,7 @@ const sections = ref([
         title: 'DIF Municipal',
         description: 'Servicios y programas de asistencia social',
         image: '/images/iconos_secciones/Dif_guindo.png',
-        link: '/sections/dif-municipal'
+        link: '/dif-municipal'
     },
     {
         title: 'Paga Tu Predial',
