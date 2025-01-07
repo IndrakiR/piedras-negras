@@ -63,13 +63,14 @@
                             <Icon name="heroicons:clock" class="w-4 h-4 mr-1.5" />
                             {{ tramite.tiempo }}
                           </span>
-                          <NuxtLink 
-                            :to="tramite.link" 
+                          <a 
+                            href="#"
+                            @click.prevent="openPDF(tramite.link)"
                             class="text-[#611232] hover:text-[#4D0E28] text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#611232]/5 transition-colors"
                           >
                             Ver detalles
                             <Icon name="heroicons:arrow-right" class="w-4 h-4" />
-                          </NuxtLink>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -91,6 +92,10 @@ import { ref, computed } from 'vue'
 definePageMeta({
   title: 'Trámites Ventanilla Universal'
 })
+
+const openPDF = (path) => {
+  window.open(path, '_blank')
+}
 
 const sections = ref([
   {
