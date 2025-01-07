@@ -73,12 +73,17 @@
                 </h3>
 
                 <!-- Mostrar fullDesc si está expandida, si no shortDesc -->
-                <p
+                <div
                   class="mt-2 text-sm text-gray-600"
                   :class="!isExpanded(index) ? 'line-clamp-2' : ''"
                 >
-                  {{ isExpanded(index) ? news.fullDesc : news.shortDesc }}
-                </p>
+                  <template v-if="isExpanded(index)">
+                    <RichText :content="news.fullDesc" />
+                  </template>
+                  <template v-else>
+                    {{ news.shortDesc }}
+                  </template>
+                </div>
 
                 <!-- Botón Leer más / Leer menos -->
                 <button
@@ -113,16 +118,21 @@
 import { ref, computed } from 'vue'
 import { useFetch } from '#app'
 import BannerSection from '~/components/BannerSection.vue'
+import RichText from '~/components/RichText.vue'
 
 // 1) Conexión con tu Payload (ajusta la URL a tu entorno)
 const { data: fetchedData, pending, error } = await useFetch<{
   docs: Array<{
-    // Ajusta estos campos a los de tu colección
+    id: string
     title: string
-    content: string
+    content: any // richText de Payload
     summary: string
     publishedDate?: string
     image?: { url?: string }
+    category?: 'local' | 'nacional' | 'internacional' | 'deportes' | 'cultura'
+    status?: 'draft' | 'published'
+    author?: { id: string, name?: string }
+    tags?: Array<{ tag: string }>
   }>
 }>('http://localhost:4000/api/news', {
   method: 'GET',
@@ -143,13 +153,33 @@ const mappedNews = computed(() => {
         })
       : 'Sin fecha'
 
+    // Extraer el texto plano del rich text content
+    const getPlainText = (content: any): string => {
+      if (!content) return ''
+      try {
+        const root = content.root || content
+        let text = ''
+        const traverse = (node: any) => {
+          if (node.text) {
+            text += node.text + ' '
+          }
+          if (node.children) {
+            node.children.forEach(traverse)
+          }
+        }
+        traverse(root)
+        return text.trim()
+      } catch (e) {
+        console.error('Error parsing rich text:', e)
+        return String(content) || ''
+      }
+    }
+
     return {
       date: dateFormatted,
       title: item.title || 'Sin título',
-      shortDesc: item.summary || '',
-      fullDesc: item.content || '',
-
-      // Si 'image.url' viene relativo (/media/...), concatenamos la URL base
+      shortDesc: item.summary || getPlainText(item.content).slice(0, 150) + '...',
+      fullDesc: item.content,
       img: item.image?.url
         ? `http://localhost:4000${item.image.url}`
         : 'https://placehold.co/400x225',
