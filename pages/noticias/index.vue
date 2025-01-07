@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Sección Banner original -->
+    <!-- Sección Banner -->
     <BannerSection
       title="Noticias y Comunicados"
       subtitle="Mantente informado sobre las últimas novedades y acontecimientos en Piedras Negras"
@@ -56,23 +56,19 @@
             :key="index"
             class="w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <!-- Imagen de la noticia -->
             <img
               :src="news.img"
               :alt="news.title"
               class="w-full h-48 md:h-60 object-cover rounded-t-lg"
             />
 
-            <!-- Transición individual para expandir/contraer texto (tu "expand") -->
             <transition name="expand">
-              <!-- Contenido textual -->
               <div class="p-4" v-if="true">
                 <time class="text-sm text-gray-500 block">{{ news.date }}</time>
                 <h3 class="mt-2 text-lg font-medium text-gray-900">
                   {{ news.title }}
                 </h3>
 
-                <!-- Mostrar fullDesc si está expandida, si no shortDesc -->
                 <div
                   class="mt-2 text-sm text-gray-600"
                   :class="!isExpanded(index) ? 'line-clamp-2' : ''"
@@ -85,13 +81,11 @@
                   </template>
                 </div>
 
-                <!-- Botón Leer más / Leer menos -->
                 <button
                   class="mt-2 md:mt-3 inline-flex items-center text-xs md:text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
                   @click="toggleExpand(index)"
                 >
                   {{ isExpanded(index) ? 'Leer menos' : 'Leer más' }}
-                  <!-- Ícono con Nuxt Icon -->
                   <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
                 </button>
               </div>
@@ -99,7 +93,6 @@
           </article>
         </transition-group>
 
-        <!-- Botón "Cargar más" -->
         <div class="mt-8 text-center">
           <button
             v-if="itemsToShow < mappedNews.length"
@@ -120,9 +113,9 @@ import { useFetch } from '#app'
 import BannerSection from '~/components/BannerSection.vue'
 import RichText from '~/components/RichText.vue'
 
-// 1) Conexión con tu Payload (ajusta la URL a tu entorno)
-const { data: fetchedData, pending, error } = await useFetch<{
-  docs: Array<{
+// Definimos aquí la forma de la respuesta
+type PayloadNewsResponse = {
+  docs: {
     id: string
     title: string
     content: any // richText de Payload
@@ -131,20 +124,21 @@ const { data: fetchedData, pending, error } = await useFetch<{
     image?: { url?: string }
     category?: 'local' | 'nacional' | 'internacional' | 'deportes' | 'cultura'
     status?: 'draft' | 'published'
-    author?: { id: string, name?: string }
+    author?: { id: string; name?: string }
     tags?: Array<{ tag: string }>
-  }>
-}>('http://localhost:4000/api/news', {
+  }[]
+}
+
+// Consumimos el endpoint interno /api/news (esto se hace server-side en SSR)
+const { data: fetchedData, pending, error } = await useFetch<PayloadNewsResponse>('/api/news', {
   method: 'GET',
-  // Puedes pasar query params si necesitas filtrar o paginar
-  // query: { 'where[status][equals]': 'published', limit: 50 },
 })
 
-// 2) Mapeamos la respuesta de Payload a tu estructura: (date, title, shortDesc, fullDesc, img...)
+// Mapeamos la respuesta
 const mappedNews = computed(() => {
-  // fallback a array vacío si no viene data
   const docs = fetchedData.value?.docs ?? []
   return docs.map((item) => {
+    // Dar formato a la fecha
     const dateFormatted = item.publishedDate
       ? new Date(item.publishedDate).toLocaleDateString('es-MX', {
           day: 'numeric',
@@ -153,24 +147,20 @@ const mappedNews = computed(() => {
         })
       : 'Sin fecha'
 
-    // Extraer el texto plano del rich text content
+    // Extraer un texto corto si no existe summary
     const getPlainText = (content: any): string => {
       if (!content) return ''
       try {
         const root = content.root || content
         let text = ''
         const traverse = (node: any) => {
-          if (node.text) {
-            text += node.text + ' '
-          }
-          if (node.children) {
-            node.children.forEach(traverse)
-          }
+          if (node.text) text += node.text + ' '
+          if (node.children) node.children.forEach(traverse)
         }
         traverse(root)
         return text.trim()
-      } catch (e) {
-        console.error('Error parsing rich text:', e)
+      } catch (err) {
+        console.error('Error parsing rich text:', err)
         return String(content) || ''
       }
     }
@@ -187,7 +177,7 @@ const mappedNews = computed(() => {
   })
 })
 
-// 3) Control de cuántas noticias mostrar al inicio
+// Estado de cuántas noticias mostrar
 const itemsToShow = ref(3)
 const visibleNews = computed(() => mappedNews.value.slice(0, itemsToShow.value))
 
@@ -195,20 +185,17 @@ function loadMore() {
   itemsToShow.value += 3
 }
 
-// 4) Manejo de expandir/contraer cada tarjeta
+// Expandir/contraer
 const expandedIndex = ref<number | null>(null)
-
 function isExpanded(index: number) {
   return expandedIndex.value === index
 }
-
 function toggleExpand(index: number) {
   expandedIndex.value = expandedIndex.value === index ? null : index
 }
 </script>
 
 <style scoped>
-/* Transiciones para nuestro "fade" (al montar/desmontar tarjetas) */
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s ease;
@@ -219,7 +206,6 @@ function toggleExpand(index: number) {
   transform: scale(0.95);
 }
 
-/* Animación para expandir texto (al mostrar la fullDesc) */
 .expand-enter-active,
 .expand-leave-active {
   transition: max-height 0.3s ease, opacity 0.3s ease;
@@ -230,7 +216,6 @@ function toggleExpand(index: number) {
   opacity: 0;
 }
 
-/* Truncar texto a 2 líneas */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
