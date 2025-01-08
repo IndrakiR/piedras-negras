@@ -11,7 +11,7 @@ export default defineEventHandler(async (event: H3Event) => {
     }
 
     // Llamada a tu API de Payload para obtener una noticia específica
-    const response = await $fetch(`http://localhost:4000/api/news/${id}`, {
+    const response = await $fetch(`http://10.0.1.11:4000/${id}`, {
       method: 'GET',
     })
 
