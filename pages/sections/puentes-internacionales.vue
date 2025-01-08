@@ -21,6 +21,33 @@
         }
       ]"
     />
+    <!-- YouTube Livestream Windows -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- First Livestream -->
+        <div class="aspect-video w-full">
+          <iframe
+            class="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/live_stream?channel=UC5bZk3mVxoiDKW8_L7eWY7Q&autoplay=1&mute=1"
+            title="Puente Internacional I Livestream"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <!-- Second Livestream -->
+        <div class="aspect-video w-full">
+          <iframe
+            class="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/7wrxUlgm314?autoplay=1&mute=1"
+            title="Puente Internacional II Livestream"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
     <div class="container mx-auto px-4 py-16">
       <!-- Puentes Information Cards -->
       <div class="grid md:grid-cols-2 gap-8 mb-12">
