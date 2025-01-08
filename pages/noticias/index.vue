@@ -163,9 +163,7 @@ const mappedNews = computed(() => {
       title: item.title || 'Sin título',
       shortDesc: item.summary || getPlainText(item.content).slice(0, 150) + '...',
       fullDesc: item.content,
-      img: item.image?.url
-        ? `https://cms.piedrasnegras.computoespacial.com${item.image.url}`
-        : 'https://placehold.co/400x225',
+      img: item.image?.url || 'https://placehold.co/400x225',
     }
   })
 })
