@@ -94,7 +94,7 @@ const news = computed(() => {
     title: newsData.value.title,
     content: newsData.value.content,
     img: newsData.value.image?.url 
-      ? `http://10.0.1.11:4000${newsData.value.image.url}`
+      ? `https://cms.piedrasnegras.computoespacial.com${newsData.value.image.url}`
       : 'https://placehold.co/400x225',
     date: formattedDate.value
   }

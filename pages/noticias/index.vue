@@ -164,7 +164,7 @@ const mappedNews = computed(() => {
       shortDesc: item.summary || getPlainText(item.content).slice(0, 150) + '...',
       fullDesc: item.content,
       img: item.image?.url
-        ? `http://10.0.1.11:4000${item.image.url}`
+        ? `https://cms.piedrasnegras.computoespacial.com${item.image.url}`
         : 'https://placehold.co/400x225',
     }
   })
