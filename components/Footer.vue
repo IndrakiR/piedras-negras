@@ -33,11 +33,23 @@
           <div class="space-y-4">
             <div class="flex items-center gap-3">
               <Icon name="material-symbols:location-on" size="24" class="text-[#8A2623]" />
-              <span class="text-gray-700">Av. 16 De Septiembre</span>
+              <a 
+                href="https://maps.google.com/?q=Avenida+16+De+Septiembre+Sn,+26010+Piedras+Negras,+Coahuila+De+Zaragoza" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-700 hover:text-[#8A2623] transition-colors"
+              >
+                Av. 16 De Septiembre
+              </a>
             </div>
             <div class="flex items-center gap-3">
               <Icon name="material-symbols:phone-enabled" size="24" class="text-[#8A2623]" />
-              <span class="text-gray-700">878 782 6666</span>
+              <a 
+                href="tel:8787826666" 
+                class="text-gray-700 hover:text-[#8A2623] transition-colors"
+              >
+                878 782 6666
+              </a>
             </div>
             <div class="flex items-start gap-3">
               <Icon name="material-symbols:calendar-month" size="24" class="text-[#8A2623]" />
@@ -55,24 +67,24 @@
           <h3 class="text-[#8A2623] font-semibold text-xl mb-4">Páginas Relacionadas</h3>
           <ul class="space-y-3">
             <li>
-              <NuxtLink to="#" class="text-gray-700 hover:text-[#8A2623] transition-colors">
+              <a href="https://www.simaspiedrasnegras.gob.mx/" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-[#8A2623] transition-colors">
                 Simas Piedras Negras
-              </NuxtLink>
+              </a>
             </li>
             <li>
-              <NuxtLink to="#" class="text-gray-700 hover:text-[#8A2623] transition-colors">
+              <a href="http://www2.icai.org.mx/ipo/dependencia.php?dep=84" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-[#8A2623] transition-colors">
                 Icai
-              </NuxtLink>
+              </a>
             </li>
             <li>
-              <NuxtLink to="#" class="text-gray-700 hover:text-[#8A2623] transition-colors">
+              <a href="https://www.gob.mx/sre" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-[#8A2623] transition-colors">
                 Sre
-              </NuxtLink>
+              </a>
             </li>
             <li>
-              <NuxtLink to="#" class="text-gray-700 hover:text-[#8A2623] transition-colors">
+              <a href="https://indexcoahuila.org.mx/" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-[#8A2623] transition-colors">
                 Index
-              </NuxtLink>
+              </a>
             </li>
           </ul>
         </div>
