@@ -25,7 +25,7 @@
 
     <section class="py-12 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Encabezado centrado -->
+        <!-- Encabezado -->
         <div class="text-center mb-8">
           <h2 class="text-3xl font-semibold text-gray-900">Últimas Noticias</h2>
           <p class="text-base text-gray-500 mt-2">
@@ -33,50 +33,60 @@
           </p>
         </div>
 
-        <!-- Mensaje de error (opcional) -->
+        <!-- Error -->
         <div v-if="error" class="text-red-600 text-center mb-6">
-          Error al cargar las noticias: {{ error.message }}
+          {{ error.message }}
         </div>
 
-        <!-- Indicador de carga (opcional) -->
+        <!-- Loading -->
         <div v-else-if="pending" class="text-center mb-6">
-          Cargando noticias...
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5e1210] mx-auto"></div>
         </div>
 
-        <!-- Contenedor con transition-group (tu animación "fade") -->
+        <!-- Grid de noticias -->
         <transition-group
           v-else
           tag="div"
           name="fade"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 justify-items-center"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
         >
-          <!-- Iteración de las noticias visibles -->
           <article
-            v-for="(news, index) in visibleNews"
-            :key="index"
-            class="w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            v-for="news in visibleNews"
+            :key="news.id"
+            class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <img
-              :src="news.img"
-              :alt="news.title"
-              class="w-full h-48 md:h-60 object-cover rounded-t-lg"
-            />
+            <!-- Imagen -->
+            <div class="aspect-video relative overflow-hidden rounded-t-lg">
+              <img
+                :src="news.banner"
+                :alt="news.title"
+                class="w-full h-full object-cover"
+              />
+            </div>
 
             <div class="p-4">
-              <time class="text-sm text-gray-500 block">{{ news.date }}</time>
-              <h3 class="mt-2 text-lg font-medium text-gray-900">
+              <!-- Categoría y Fecha -->
+              <div class="flex items-center gap-3 mb-2">
+                <span class="bg-[#5e1210] text-white text-xs px-2 py-1 rounded-full">
+                  {{ getCategoryLabel(news.category) }}
+                </span>
+                <time class="text-sm text-gray-500">{{ news.date }}</time>
+              </div>
+
+              <!-- Título -->
+              <h3 class="font-medium text-gray-900 text-lg mb-2">
                 {{ news.title }}
               </h3>
 
-              <div
-                class="mt-2 text-sm text-gray-600 line-clamp-2"
-              >
-                {{ news.shortDesc }}
-              </div>
+              <!-- Resumen -->
+              <p class="text-sm text-gray-600 line-clamp-2 mb-3">
+                {{ news.summary }}
+              </p>
 
+              <!-- Link -->
               <NuxtLink
                 :to="`/noticias/${news.id}`"
-                class="mt-3 inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815] focus:outline-none"
+                class="inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815]"
               >
                 Leer más
                 <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
@@ -85,11 +95,12 @@
           </article>
         </transition-group>
 
+        <!-- Botón Cargar Más -->
         <div class="mt-8 text-center">
           <button
             v-if="itemsToShow < mappedNews.length"
             @click="loadMore"
-            class="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 border border-transparent text-xs md:text-sm font-medium rounded-md text-white bg-[#5e1210] hover:bg-[#801815] transition-colors duration-300"
+            class="inline-flex items-center px-4 py-2 bg-[#5e1210] text-white rounded hover:bg-[#801815] transition-colors"
           >
             Cargar más
           </button>
@@ -103,77 +114,71 @@
 import { ref, computed } from 'vue'
 import { useFetch } from '#app'
 import BannerSection from '~/components/BannerSection.vue'
-import RichText from '~/components/RichText.vue'
 
-// Definimos aquí la forma de la respuesta
-type PayloadNewsResponse = {
-  docs: {
-    id: string
-    title: string
-    content: any // richText de Payload
-    summary: string
-    publishedDate?: string
-    image?: { url?: string }
-    category?: 'local' | 'nacional' | 'internacional' | 'deportes' | 'cultura'
-    status?: 'draft' | 'published'
-    author?: { id: string; name?: string }
-    tags?: Array<{ tag: string }>
-  }[]
+interface NewsImage {
+  url: string
 }
 
-// Consumimos el endpoint interno /api/news (esto se hace server-side en SSR)
-const { data: fetchedData, pending, error } = await useFetch<PayloadNewsResponse>('/api/news', {
-  method: 'GET',
-})
+interface GalleryItem {
+  image: NewsImage
+  caption?: string
+}
 
-// Mapeamos la respuesta
+interface NewsDoc {
+  id: string
+  title: string
+  content: any
+  summary: string
+  publishedDate: string
+  banner: NewsImage
+  category: string
+  status: 'draft' | 'published'
+  gallery?: GalleryItem[]
+  tags?: Array<{ tag: string }>
+}
+
+interface PayloadNewsResponse {
+  docs: NewsDoc[]
+}
+
+// Fetch de noticias
+const { data: newsData, pending, error } = await useFetch<PayloadNewsResponse>('/api/news')
+
+// Mapeo de categorías
+const getCategoryLabel = (value: string | undefined) => {
+  const categories = {
+    local: 'Local',
+    nacional: 'Nacional',
+    internacional: 'Internacional',
+    deportes: 'Deportes',
+    cultura: 'Cultura'
+  }
+  return value ? categories[value as keyof typeof categories] : ''
+}
+
+// Datos procesados de la noticia
 const mappedNews = computed(() => {
-  const docs = fetchedData.value?.docs ?? []
-  return docs.map((item) => {
-    // Dar formato a la fecha
-    const dateFormatted = item.publishedDate
-      ? new Date(item.publishedDate).toLocaleDateString('es-MX', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-        })
-      : 'Sin fecha'
-
-    // Extraer un texto corto si no existe summary
-    const getPlainText = (content: any): string => {
-      if (!content) return ''
-      try {
-        const root = content.root || content
-        let text = ''
-        const traverse = (node: any) => {
-          if (node.text) text += node.text + ' '
-          if (node.children) node.children.forEach(traverse)
-        }
-        traverse(root)
-        return text.trim()
-      } catch (err) {
-        console.error('Error parsing rich text:', err)
-        return String(content) || ''
-      }
-    }
-
-    return {
-      id: item.id,
-      date: dateFormatted,
-      title: item.title || 'Sin título',
-      shortDesc: item.summary || getPlainText(item.content).slice(0, 150) + '...',
-      fullDesc: item.content,
-      img: item.image?.url || 'https://placehold.co/400x225',
-    }
-  })
+  if (!newsData.value?.docs) return []
+  return newsData.value.docs.map(item => ({
+    id: item.id,
+    title: item.title,
+    summary: item.summary,
+    banner: item.banner?.url,
+    category: item.category,
+    date: item.publishedDate ? new Date(item.publishedDate).toLocaleDateString('es-MX', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }) : ''
+  }))
 })
 
-// Estado de cuántas noticias mostrar
-const itemsToShow = ref(3)
+// Paginación
+const itemsToShow = ref(6)
 const visibleNews = computed(() => mappedNews.value.slice(0, itemsToShow.value))
 
 function loadMore() {
-  itemsToShow.value += 3
+  itemsToShow.value += 6
 }
 </script>
 
@@ -188,25 +193,10 @@ function loadMore() {
   opacity: 0;
 }
 
-/* Line clamp compatibility */
-.line-clamp {
+.line-clamp-2 {
   display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.line-clamp-2 {
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-}
-
-.line-clamp-3 {
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-}
-
-.line-clamp-4 {
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
 }
 </style>

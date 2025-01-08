@@ -67,7 +67,7 @@
                 :aria-label="social.name"
                 class="text-[#9D2449] hover:text-[#2D2D2D] text-xl transition-colors duration-300 hover:scale-110 transform"
               >
-                <Icon :name="social.icon" />
+                <Icon :name="social.icon" :size="20" />
               </a>
             </div>
           </div>
@@ -169,7 +169,7 @@
               :aria-label="social.name"
               class="text-[#9D2449] hover:text-[#2D2D2D] text-xl transition-all duration-300 hover:scale-110 transform"
             >
-              <Icon :name="social.icon" />
+              <Icon :name="social.icon" :size="20" />
             </a>
           </div>
         </div>
@@ -231,9 +231,9 @@ const socialLinks = [
     icon: 'mdi:instagram'
   },
   {
-    name: 'Twitter',
+    name: 'X',
     url: 'https://x.com/MpioPNegras',
-    icon: 'mdi:twitter'
+    icon: 'simple-icons:x'
   },
   {
     name: 'YouTube',

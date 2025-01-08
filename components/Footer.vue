@@ -16,7 +16,7 @@
               <Icon name="fa-brands:facebook-f" size="20" class="text-[#8A2623]" />
             </a>
             <a href="https://x.com/MpioPNegras" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
-              <Icon name="fa-brands:twitter" size="20" class="text-[#8A2623]" />
+              <Icon name="simple-icons:x" size="20" class="text-[#8A2623]" />
             </a>
             <a href="https://www.instagram.com/mpiopnegras/" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
               <Icon name="fa-brands:instagram" size="20" class="text-[#8A2623]" />
