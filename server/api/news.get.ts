@@ -4,9 +4,9 @@ import { defineEventHandler, H3Event } from 'h3'
 export default defineEventHandler(async (event: H3Event) => {
   try {
     // Llamada a tu API de Payload
-    const response = await $fetch('https://cms.piedrasnegras.computoespacial.com/api/news', {
+    const response = await $fetch('http://localhost:4000/api/news', {
       method: 'GET',
-      // Puedes incluir query params si los requieres 
+      // Puedes incluir query params si los requieres
       // query: { 'where[status][equals]': 'published', limit: 50 },
     })
 
