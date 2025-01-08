@@ -22,9 +22,9 @@
       ]"
     />
 
-    <section class="py-12 bg-gray-50">
-      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+    <section class="py-8 sm:py-12 bg-gray-50">
+      <div class="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">
+        <div class="bg-white rounded-xl shadow-md p-4 sm:p-8 mb-6 sm:mb-8">
           <div class="relative pb-[56.25%] h-0">
             <iframe
               src="https://www.youtube.com/embed/btZkPCzmZ_g?autoplay=1&mute=1"
@@ -36,13 +36,13 @@
           </div>
         </div>
 
-        <div class="text-center mb-12">
-          <p class="text-xl text-gray-600 font-medium flex items-center justify-center">
-            <Icon name="mingcute:time-line" class="w-6 h-6 mr-2 text-[#611232]" />
+        <div class="text-center mb-8 sm:mb-12">
+          <p class="text-base sm:text-xl text-gray-600 font-medium flex flex-wrap items-center justify-center gap-2 sm:gap-0">
+            <Icon name="mingcute:time-line" class="w-5 h-5 sm:w-6 sm:h-6 sm:mr-2 text-[#611232]" />
             <span class="text-gray-700">Lunes a Viernes</span>
-            <span class="mx-3 text-[#611232]">•</span>
+            <span class="hidden sm:inline mx-3 text-[#611232]">•</span>
             <span class="text-[#611232] font-semibold">8 am</span>
-            <span class="mx-3 text-[#611232]">•</span>
+            <span class="hidden sm:inline mx-3 text-[#611232]">•</span>
             <span class="text-gray-500">Horario local</span>
           </p>
         </div>
