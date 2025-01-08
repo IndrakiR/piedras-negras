@@ -11,9 +11,16 @@ export default defineEventHandler(async (event: H3Event) => {
     }
 
     // Llamada a tu API de Payload para obtener una noticia específica
-    const response = await $fetch(`https://cms.piedrasnegras.computoespacial.com/api/news/${id}`, {
+    const response = await $fetch(`${process.env.NUXT_PUBLIC_CMS_URL}/api/news/${id}`, {
       method: 'GET',
     })
+
+    // Transform image URLs before sending to client
+    if (response.image?.url) {
+      response.image.url = response.image.url.startsWith('http') 
+        ? response.image.url 
+        : `${process.env.NUXT_PUBLIC_CMS_URL}${response.image.url}`
+    }
 
     // Regresa la respuesta tal cual para mantener consistencia con el endpoint principal 
     return response
