@@ -44,66 +44,44 @@
         </div>
 
         <!-- Grid de noticias -->
-        <transition-group
-          v-else
-          tag="div"
-          name="fade"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
-        >
+        <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           <article
-            v-for="news in visibleNews"
+            v-for="news in newsData?.docs"
             :key="news.id"
-            class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+            class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-[1.02] transition-transform duration-200"
           >
             <!-- Imagen -->
-            <div class="aspect-video relative overflow-hidden rounded-t-lg">
-              <img
-                :src="news.banner"
-                :alt="news.title"
-                class="w-full h-full object-cover"
-              />
-            </div>
-
-            <div class="p-4">
-              <!-- Categoría y Fecha -->
-              <div class="flex items-center gap-3 mb-2">
-                <span class="bg-[#5e1210] text-white text-xs px-2 py-1 rounded-full">
-                  {{ getCategoryLabel(news.category) }}
-                </span>
-                <time class="text-sm text-gray-500">{{ news.date }}</time>
+            <NuxtLink :to="`/noticias/${news.id}`" class="block">
+              <div class="relative h-48">
+                <img
+                  :src="news.banner?.url"
+                  :alt="news.title"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display='none'"
+                />
               </div>
 
-              <!-- Título -->
-              <h3 class="font-medium text-gray-900 text-lg mb-2">
-                {{ news.title }}
-              </h3>
+              <div class="p-4">
+                <!-- Meta -->
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="bg-[#5e1210] text-white text-xs px-2 py-1 rounded-full">
+                    {{ getCategoryLabel(news.category) }}
+                  </span>
+                  <time class="text-sm text-gray-500">{{ formatDate(news.createdAt) }}</time>
+                </div>
 
-              <!-- Resumen -->
-              <p class="text-sm text-gray-600 line-clamp-2 mb-3">
-                {{ news.summary }}
-              </p>
+                <!-- Título -->
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  {{ news.title }}
+                </h3>
 
-              <!-- Link -->
-              <NuxtLink
-                :to="`/noticias/${news.id}`"
-                class="inline-flex items-center text-sm font-medium text-[#5e1210] hover:text-[#801815]"
-              >
-                Leer más
-                <Icon name="heroicons:arrow-right-20-solid" class="ml-1 w-4 h-4" />
-              </NuxtLink>
-            </div>
+                <!-- Resumen -->
+                <p class="text-gray-600 line-clamp-2">
+                  {{ news.summary }}
+                </p>
+              </div>
+            </NuxtLink>
           </article>
-        </transition-group>
-
-        <!-- Botón Cargar Más -->
-        <div class="mt-8 text-center">
-          <button
-            v-if="itemsToShow < mappedNews.length"
-            @click="loadMore"
-            class="inline-flex items-center px-4 py-2 bg-[#5e1210] text-white rounded hover:bg-[#801815] transition-colors"
-          >
-            Cargar más
-          </button>
         </div>
       </div>
     </section>
@@ -111,34 +89,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { useFetch } from '#app'
 import BannerSection from '~/components/BannerSection.vue'
 
 interface NewsImage {
   url: string
-}
-
-interface GalleryItem {
-  image: NewsImage
-  caption?: string
+  alt: string
 }
 
 interface NewsDoc {
   id: string
   title: string
-  content: any
   summary: string
-  publishedDate: string
-  banner: NewsImage
+  content: string
   category: string
-  status: 'draft' | 'published'
-  gallery?: GalleryItem[]
-  tags?: Array<{ tag: string }>
+  createdAt: string
+  banner?: NewsImage
 }
 
 interface PayloadNewsResponse {
   docs: NewsDoc[]
+  totalDocs: number
+  limit: number
+  totalPages: number
+  page: number
+  pagingCounter: number
+  hasPrevPage: boolean
+  hasNextPage: boolean
+  prevPage: number | null
+  nextPage: number | null
 }
 
 // Fetch de noticias
@@ -146,57 +125,28 @@ const { data: newsData, pending, error } = await useFetch<PayloadNewsResponse>('
 
 // Mapeo de categorías
 const getCategoryLabel = (value: string | undefined) => {
-  const categories = {
-    local: 'Local',
-    nacional: 'Nacional',
-    internacional: 'Internacional',
-    deportes: 'Deportes',
-    cultura: 'Cultura'
+  if (!value) return 'Sin categoría'
+  
+  const categories: Record<string, string> = {
+    'government': 'Gobierno',
+    'culture': 'Cultura',
+    'sports': 'Deportes',
+    'education': 'Educación',
+    'health': 'Salud',
+    'tourism': 'Turismo',
+    'security': 'Seguridad',
+    'environment': 'Medio Ambiente'
   }
-  return value ? categories[value as keyof typeof categories] : ''
+
+  return categories[value] || value
 }
 
-// Datos procesados de la noticia
-const mappedNews = computed(() => {
-  if (!newsData.value?.docs) return []
-  return newsData.value.docs.map(item => ({
-    id: item.id,
-    title: item.title,
-    summary: item.summary,
-    banner: item.banner?.url,
-    category: item.category,
-    date: item.publishedDate ? new Date(item.publishedDate).toLocaleDateString('es-MX', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    }) : ''
-  }))
-})
-
-// Paginación
-const itemsToShow = ref(6)
-const visibleNews = computed(() => mappedNews.value.slice(0, itemsToShow.value))
-
-function loadMore() {
-  itemsToShow.value += 6
+// Formato de fecha
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('es-MX', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
 }
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>
