@@ -17,33 +17,37 @@
       </div>
 
       <!-- Grid de noticias (sólo si ya hay data) -->
-      <div v-else class="max-w-[70%] mx-auto">
+      <!-- Contenedor con max-w-[60%], como antes -->
+      <div v-else class="max-w-[60%] mx-auto">
         <div class="grid md:grid-cols-2 gap-4">
-
-          <!-- Noticia principal (índice 0 de la página actual) -->
-          <article 
-            v-if="paginatedNews[0]" 
+          
+          <!-- Noticia principal (izquierda) -->
+          <article
+            v-if="paginatedNews[0]"
             class="bg-[#611232] rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           >
-            <NuxtLink :to="paginatedNews[0].link" class="block group h-full">
-              <div class="p-4 flex flex-col h-full">
-                <!-- Icono alineado a la izquierda -->
-                <div class="mb-4">
-                  <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                    <Icon 
-                      :name="paginatedNews[0].icon"
-                      class="w-8 h-8 text-white"
+            <!-- p-3 para padding interno -->
+            <NuxtLink :to="`/noticias/${paginatedNews[0].id}`" class="block group h-full">
+              <div class="p-3 flex flex-col h-full">
+                <!-- AHORA la altura del banner es h-48 SOLO en la izquierda -->
+                <div class="mb-3">
+                  <div class="w-full h-48 rounded-lg overflow-hidden">
+                    <img
+                      :src="paginatedNews[0].banner?.url"
+                      :alt="paginatedNews[0].title"
+                      class="w-full h-full object-cover"
+                      onerror="this.src='/img/placeholder.jpg'"
                     />
                   </div>
                 </div>
-                
+
                 <!-- Contenido principal -->
                 <div class="flex-grow">
                   <h2 class="text-lg font-semibold text-white mb-2">
                     {{ paginatedNews[0].title }}
                   </h2>
-                  <p class="text-gray-200 mb-4 text-sm">
-                    {{ paginatedNews[0].description }}
+                  <p class="text-gray-200 mb-4 text-sm line-clamp-2">
+                    {{ paginatedNews[0].summary }}
                   </p>
                 </div>
 
@@ -58,45 +62,43 @@
               </div>
             </NuxtLink>
           </article>
-
-          <!-- Noticias secundarias (índices 1 y 2) -->
+          
+          <!-- Noticias secundarias (derecha) -->
+          <!-- Mantiene el h-24 que ya tenías, sin cambios -->
           <div class="flex flex-col gap-4">
-            <article 
-              v-for="(noticia, index) in paginatedNews.slice(1, 3)" 
-              :key="index"
+            <article
+              v-for="news in paginatedNews.slice(1)"
+              :key="news.id"
               class="bg-[#611232] rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <NuxtLink :to="noticia.link" class="block group">
-                <div class="p-4 flex gap-4">
-                  <!-- Icono lateral -->
-                  <div class="flex-shrink-0">
-                    <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-                      <Icon 
-                        :name="noticia.icon"
-                        class="w-5 h-5 text-white"
+              <NuxtLink :to="`/noticias/${news.id}`" class="block group h-full">
+                <div class="p-3 flex flex-col h-full">
+                  <div class="mb-3">
+                    <div class="w-full h-24 rounded-lg overflow-hidden">
+                      <img
+                        :src="news.banner?.url"
+                        :alt="news.title"
+                        class="w-full h-full object-cover"
+                        onerror="this.src='/img/placeholder.jpg'"
                       />
                     </div>
                   </div>
-                  
-                  <!-- Contenido -->
-                  <div class="flex-grow flex flex-col">
-                    <div class="flex-grow">
-                      <h2 class="text-base font-semibold text-white mb-2">
-                        {{ noticia.title }}
-                      </h2>
-                      <p class="text-gray-200 mb-2 text-sm line-clamp-2">
-                        {{ noticia.description }}
-                      </p>
-                    </div>
 
-                    <!-- Leer más -->
-                    <div class="flex items-center text-white text-sm">
-                      <span class="mr-2">Leer más</span>
-                      <Icon 
-                        name="ri:arrow-right-line" 
-                        class="w-4 h-4 transform transition-transform group-hover:translate-x-1"
-                      />
-                    </div>
+                  <div class="flex-grow">
+                    <h2 class="text-base font-semibold text-white mb-2">
+                      {{ news.title }}
+                    </h2>
+                    <p class="text-gray-200 mb-2 text-sm line-clamp-2">
+                      {{ news.summary }}
+                    </p>
+                  </div>
+
+                  <div class="flex items-center text-white text-sm mt-auto">
+                    <span class="mr-2">Leer más</span>
+                    <Icon 
+                      name="ri:arrow-right-line" 
+                      class="w-4 h-4 transform transition-transform group-hover:translate-x-1"
+                    />
                   </div>
                 </div>
               </NuxtLink>
@@ -112,7 +114,7 @@
           :key="i"
           @click="currentPage = i - 1"
           class="w-2 h-2 rounded-full transition-all duration-300"
-          :class="[
+          :class="[ 
             currentPage === i - 1 
               ? 'bg-[#611232] w-4' 
               : 'bg-[#611232]/40'
@@ -125,12 +127,12 @@
       <div class="text-center mt-8">
         <NuxtLink 
           to="/noticias" 
-          class="inline-flex items-center px-6 py-3 bg-[#611232] text-white font-medium rounded-lg hover:bg-[#4d0f28] transition-colors duration-300"
+          class="inline-flex items-center px-6 py-2 bg-[#611232] text-white font-medium rounded-lg hover:bg-[#4d0f28] transition-colors duration-300"
         >
           Ver Más Noticias
           <Icon 
             name="ri:arrow-right-line" 
-            class="ml-2 w-5 h-5"
+            class="ml-2 w-4 h-4"
           />
         </NuxtLink>
       </div>
@@ -141,91 +143,54 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useFetch } from '#app'
-import { Icon } from '@iconify/vue'
 
-// ========== 1) LLAMAMOS A TU ENDPOINT DE PAYLOAD ==========
-interface PayloadNewsItem {
+interface NewsImage {
+  url: string
+  [key: string]: any
+}
+
+interface NewsDoc {
+  id: string
   title: string
   summary: string
-  slug?: string
-  // ... cualquier otro campo que necesites
+  content: string
+  category: string
+  createdAt: string
+  banner?: NewsImage
 }
 
-// Estructura de la respuesta (Docs + paginación)
-interface PayloadNewsResponse {
-  docs: PayloadNewsItem[]
-  // ...fields for pagination if needed
+interface NewsResponse {
+  docs: NewsDoc[]
+  totalDocs: number
+  limit: number
+  totalPages: number
+  page: number
+  pagingCounter: number
+  hasPrevPage: boolean
+  hasNextPage: boolean
+  prevPage: number | null
+  nextPage: number | null
 }
 
-// Ajusta la URL a tu Payload
-const { data: fetched, pending, error } = await useFetch<PayloadNewsResponse>(
-  '/api/news',
-  {
-    method: 'GET',
-  }
-)
+// Fetch de noticias
+const { data: newsData, pending, error } = await useFetch<NewsResponse>('/api/news')
 
-// Mapear los datos para el formato que necesitamos
+// Mapeamos la data
 const mappedNews = computed(() => {
-  if (!fetched.value?.docs) return []
-  
-  return fetched.value.docs.map(item => {
-    const dateFormatted = new Date(item.createdAt).toLocaleDateString('es-MX', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-
-    return {
-      title: item.title || 'Sin título',
-      description: item.summary || (item.content ? getPlainText(item.content).slice(0, 150) + '...' : ''),
-      date: dateFormatted,
-      link: `/noticias/${item.id}`,
-      icon: 'heroicons:newspaper',
-    }
-  })
+  return newsData.value?.docs || []
 })
 
-// Función auxiliar para extraer texto plano del contenido
-function getPlainText(content: any): string {
-  if (!content) return ''
-  if (typeof content === 'string') return content
-  if (Array.isArray(content)) {
-    return content
-      .map(item => {
-        if (typeof item === 'string') return item
-        if (item.children) return getPlainText(item.children)
-        return ''
-      })
-      .join(' ')
-  }
-  return ''
-}
-
-// ========== 3) LÓGICA ORIGINAL DE PAGINACIÓN ==========
-// cuántas noticias por página
+// Paginación
 const newsPerPage = 3
-
 const currentPage = ref(0)
 
-// Total de páginas según la cantidad de noticias
 const totalPages = computed(() => Math.ceil(mappedNews.value.length / newsPerPage))
 
-// Noticias "paginadas" según la página actual
 const paginatedNews = computed(() => {
   const start = currentPage.value * newsPerPage
   const end = start + newsPerPage
   return mappedNews.value.slice(start, end)
 })
-
-// Opcionales funciones nextPage / prevPage (si quisieras botones extra)
-const nextPage = () => {
-  currentPage.value = currentPage.value < totalPages.value - 1 ? currentPage.value + 1 : 0
-}
-
-const prevPage = () => {
-  currentPage.value = currentPage.value > 0 ? currentPage.value - 1 : totalPages.value - 1
-}
 </script>
 
 <style scoped>
