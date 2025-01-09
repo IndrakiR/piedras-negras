@@ -107,22 +107,6 @@
         </div>
       </div>
 
-      <!-- Indicadores de navegación (si hay más de 1 página) -->
-      <div class="flex justify-center items-center mt-6 space-x-2">
-        <button
-          v-for="i in totalPages"
-          :key="i"
-          @click="currentPage = i - 1"
-          class="w-2 h-2 rounded-full transition-all duration-300"
-          :class="[ 
-            currentPage === i - 1 
-              ? 'bg-[#611232] w-4' 
-              : 'bg-[#611232]/40'
-          ]"
-          :aria-label="`Ir a la página ${i}`"
-        ></button>
-      </div>
-
       <!-- Botón Ver Más Noticias -->
       <div class="text-center mt-8">
         <NuxtLink 

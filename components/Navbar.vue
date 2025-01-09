@@ -6,8 +6,8 @@
       <div class="hidden xl:block py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
-          <NuxtLink to="/" class="flex-shrink-0 transition-transform duration-300 hover:scale-105 h-8 overflow-hidden">
-            <img class="h-8 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
+          <NuxtLink to="/" class="flex items-center flex-shrink-0 h-12">
+            <img class="h-10 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
           </NuxtLink>
 
           <div class="flex items-center justify-between flex-1 mx-4 2xl:mx-6">
@@ -59,15 +59,15 @@
               </template>
             </div>
 
-            <div class="flex items-center space-x-2 sm:space-x-4 ml-4">
+            <div class="flex items-center space-x-4 ml-8">
               <a
                 v-for="social in socialLinks"
                 :key="social.name"
                 :href="social.url"
                 :aria-label="social.name"
-                class="text-[#9D2449] hover:text-[#2D2D2D] text-xl transition-colors duration-300 hover:scale-110 transform"
+                class="text-[#9D2449] hover:text-[#2D2D2D] transition-colors duration-300 flex items-center"
               >
-                <Icon :name="social.icon" :size="20" />
+                <Icon :name="social.icon" :size="22" />
               </a>
             </div>
           </div>

@@ -30,9 +30,9 @@
         <!-- Columna 2: Contacto -->
         <div>
           <h3 class="text-[#8A2623] font-semibold text-xl mb-4">Contacto</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <Icon name="material-symbols:location-on" size="24" class="text-[#8A2623]" />
+          <div class="space-y-2">
+            <div class="flex items-start gap-2">
+              <Icon name="material-symbols:location-on" size="20" class="text-[#8A2623] mt-1" />
               <a 
                 href="https://maps.google.com/?q=Avenida+16+De+Septiembre+Sn,+26010+Piedras+Negras,+Coahuila+De+Zaragoza" 
                 target="_blank" 
@@ -42,8 +42,8 @@
                 Av. 16 De Septiembre
               </a>
             </div>
-            <div class="flex items-center gap-3">
-              <Icon name="material-symbols:phone-enabled" size="24" class="text-[#8A2623]" />
+            <div class="flex items-start gap-2">
+              <Icon name="material-symbols:phone-enabled" size="20" class="text-[#8A2623] mt-1" />
               <a 
                 href="tel:8787826666" 
                 class="text-gray-700 hover:text-[#8A2623] transition-colors"
@@ -51,8 +51,8 @@
                 878 782 6666
               </a>
             </div>
-            <div class="flex items-start gap-3">
-              <Icon name="material-symbols:calendar-month" size="24" class="text-[#8A2623]" />
+            <div class="flex items-start gap-2">
+              <Icon name="material-symbols:calendar-month" size="20" class="text-[#8A2623] mt-1" />
               <div>
                 <p class="font-medium text-gray-700">Horario de Atención:</p>
                 <p class="text-gray-700">Lunes a Viernes</p>
