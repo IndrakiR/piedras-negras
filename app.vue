@@ -18,6 +18,7 @@ const mostrarEnConstruccion = useConstruction()
 
 // Add meta viewport tag
 useHead({
+  title: 'Piedras Negras',
   meta: [
     { 
       name: 'viewport', 
