@@ -14,7 +14,15 @@
 
           <h2 class="text-2xl font-medium text-[#611232] mb-8 text-center">Formulario de Contacto</h2>
 
-          <form @submit.prevent="handleSubmit" class="space-y-6">
+          <form 
+            action="https://formsubmit.co/negraspiedras29@gmail.com" 
+            method="POST"
+            @submit.prevent="handleSubmit" 
+            class="space-y-6"
+          >
+            <input type="hidden" name="_next" value="https://piedrasnegras.gob.mx/atencion-ciudadana">
+            <input type="hidden" name="_subject" value="Nueva Solicitud de Atención Ciudadana">
+            <input type="hidden" name="_template" value="table">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Nombre -->
               <div class="form-group">
@@ -24,6 +32,7 @@
                 <input
                   id="nombre"
                   v-model="formData.nombre"
+                  name="nombre"
                   type="text"
                   :class="['form-input', {'error': errors.nombre}]"
                   placeholder="John Carter"
@@ -40,6 +49,7 @@
                 <input
                   id="email"
                   v-model="formData.email"
+                  name="email"
                   type="email"
                   :class="['form-input', {'error': errors.email}]"
                   placeholder="ejemplo@gmail.com"
@@ -57,6 +67,7 @@
                 <input
                   id="telefono"
                   v-model="formData.telefono"
+                  name="telefono"
                   type="tel"
                   :class="['form-input', {'error': errors.telefono}]"
                   placeholder="(123) 456-7890"
@@ -74,6 +85,7 @@
                 <select
                   id="sexo"
                   v-model="formData.sexo"
+                  name="sexo"
                   :class="['form-input', {'error': errors.sexo}]"
                   required
                 >
@@ -93,6 +105,7 @@
                 <input
                   id="entidadNacimiento"
                   v-model="formData.entidadNacimiento"
+                  name="entidad_nacimiento"
                   type="text"
                   class="form-input"
                   placeholder="México"
@@ -123,9 +136,10 @@
                 <input
                   id="direccion"
                   v-model="formData.direccion"
+                  name="direccion"
                   type="text"
                   class="form-input"
-                  placeholder="Calle Libertad 123, Colonia Centro"
+                  placeholder="Calle, Número, Colonia"
                 />
               </div>
 
@@ -137,9 +151,11 @@
                 <input
                   id="asunto"
                   v-model="formData.asunto"
+                  name="asunto"
                   type="text"
                   class="form-input"
-                  placeholder="Describe brevemente tu solicitud"
+                  placeholder="Asunto de tu mensaje"
+                  required
                 />
               </div>
 
@@ -151,9 +167,11 @@
                 <textarea
                   id="mensaje"
                   v-model="formData.mensaje"
+                  name="mensaje"
                   rows="4"
                   class="form-input resize-none"
-                  placeholder="Describe detalladamente tu solicitud..."
+                  placeholder="Escribe tu mensaje aquí"
+                  required
                 ></textarea>
               </div>
             </div>
@@ -230,17 +248,28 @@ const validateForm = () => {
   return !Object.values(errors).some(error => error)
 }
 
-const handleSubmit = async () => {
+const handleSubmit = async (e) => {
   if (!validateForm()) return
 
   isLoading.value = true
   
   try {
-    // Simular envío de formulario
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    const formElement = e.target
+    const formData = new FormData(formElement)
+    
+    await fetch(formElement.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+
     showSuccess.value = true
+    resetForm()
   } catch (error) {
     console.error('Error al enviar el formulario:', error)
+    alert('Hubo un error al enviar el formulario. Por favor, intente nuevamente.')
   } finally {
     isLoading.value = false
   }
@@ -285,4 +314,3 @@ const resetForm = () => {
   animation: fadeIn 0.3s ease-out;
 }
 </style>
-
