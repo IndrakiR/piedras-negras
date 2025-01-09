@@ -81,21 +81,21 @@
           </div>
 
           <!-- Información de contacto -->
-          <div class="mt-8 space-y-4 animate-fadeIn animation-delay-400">
-            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+          <div class="mt-8 space-y-2 animate-fadeIn animation-delay-400">
+            <div class="flex items-start gap-2 justify-center text-gray-600">
               <Icon
                 name="material-symbols:phone-enabled"
-                class="w-6 h-6 text-[#611232] flex-shrink-0"
+                class="w-5 h-5 text-[#611232] mt-1"
               />
               <a href="tel:8787826666" class="hover:text-[#611232] transition-colors">
                 878 782 6666
               </a>
             </div>
 
-            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+            <div class="flex items-start gap-2 justify-center text-gray-600">
               <Icon
                 name="material-symbols:water-drop"
-                class="w-6 h-6 text-[#611232] flex-shrink-0"
+                class="w-5 h-5 text-[#611232] mt-1"
               />
               <a
                 href="https://www.simaspiedrasnegras.gob.mx"
@@ -107,10 +107,10 @@
               </a>
             </div>
 
-            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+            <div class="flex items-start gap-2 justify-center text-gray-600">
               <Icon
                 name="material-symbols:payments-outline"
-                class="w-6 h-6 text-[#611232] flex-shrink-0"
+                class="w-5 h-5 text-[#611232] mt-1"
               />
               <a
                 href="http://contupago.gob.mx/PUCC/#/contribuyente/cobropadron/2"
@@ -121,10 +121,10 @@
               </a>
             </div>
 
-            <div class="flex items-center justify-center gap-4 text-gray-600 p-3">
+            <div class="flex items-start gap-2 justify-center text-gray-600">
               <Icon
                 name="material-symbols:info"
-                class="w-6 h-6 text-[#611232] flex-shrink-0"
+                class="w-5 h-5 text-[#611232] mt-1"
               />
               <a
                 href="http://www2.icai.org.mx/ipo/dependencia.php?dep=84"
