@@ -93,7 +93,7 @@
       <!-- Separador y Copyright -->
       <div class="border-t border-gray-200 mt-8 pt-4 text-center">
         <p class="text-gray-500 text-sm">
-          Copyright 2024 R. Ayuntamiento de Piedras Negras – Aviso de Privacidad
+          Copyright 2024 R. Ayuntamiento de Piedras Negras – <NuxtLink to="/aviso-de-privacidad" class="hover:text-[#8A2623] transition-colors">Aviso de Privacidad</NuxtLink>
         </p>
       </div>
     </div>
