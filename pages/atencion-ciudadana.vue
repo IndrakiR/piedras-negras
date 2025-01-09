@@ -6,7 +6,7 @@
       {
         icon: 'fas fa-phone',
         title: 'Línea Directa',
-        description: 'Comunícate al 070 para atención inmediata'
+        description: 'Comunícate al 878 782 6666 ext. 1250 para atención inmediata'
       },
       {
         icon: 'fab fa-whatsapp',
@@ -27,25 +27,28 @@
         <h2 class="text-3xl text-center mb-12 text-gray-800">Formas De Contacto</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <!-- Línea Directa -->
-          <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
-            
-            <div class="w-24 h-24 mx-auto mb-6">
-              <Icon name="mingcute:phone-line" class="w-full h-full text-[#611232]" />
+          <a href="tel:8787826666" class="block">
+            <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:bg-gray-50 cursor-pointer">
+              <div class="w-24 h-24 mx-auto mb-6">
+                <Icon name="mingcute:phone-line" class="w-full h-full text-[#611232] transition-transform duration-300 transform group-hover:scale-110" />
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Línea Directa</h3>
+              <p class="text-gray-600 mb-4">Marca desde tu teléfono al</p>
+              <p class="text-2xl font-bold text-[#611232]">878 782 6666 ext. 1250</p>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Línea Directa</h3>
-            <p class="text-gray-600 mb-4">Marca desde tu teléfono al</p>
-            <p class="text-2xl font-bold text-[#611232]">070</p>
-          </div>
+          </a>
 
           <!-- WhatsApp -->
-          <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-shadow">
-            <div class="w-24 h-24 mx-auto mb-6">
-              <Icon name="mingcute:whatsapp-line" class="w-full h-full text-[#611232]" />
+          <a href="https://wa.me/528781196958" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:bg-gray-50 cursor-pointer">
+              <div class="w-24 h-24 mx-auto mb-6">
+                <Icon name="mingcute:whatsapp-line" class="w-full h-full text-[#611232] transition-transform duration-300 transform group-hover:scale-110" />
+              </div>
+              <h3 class="text-xl font-semibold mb-3">WhatsApp</h3>
+              <p class="text-gray-600 mb-4">Escríbenos al</p>
+              <p class="text-2xl font-bold text-[#611232]">878 119 6958</p>
             </div>
-            <h3 class="text-xl font-semibold mb-3">WhatsApp</h3>
-            <p class="text-gray-600 mb-4">Escríbenos al</p>
-            <p class="text-2xl font-bold text-[#611232]">878 119 6958</p>
-          </div>
+          </a>
         </div>
       </div>
 
