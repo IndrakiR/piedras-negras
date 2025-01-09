@@ -23,6 +23,13 @@ useHead({
       name: 'viewport', 
       content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' 
     }
+  ],
+  script: [
+    {
+      src: 'https://umami.piedrasnegras.computoespacial.com/script.js',
+      'data-website-id': 'fb55e71c-117c-48cc-be97-2a3cae39cc6e',
+      defer: true
+    }
   ]
 })
 </script>
