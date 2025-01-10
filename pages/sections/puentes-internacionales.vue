@@ -39,7 +39,7 @@
         <div class="aspect-video w-full">
           <iframe
             class="w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/7wrxUlgm314?autoplay=1&mute=1"
+            src="https://www.youtube.com/embed/live_stream?channel=UCD12HC-FqOwAEzEi0cKxYZQ&autoplay=1&mute=1"
             title="Puente Internacional II Livestream"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

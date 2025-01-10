@@ -27,7 +27,7 @@
         <div class="bg-white rounded-xl shadow-md p-4 sm:p-8 mb-6 sm:mb-8">
           <div class="relative pb-[56.25%] h-0">
             <iframe
-              src="https://www.youtube.com/embed/btZkPCzmZ_g?autoplay=1&mute=1"
+              :src="videoSrc"
               class="absolute top-0 left-0 w-full h-full rounded-lg"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -53,7 +53,39 @@
 
 <script setup lang="ts">
 import BannerSection from '~/components/BannerSection.vue'
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const LIVE_STREAM_ID = 'nuxfZ87eDAU'
+const PLACEHOLDER_VIDEO_ID = 'oOUeDOJXzIc'
+
+const videoSrc = ref(`https://www.youtube.com/embed/${LIVE_STREAM_ID}?autoplay=1&mute=1`)
+let checkInterval: NodeJS.Timeout
+
+const checkLiveStream = async () => {
+  try {
+    const response = await fetch(`https://www.youtube.com/watch?v=${LIVE_STREAM_ID}`)
+    const text = await response.text()
+    const isLive = text.includes('isLive":true')
+    
+    if (!isLive) {
+      videoSrc.value = `https://www.youtube.com/embed/${PLACEHOLDER_VIDEO_ID}?autoplay=1&mute=1`
+    }
+  } catch (error) {
+    console.error('Error checking livestream:', error)
+    videoSrc.value = `https://www.youtube.com/embed/${PLACEHOLDER_VIDEO_ID}?autoplay=1&mute=1`
+  }
+}
+
+onMounted(() => {
+  // Check every minute if the live stream is still active
+  checkInterval = setInterval(checkLiveStream, 60000)
+})
+
+onBeforeUnmount(() => {
+  if (checkInterval) {
+    clearInterval(checkInterval)
+  }
+})
 
 const conferences = ref([
   {
