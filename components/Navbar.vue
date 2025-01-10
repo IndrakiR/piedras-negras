@@ -7,7 +7,7 @@
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center flex-shrink-0 h-12">
-            <img class="h-10 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
+            <img class="h-9 w-auto object-contain my-auto" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
           </NuxtLink>
 
           <div class="flex items-center justify-between flex-1 mx-4 2xl:mx-6">
@@ -79,8 +79,8 @@
         <!-- Mobile Header -->
         <div class="py-3">
           <div class="flex items-center justify-between">
-            <NuxtLink to="/" class="flex-shrink-0 h-6 overflow-hidden">
-              <img class="h-6 w-auto object-contain" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
+            <NuxtLink to="/" class="flex items-center flex-shrink-0 h-10">
+              <img class="h-8 w-auto object-contain my-auto" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
             </NuxtLink>
             <button
               @click="toggleMenu"
