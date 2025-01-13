@@ -17,15 +17,18 @@
                   <button
                     class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center group-hover:text-[#9D2449]"
                     :class=" [
+                      item.disabled ? 'text-gray-300 cursor-not-allowed' :
                       (route.path.startsWith(item.path) || (item.path === '/' && route.path === '/inicio'))
                         ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                         : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                     ]"
+                    @click="!item.disabled && toggleSubmenu(item.name)"
                   >
                     {{ item.name }}
-                    <Icon name="heroicons:chevron-down" class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                    <Icon name="heroicons:chevron-down" class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" :class="{'group-hover:rotate-180': !item.disabled}" />
                   </button>
                   <div 
+                    v-if="!item.disabled"
                     class="absolute left-0 mt-0 w-72 bg-white rounded-md shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left"
                     style="z-index: 1000;"
                   >
@@ -42,13 +45,15 @@
                 </div>
                 <NuxtLink
                   v-else
-                  :to="item.path"
+                  :to="item.disabled ? '' : item.path"
                   class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap"
                   :class=" [
+                    item.disabled ? 'text-gray-300 cursor-not-allowed' :
                     (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
                       ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                       : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                   ]"
+                  @click="item.disabled && $event.preventDefault()"
                 >
                   {{ item.name }}
                 </NuxtLink>
@@ -111,8 +116,9 @@
               <template v-if="item.hasSubmenu">
                 <div>
                   <button 
-                    @click="toggleSubmenu(item.name)"
+                    @click="!item.disabled && toggleSubmenu(item.name)"
                     class="w-full flex items-center justify-between px-4 py-2 text-[#2D2D2D] font-medium hover:text-[#9D2449] transition-colors duration-300"
+                    :class="{'cursor-not-allowed': item.disabled}"
                   >
                     <span>{{ item.name }}</span>
                     <Icon 
@@ -122,6 +128,7 @@
                     />
                   </button>
                   <div 
+                    v-if="!item.disabled"
                     class="overflow-hidden transition-all duration-300"
                     :style="{ 
                       maxHeight: openSubmenu === item.name ? submenuHeight + 'px' : '0',
@@ -147,14 +154,15 @@
               </template>
               <NuxtLink
                 v-else
-                :to="item.path"
+                :to="item.disabled ? '' : item.path"
                 class="block px-4 py-2 transition-colors duration-300"
                 :class=" [
+                  item.disabled ? 'text-gray-300 cursor-not-allowed' :
                   (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
                     ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
                     : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50 font-medium'
                 ]"
-                @click="closeMenu"
+                @click="item.disabled && $event.preventDefault()"
               >
                 {{ item.name }}
               </NuxtLink>
@@ -189,6 +197,8 @@ const isMenuOpen = ref(false)
 const openSubmenu = ref(null)
 const submenuHeight = ref(150) // Adjust this value based on your content
 
+const showAllSections = import.meta.env.VITE_SHOW_ALL_SECTIONS !== 'false'
+
 // Navigation items array
 const navigationItems = [
   { name: 'Inicio', path: '/' },
@@ -197,6 +207,7 @@ const navigationItems = [
     name: 'Directorio', 
     path: '/directorio',
     hasSubmenu: true,
+    disabled: !showAllSections,
     submenu: [
       { name: 'Cabildo', path: '/directorio/cabildo' },
       { name: 'Directores', path: '/directorio/directores' },
@@ -207,6 +218,7 @@ const navigationItems = [
     name: 'Trámites',
     path: '/tramites',
     hasSubmenu: true,
+    disabled: !showAllSections,
     submenu: [
       { name: 'Registro de proveedores', path: '/tramites/registro-proveedores' },
       { name: 'Ventanilla Universal', path: '/tramites/ventanilla-universal' },
@@ -214,8 +226,8 @@ const navigationItems = [
     ]
   },
   { name: 'Conferencias Matutinas', path: '/conferencias-matutinas' },
-  { name: 'Desarrollo Social', path: '/desarrollo-social' },
-  { name: 'Transparencia', path: '/transparencia' }
+  { name: 'Desarrollo Social', path: '/desarrollo-social', disabled: !showAllSections },
+  { name: 'Transparencia', path: '/transparencia', disabled: !showAllSections }
 ]
 
 // Social media links array
