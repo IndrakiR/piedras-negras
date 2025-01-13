@@ -127,6 +127,12 @@ const sections = ref([
         description: 'Estado y tiempos de espera en cruces fronterizos',
         image: '/images/iconos_secciones/Puentes_guindo.png',
         link: '/sections/puentes-internacionales'
+    },
+    {
+        title: 'Denuncia a Funcionario Público',
+        description: 'Realiza denuncias sobre funcionarios públicos',
+        image: '/images/iconos_secciones/Denuncia_guindo.png',
+        link: '/sections/denuncia-funcionario'
     }
 ])
 
