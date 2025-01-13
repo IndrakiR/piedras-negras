@@ -27,8 +27,9 @@
         <div class="bg-white rounded-xl shadow-md p-4 sm:p-8 mb-6 sm:mb-8">
           <div class="relative pb-[56.25%] h-0">
             <iframe
-              :src="videoSrc"
-              class="absolute top-0 left-0 w-full h-full rounded-lg"
+              class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+              :src="`https://www.youtube.com/embed/${currentVideoId}?autoplay=1&mute=1`"
+              title="Conferencia Matutina Livestream"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -55,30 +56,25 @@
 import BannerSection from '~/components/BannerSection.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const LIVE_STREAM_ID = 'nuxfZ87eDAU'
-const PLACEHOLDER_VIDEO_ID = 'oOUeDOJXzIc'
-
-const videoSrc = ref(`https://www.youtube.com/embed/${LIVE_STREAM_ID}?autoplay=1&mute=1`)
+const currentVideoId = ref('6Qo5F_Qy8zI') // Start with current known live stream
 let checkInterval: NodeJS.Timeout
 
 const checkLiveStream = async () => {
   try {
-    const response = await fetch(`https://www.youtube.com/watch?v=${LIVE_STREAM_ID}`)
-    const text = await response.text()
-    const isLive = text.includes('isLive":true')
-    
-    if (!isLive) {
-      videoSrc.value = `https://www.youtube.com/embed/${PLACEHOLDER_VIDEO_ID}?autoplay=1&mute=1`
+    const response = await fetch('/api/youtube')
+    const data = await response.json()
+    if (data.videoId && data.videoId !== currentVideoId.value) {
+      currentVideoId.value = data.videoId
+      console.log('Updated to new live stream:', data.videoId)
     }
   } catch (error) {
-    console.error('Error checking livestream:', error)
-    videoSrc.value = `https://www.youtube.com/embed/${PLACEHOLDER_VIDEO_ID}?autoplay=1&mute=1`
+    console.error('Error checking live stream:', error)
   }
 }
 
 onMounted(() => {
-  // Check every minute if the live stream is still active
-  checkInterval = setInterval(checkLiveStream, 60000)
+  checkLiveStream() // Initial check
+  checkInterval = setInterval(checkLiveStream, 60000) // Check every minute
 })
 
 onBeforeUnmount(() => {
