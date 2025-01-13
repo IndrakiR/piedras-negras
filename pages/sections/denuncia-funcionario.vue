@@ -80,7 +80,7 @@
                             <div class="relative group">
                                 <select 
                                     v-model="formData.tipoDenuncia"
-                                    class="w-full pl-4 pr-10 py-3 rounded-xl bg-white/70 border-2 border-gray-200/50 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all appearance-none placeholder-gray-400 hover:border-[#611232]/50"
+                                    class="w-full px-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all appearance-none placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                     required
                                 >
                                     <option value="">Seleccione un tipo</option>
@@ -104,12 +104,12 @@
                                 <input 
                                     type="text"
                                     v-model="formData.dependencia"
-                                    class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/70 border-2 border-gray-200/50 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-400 hover:border-[#611232]/50"
+                                    class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                     required
                                     placeholder="Ej: Tesorería, Obras Públicas"
                                 >
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
-                                    <i class="fas fa-building"></i>
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                    <i class="fas fa-building text-xl"></i>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             <textarea 
                                 v-model="formData.descripcion"
                                 rows="6"
-                                class="w-full px-4 py-3 rounded-xl bg-white/70 border-2 border-gray-200/50 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-400 hover:border-[#611232]/50"
+                                class="w-full px-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                 required
                                 placeholder="Describa detalladamente los hechos..."
                                 maxlength="1000"
@@ -159,11 +159,11 @@
                                         <input 
                                             type="text"
                                             v-model="formData.nombre"
-                                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/70 border-2 border-gray-200/50 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-400 hover:border-[#611232]/50"
+                                            class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                             placeholder="Su nombre (opcional)"
                                         >
-                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
-                                            <i class="fas fa-user"></i>
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                            <i class="fas fa-user text-xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -175,11 +175,11 @@
                                         <input 
                                             type="email"
                                             v-model="formData.email"
-                                            class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/70 border-2 border-gray-200/50 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-400 hover:border-[#611232]/50"
+                                            class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                             placeholder="correo@ejemplo.com"
                                         >
-                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
-                                            <i class="fas fa-envelope"></i>
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                            <i class="fas fa-envelope text-xl"></i>
                                         </div>
                                     </div>
                                 </div>
