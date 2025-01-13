@@ -24,6 +24,10 @@
 
     <section class="py-8 sm:py-12 bg-gray-50">
       <div class="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-[#611232]">Conferencia Previa</h2>
+          <div class="w-20 h-1 bg-[#611232] mx-auto mt-4"></div>
+        </div>
         <div class="bg-white rounded-xl shadow-md p-4 sm:p-8 mb-6 sm:mb-8">
           <div class="relative pb-[56.25%] h-0">
             <iframe
@@ -47,6 +51,23 @@
             <span class="text-gray-500">Horario local</span>
           </p>
         </div>
+
+        <div class="text-center mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-[#611232]">Conferencias Anteriores</h2>
+          <div class="w-20 h-1 bg-[#611232] mx-auto mt-4"></div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-4 sm:p-8 mt-8">
+          <div class="relative pb-[56.25%] h-0">
+            <iframe
+              class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+              src="https://www.youtube.com/embed/videoseries?list=PLXAKjHw3s9dUMX5OPNUwJf1MM8scUga9l"
+              title="Conferencias Matutinas Playlist"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -56,7 +77,7 @@
 import BannerSection from '~/components/BannerSection.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const currentVideoId = ref('6Qo5F_Qy8zI') // Start with current known live stream
+const currentVideoId = ref('6Qo5F_Qy8zI')
 let checkInterval: NodeJS.Timeout
 
 const checkLiveStream = async () => {
