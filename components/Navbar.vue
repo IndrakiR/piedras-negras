@@ -3,19 +3,19 @@
   <nav class="bg-white fixed w-full top-0 z-50 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
       <!-- Desktop Navigation -->
-      <div class="hidden xl:block py-4">
+      <div class="hidden 2xl:block py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center flex-shrink-0 h-12">
             <img class="h-9 w-auto object-contain my-auto" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
           </NuxtLink>
 
-          <div class="flex items-center justify-between flex-1 mx-4 2xl:mx-6">
-            <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-4">
+          <div class="flex items-center justify-between flex-1 mx-6">
+            <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-3">
               <template v-for="(item, index) in navigationItems" :key="item.path">
                 <div class="relative group" v-if="item.hasSubmenu">
                   <button
-                    class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center group-hover:text-[#9D2449]"
+                    class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center group-hover:text-[#9D2449] h-full"
                     :class=" [
                       item.disabled ? 'text-gray-300 cursor-not-allowed' :
                       (route.path.startsWith(item.path) || (item.path === '/' && route.path === '/inicio'))
@@ -24,8 +24,10 @@
                     ]"
                     @click="!item.disabled && toggleSubmenu(item.name)"
                   >
-                    {{ item.name }}
-                    <Icon name="heroicons:chevron-down" class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" :class="{'group-hover:rotate-180': !item.disabled}" />
+                    <span class="flex items-center">
+                      {{ item.name }}
+                      <Icon name="heroicons:chevron-down" class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" :class="{'group-hover:rotate-180': !item.disabled}" />
+                    </span>
                   </button>
                   <div 
                     v-if="!item.disabled"
@@ -46,7 +48,7 @@
                 <NuxtLink
                   v-else
                   :to="item.disabled ? '' : item.path"
-                  class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap"
+                  class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center h-full"
                   :class=" [
                     item.disabled ? 'text-gray-300 cursor-not-allowed' :
                     (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
@@ -55,7 +57,7 @@
                   ]"
                   @click="item.disabled && $event.preventDefault()"
                 >
-                  {{ item.name }}
+                  <span class="flex items-center">{{ item.name }}</span>
                 </NuxtLink>
                 <div
                   v-if="index < navigationItems.length - 1"
@@ -64,7 +66,7 @@
               </template>
             </div>
 
-            <div class="flex items-center space-x-4 ml-8">
+            <div class="flex items-center space-x-3 ml-6">
               <a
                 v-for="social in socialLinks"
                 :key="social.name"
@@ -80,7 +82,7 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <div class="xl:hidden">
+      <div class="2xl:hidden">
         <!-- Mobile Header -->
         <div class="py-3">
           <div class="flex items-center justify-between">
@@ -169,7 +171,7 @@
             </template>
           </div>
 
-          <div class="flex justify-center space-x-6 mt-4 pt-4 border-t border-gray-200">
+          <div class="flex justify-center space-x-4 mt-4 pt-4 border-t border-gray-200">
             <a
               v-for="social in socialLinks"
               :key="social.name"
@@ -185,7 +187,7 @@
     </div>
   </nav>
   <!-- Spacer to prevent content from hiding under fixed navbar -->
-  <div class="h-16 lg:h-24"></div>
+  <div class="h-16 2xl:h-24"></div>
 </template>
 
 <script setup>
