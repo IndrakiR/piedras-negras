@@ -251,18 +251,21 @@ const validateForm = () => {
 const handleSubmit = async (e) => {
   if (!validateForm()) return
 
-  isLoading.value = true
-  
   try {
-    const formElement = e.target
-    const formData = new FormData(formElement)
+    isLoading.value = true
     
-    await fetch(formElement.action, {
+    // Create formatted message for better email readability
+    const formattedData = {
+      ...formData,
+      '_format': 'Solicitud de Atención Ciudadana',
+      '_timestamp': new Date().toLocaleString()
+    }
+
+    const form = e.target
+    // Submit the form using FormSubmit
+    await fetch(form.action, {
       method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
+      body: new FormData(form)
     })
 
     showSuccess.value = true
