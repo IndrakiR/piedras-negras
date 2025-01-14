@@ -34,7 +34,7 @@
             <div class="flex items-start gap-2">
               <Icon name="material-symbols:location-on" size="20" class="text-[#8A2623] mt-1" />
               <a 
-                href="https://maps.google.com/?q=Avenida+16+De+Septiembre+Sn,+26010+Piedras+Negras,+Coahuila+De+Zaragoza" 
+                href="https://www.google.com/maps/place/Presidencia+Municipal/@28.7072193,-100.5302036,17z/data=!4m15!1m8!3m7!1s0x865f8bf4f4851ee7:0x16cb2a5979f4ddfc!2sAv+16+de+Septiembre,+Piedras+Negras,+Coah.!3b1!8m2!3d28.7056852!4d-100.5332434!16s%2Fg%2F1tvq4k7d!3m5!1s0x865f8c0a695e3609:0xcc7480e495f51050!8m2!3d28.7080661!4d-100.5284742!16s%2Fg%2F11bbrpjy7b?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="text-gray-700 hover:text-[#8A2623] transition-colors"
