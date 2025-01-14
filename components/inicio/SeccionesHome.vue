@@ -51,10 +51,11 @@
                                             rotate-6 transition-transform group-hover:rotate-12"></div>
                                 <div class="absolute inset-0 bg-white rounded-xl transform 
                                             -rotate-3 transition-transform group-hover:rotate-0">
-                                    <img :src="section.image" 
+                                    <img v-if="section.image" :src="section.image" 
                                          :alt="section.title"
                                          class="w-full h-full object-contain p-3"
                                          loading="lazy" />
+                                    <Icon v-else :name="section.icon" class="text-[#611232] w-12 h-12 m-auto flex items-center justify-center h-full" />
                                 </div>
                             </div>
 
@@ -131,8 +132,8 @@ const sections = ref([
     {
         title: 'Denuncia a Funcionario Público',
         description: 'Realiza denuncias sobre funcionarios públicos',
-        image: '/images/iconos_secciones/Denuncia_guindo.png',
-        link: '/sections/denuncia-funcionario'
+        link: '/sections/denuncia-funcionario',
+        icon: 'lucide:shield-alert'
     }
 ])
 
