@@ -63,7 +63,7 @@
             <!-- Auditorio José Vasconcelos -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:theater" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Auditorio José Vasconcelos</h3>
               <p class="text-gray-600 mb-4">Información sobre el Auditorio José Vasconcelos.</p>
@@ -79,7 +79,7 @@
             <!-- Casa de la Cultura -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:home-variant" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Casa de la Cultura</h3>
               <p class="text-gray-600 mb-4">Información sobre la Casa de la Cultura.</p>
@@ -95,7 +95,7 @@
             <!-- Casa de las Artes -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:palette" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Casa de las Artes</h3>
               <p class="text-gray-600 mb-4">Información sobre la Casa de las Artes.</p>
@@ -111,7 +111,7 @@
             <!-- Datos de Inscripción -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:clipboard-text" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Datos de Inscripción</h3>
               <p class="text-gray-600 mb-4">Información sobre datos de inscripción.</p>
@@ -127,7 +127,7 @@
             <!-- Museo del Chapulín -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:museum" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Museo del Chapulín</h3>
               <p class="text-gray-600 mb-4">Información sobre el Museo del Chapulín.</p>
@@ -143,7 +143,7 @@
             <!-- Museo de la Frontera -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:bank" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Museo de la Frontera</h3>
               <p class="text-gray-600 mb-4">Información sobre el Museo de la Frontera.</p>
@@ -159,7 +159,7 @@
             <!-- Teatro de la Ciudad -->
             <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
               <div class="text-[#611232] mb-4">
-                <Icon name="mdi:file-document" class="w-8 h-8" />
+                <Icon name="mdi:drama-masks" class="w-8 h-8" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-2">Teatro de la Ciudad José Manuel Maldonado</h3>
               <p class="text-gray-600 mb-4">Información sobre el Teatro de la Ciudad.</p>

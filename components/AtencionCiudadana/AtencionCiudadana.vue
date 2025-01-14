@@ -146,17 +146,22 @@
               <!-- Asunto -->
               <div class="form-group">
                 <label for="asunto" class="form-label">
-                  Asunto
+                  Asunto <span class="text-red-500">*</span>
                 </label>
-                <input
+                <select
                   id="asunto"
                   v-model="formData.asunto"
                   name="asunto"
-                  type="text"
-                  class="form-input"
-                  placeholder="Asunto de tu mensaje"
+                  :class="['form-input', {'error': errors.asunto}]"
                   required
-                />
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="obras-publicas">Obras públicas</option>
+                  <option value="ecologia">Ecología</option>
+                  <option value="simas">SIMAS</option>
+                  <option value="despensas">Despensas</option>
+                </select>
+                <span v-if="errors.asunto" class="error-message">{{ errors.asunto }}</span>
               </div>
 
               <!-- Mensaje -->
@@ -233,7 +238,13 @@ const formData = reactive({
   mensaje: ''
 })
 
-const errors = reactive({})
+const errors = reactive({
+  nombre: '',
+  email: '',
+  telefono: '',
+  sexo: '',
+  asunto: ''
+})
 const isLoading = ref(false)
 const showSuccess = ref(false)
 
@@ -244,6 +255,7 @@ const validateForm = () => {
   errors.telefono = !formData.telefono ? 'El teléfono es requerido' : 
                     !/^[0-9]{10}$/.test(formData.telefono) ? 'Debe contener 10 dígitos' : ''
   errors.sexo = !formData.sexo ? 'Selecciona una opción' : ''
+  errors.asunto = !formData.asunto ? 'Selecciona una opción' : ''
   
   return !Object.values(errors).some(error => error)
 }
