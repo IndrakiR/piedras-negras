@@ -4,7 +4,7 @@
     
     <div class="prose max-w-none">
       <p class="mb-4">
-        El H. Ayuntamiento de Piedras Negras, con domicilio en [dirección], es el responsable del tratamiento de los datos personales que nos proporcione.
+        El H. Ayuntamiento de Piedras Negras, con domicilio en Monterrey S/N, Las Fuentes, 26010 Piedras Negras, Coahuila, es el responsable del tratamiento de los datos personales que nos proporcione.
       </p>
 
       <h2 class="text-2xl font-semibold mt-6 mb-4">Finalidades del tratamiento de datos personales</h2>
