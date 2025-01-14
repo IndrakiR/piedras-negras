@@ -209,6 +209,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: ['inicio']
+})
 import { ref } from 'vue'
 import BannerV2 from '~/components/BannerV2.vue'
 
