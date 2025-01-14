@@ -55,6 +55,125 @@
           </div>
         </div>
       </section>
+
+      <!-- Documentos Section -->
+      <section class="py-12">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Auditorio José Vasconcelos -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Auditorio José Vasconcelos</h3>
+              <p class="text-gray-600 mb-4">Información sobre el Auditorio José Vasconcelos.</p>
+              <a 
+                href="/files/desarrollo-files/AUDITORIO JOSE VASCONCELOS.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Casa de la Cultura -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Casa de la Cultura</h3>
+              <p class="text-gray-600 mb-4">Información sobre la Casa de la Cultura.</p>
+              <a 
+                href="/files/desarrollo-files/CASA DE LA CULTURA inf. PRES.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Casa de las Artes -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Casa de las Artes</h3>
+              <p class="text-gray-600 mb-4">Información sobre la Casa de las Artes.</p>
+              <a 
+                href="/files/desarrollo-files/CASA DE LAS ARTES.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Datos de Inscripción -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Datos de Inscripción</h3>
+              <p class="text-gray-600 mb-4">Información sobre datos de inscripción.</p>
+              <a 
+                href="/files/desarrollo-files/Datos de inscripcion capn DESARROLLO SOCIAL ACTUALIZADO v2.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Museo del Chapulín -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Museo del Chapulín</h3>
+              <p class="text-gray-600 mb-4">Información sobre el Museo del Chapulín.</p>
+              <a 
+                href="/files/desarrollo-files/Info museo del chapulín.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Museo de la Frontera -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Museo de la Frontera</h3>
+              <p class="text-gray-600 mb-4">Información sobre el Museo de la Frontera.</p>
+              <a 
+                href="/files/desarrollo-files/MUSEO DE LA FRONTERA.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+
+            <!-- Teatro de la Ciudad -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="text-[#611232] mb-4">
+                <Icon name="mdi:file-document" class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Teatro de la Ciudad José Manuel Maldonado</h3>
+              <p class="text-gray-600 mb-4">Información sobre el Teatro de la Ciudad.</p>
+              <a 
+                href="/files/desarrollo-files/TEATRO DE LA CIUDAD JOSE MANUEL MALDONADO MALDONAD1.pdf"
+                target="_blank" 
+                class="text-[#611232] hover:text-[#4D0E28] font-medium inline-flex items-center"
+              >
+                Ver documento →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
