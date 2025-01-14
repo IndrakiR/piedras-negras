@@ -71,3 +71,9 @@
     </div>
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  middleware: ['inicio']
+})
+</script>
