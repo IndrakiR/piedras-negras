@@ -15,7 +15,7 @@
           <h2 class="text-2xl font-medium text-[#611232] mb-8 text-center">Formulario de Contacto</h2>
 
           <form 
-            action="https://formsubmit.co/negraspiedras29@gmail.com" 
+            action="https://formsubmit.co/atencionciudadanapn25@gmail.com" 
             method="POST"
             @submit.prevent="handleSubmit" 
             class="space-y-6"
