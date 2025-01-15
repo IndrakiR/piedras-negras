@@ -27,8 +27,8 @@ useHead({
   ],
   script: [
     {
-      src: 'https://umami.piedrasnegras.computoespacial.com/script.js',
-      'data-website-id': 'fb55e71c-117c-48cc-be97-2a3cae39cc6e',
+      src: 'https://umami.2025.piedrasnegras.gob.mx/script.js',
+      'data-website-id': '22513e67-94b8-4f11-ad99-0a11bc6a3e48',
       defer: true
     }
   ]
