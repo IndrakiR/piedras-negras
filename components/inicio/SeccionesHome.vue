@@ -109,7 +109,7 @@ const sections = ref([
         title: 'Paga Tu Predial',
         description: 'Realiza tu pago de manera fácil y segura',
         image: '/images/iconos_secciones/Predial_guindo.png',
-        link: 'http://contupago.gob.mx/PUCC/#/contribuyente/cobropadron/2'
+        link: 'https://contupago.gob.mx/PUCC/#/contribuyente/cobropadron/2'
     },
     {
         title: 'Dispensario Medico',
