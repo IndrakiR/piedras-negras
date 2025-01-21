@@ -1,24 +1,37 @@
 <!-- components/Navbar.vue -->
 <template>
   <nav class="bg-white fixed w-full top-0 z-50 shadow-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+    <!-- Adjusted container classes for earlier cutoffs (using xl instead of 2xl) -->
+    <div class="max-w-7xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
       <!-- Desktop Navigation -->
-      <div class="hidden 2xl:block py-4">
+      <!-- Changed from 'hidden 2xl:block' to 'hidden xl:block' -->
+      <div class="hidden xl:block py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center flex-shrink-0 h-12">
-            <img class="h-9 w-auto object-contain my-auto" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
+            <img
+              class="h-9 w-auto object-contain my-auto"
+              src="/images/logo-nav.png"
+              alt="Piedras Negras Logo"
+            />
           </NuxtLink>
 
-          <div class="flex items-center justify-between flex-1 mx-6">
-            <div class="flex items-center space-x-1 sm:space-x-2 lg:space-x-3">
-              <template v-for="(item, index) in navigationItems" :key="item.path">
+          <div class="flex items-center justify-between flex-1 mx-2 sm:mx-3 md:mx-4 lg:mx-6">
+            <div
+              class="flex items-center space-x-0.5 sm:space-x-1 md:space-x-2 lg:space-x-3 flex-grow"
+            >
+              <template
+                v-for="(item, index) in navigationItems"
+                :key="item.path"
+              >
                 <div class="relative group" v-if="item.hasSubmenu">
                   <button
                     class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center group-hover:text-[#9D2449] h-full"
                     :class=" [
-                      item.disabled ? 'text-gray-300 cursor-not-allowed' :
-                      (route.path.startsWith(item.path) || (item.path === '/' && route.path === '/inicio'))
+                      item.disabled
+                        ? 'text-gray-300 cursor-not-allowed'
+                        : route.path.startsWith(item.path) ||
+                          (item.path === '/' && route.path === '/inicio')
                         ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                         : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                     ]"
@@ -26,10 +39,14 @@
                   >
                     <span class="flex items-center">
                       {{ item.name }}
-                      <Icon name="heroicons:chevron-down" class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180" :class="{'group-hover:rotate-180': !item.disabled}" />
+                      <Icon
+                        name="heroicons:chevron-down"
+                        class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
+                        :class="{'group-hover:rotate-180': !item.disabled}"
+                      />
                     </span>
                   </button>
-                  <div 
+                  <div
                     v-if="!item.disabled"
                     class="absolute left-0 mt-0 w-72 bg-white rounded-md shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left"
                     style="z-index: 1000;"
@@ -39,7 +56,10 @@
                       :key="subItem.path"
                       :to="subItem.path"
                       class="block px-4 py-3 text-sm text-gray-700 hover:bg-pink-50 hover:text-[#9D2449] transition-colors duration-200"
-                      :class="{ 'text-[#9D2449] bg-pink-50 font-medium': route.path === subItem.path }"
+                      :class="{
+                        'text-[#9D2449] bg-pink-50 font-medium':
+                          route.path === subItem.path
+                      }"
                     >
                       {{ subItem.name }}
                     </NuxtLink>
@@ -50,8 +70,10 @@
                   :to="item.disabled ? '' : item.path"
                   class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center h-full"
                   :class=" [
-                    item.disabled ? 'text-gray-300 cursor-not-allowed' :
-                    (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
+                    item.disabled
+                      ? 'text-gray-300 cursor-not-allowed'
+                      : route.path === item.path ||
+                        (item.path === '/' && route.path === '/inicio')
                       ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                       : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                   ]"
@@ -66,15 +88,17 @@
               </template>
             </div>
 
-            <div class="flex items-center space-x-3 ml-6">
+            <div class="flex items-center space-x-0.5 ml-2 sm:ml-3 min-w-[110px] justify-end">
               <a
                 v-for="social in socialLinks"
                 :key="social.name"
                 :href="social.url"
                 :aria-label="social.name"
-                class="text-[#9D2449] hover:text-[#2D2D2D] transition-colors duration-300 flex items-center"
+                class="text-[#9D2449] hover:text-[#2D2D2D] transition-colors duration-300 flex items-center w-6 h-6 justify-center"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Icon :name="social.icon" :size="22" />
+                <Icon :name="social.icon" class="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -82,12 +106,17 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <div class="2xl:hidden">
+      <!-- Changed from '2xl:hidden' to 'xl:hidden' -->
+      <div class="xl:hidden">
         <!-- Mobile Header -->
         <div class="py-3">
           <div class="flex items-center justify-between">
             <NuxtLink to="/" class="flex items-center flex-shrink-0 h-10">
-              <img class="h-8 w-auto object-contain my-auto" src="/images/logo-nav.png" alt="Piedras Negras Logo" />
+              <img
+                class="h-8 w-auto object-contain my-auto"
+                src="/images/logo-nav.png"
+                alt="Piedras Negras Logo"
+              />
             </NuxtLink>
             <button
               @click="toggleMenu"
@@ -108,7 +137,7 @@
         <div
           id="mobile-menu"
           class="transform transition-all duration-300 ease-in-out"
-          :class="[
+          :class="[ 
             isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0',
             isMenuOpen ? 'h-auto' : 'h-0'
           ]"
@@ -117,22 +146,22 @@
             <template v-for="item in navigationItems" :key="item.path">
               <template v-if="item.hasSubmenu">
                 <div>
-                  <button 
+                  <button
                     @click="!item.disabled && toggleSubmenu(item.name)"
                     class="w-full flex items-center justify-between px-4 py-2 text-[#2D2D2D] font-medium hover:text-[#9D2449] transition-colors duration-300"
                     :class="{'cursor-not-allowed': item.disabled}"
                   >
                     <span>{{ item.name }}</span>
-                    <Icon 
-                      name="heroicons:chevron-down" 
+                    <Icon
+                      name="heroicons:chevron-down"
                       class="w-5 h-5 transition-transform duration-300"
                       :class="{ 'rotate-180': openSubmenu === item.name }"
                     />
                   </button>
-                  <div 
+                  <div
                     v-if="!item.disabled"
                     class="overflow-hidden transition-all duration-300"
-                    :style="{ 
+                    :style="{
                       maxHeight: openSubmenu === item.name ? submenuHeight + 'px' : '0',
                       opacity: openSubmenu === item.name ? '1' : '0'
                     }"
@@ -142,7 +171,7 @@
                       :key="subItem.path"
                       :to="subItem.path"
                       class="block pl-8 py-2 transition-colors duration-300"
-                      :class="[
+                      :class="[ 
                         route.path === subItem.path
                           ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
                           : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50'
@@ -159,8 +188,10 @@
                 :to="item.disabled ? '' : item.path"
                 class="block px-4 py-2 transition-colors duration-300"
                 :class=" [
-                  item.disabled ? 'text-gray-300 cursor-not-allowed' :
-                  (route.path === item.path || (item.path === '/' && route.path === '/inicio'))
+                  item.disabled
+                    ? 'text-gray-300 cursor-not-allowed'
+                    : route.path === item.path ||
+                      (item.path === '/' && route.path === '/inicio')
                     ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
                     : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50 font-medium'
                 ]"
@@ -171,15 +202,17 @@
             </template>
           </div>
 
-          <div class="flex justify-center space-x-4 mt-4 pt-4 border-t border-gray-200">
+          <div class="flex justify-center space-x-2 mt-4 pt-4 border-t border-gray-200">
             <a
               v-for="social in socialLinks"
               :key="social.name"
               :href="social.url"
               :aria-label="social.name"
-              class="text-[#9D2449] hover:text-[#2D2D2D] text-xl transition-all duration-300 hover:scale-110 transform"
+              class="text-[#9D2449] hover:text-[#2D2D2D] transition-colors duration-300 flex items-center w-8 h-8 justify-center"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Icon :name="social.icon" :size="20" />
+              <Icon :name="social.icon" class="w-6 h-6" />
             </a>
           </div>
         </div>
@@ -187,7 +220,8 @@
     </div>
   </nav>
   <!-- Spacer to prevent content from hiding under fixed navbar -->
-  <div class="h-16 2xl:h-24"></div>
+  <!-- Adjusted height if needed (h-16 vs h-24) to match your new breakpoints -->
+  <div class="h-16 xl:h-20"></div>
 </template>
 
 <script setup>
@@ -197,7 +231,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const isMenuOpen = ref(false)
 const openSubmenu = ref(null)
-const submenuHeight = ref(150) // Adjust this value based on your content
+const submenuHeight = ref(150) // Adjust this value based on your submenu content
 
 const showAllSections = import.meta.env.VITE_SHOW_ALL_SECTIONS !== 'false'
 
@@ -205,8 +239,8 @@ const showAllSections = import.meta.env.VITE_SHOW_ALL_SECTIONS !== 'false'
 const navigationItems = [
   { name: 'Inicio', path: '/' },
   { name: 'Noticias', path: '/noticias' },
-  { 
-    name: 'Directorio', 
+  {
+    name: 'Directorio',
     path: '/directorio',
     hasSubmenu: true,
     disabled: !showAllSections,
@@ -228,8 +262,16 @@ const navigationItems = [
     ]
   },
   { name: 'Conferencias Matutinas', path: '/conferencias-matutinas' },
-  { name: 'Desarrollo Social', path: '/desarrollo-social', disabled: !showAllSections },
-  { name: 'Transparencia', path: '/transparencia', disabled: !showAllSections }
+  {
+    name: 'Desarrollo Social',
+    path: '/desarrollo-social',
+    disabled: !showAllSections
+  },
+  {
+    name: 'Transparencia',
+    path: '/transparencia',
+    disabled: !showAllSections
+  }
 ]
 
 // Social media links array
@@ -287,13 +329,16 @@ onMounted(() => {
 })
 
 // Close menu on route change
-watch(() => route.path, () => {
-  if (isMenuOpen.value) {
-    isMenuOpen.value = false
-    document.body.style.overflow = ''
+watch(
+  () => route.path,
+  () => {
+    if (isMenuOpen.value) {
+      isMenuOpen.value = false
+      document.body.style.overflow = ''
+    }
+    openSubmenu.value = null
   }
-  openSubmenu.value = null
-})
+)
 
 // Cleanup
 onUnmounted(() => {
@@ -309,7 +354,7 @@ onUnmounted(() => {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
 }
 </style>
