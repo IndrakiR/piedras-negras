@@ -8,7 +8,7 @@
       <div class="hidden xl:block py-4">
         <div class="flex items-center justify-between">
           <!-- Logo -->
-          <NuxtLink to="/" class="flex items-center flex-shrink-0 h-12">
+          <NuxtLink to="/inicio" class="flex items-center flex-shrink-0 h-12">
             <img
               class="h-9 w-auto object-contain my-auto"
               src="/images/logo-nav.png"
@@ -31,7 +31,7 @@
                       item.disabled
                         ? 'text-gray-300 cursor-not-allowed'
                         : route.path.startsWith(item.path) ||
-                          (item.path === '/' && route.path === '/inicio')
+                          (item.path === '/inicio' && route.path === '/inicio')
                         ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                         : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                     ]"
@@ -69,11 +69,10 @@
                   v-else
                   :to="item.disabled ? '' : item.path"
                   class="px-2 py-2 text-sm xl:text-base transition-colors duration-300 whitespace-nowrap flex items-center h-full"
-                  :class=" [
+                  :class="[
                     item.disabled
                       ? 'text-gray-300 cursor-not-allowed'
-                      : route.path === item.path ||
-                        (item.path === '/' && route.path === '/inicio')
+                      : route.path === item.path || route.path === '/inicio' && item.path === '/inicio'
                       ? 'text-[#9D2449] font-medium border-b-2 border-[#9D2449]'
                       : 'text-[#2D2D2D] hover:text-[#9D2449] font-medium'
                   ]"
@@ -111,7 +110,7 @@
         <!-- Mobile Header -->
         <div class="py-3">
           <div class="flex items-center justify-between">
-            <NuxtLink to="/" class="flex items-center flex-shrink-0 h-10">
+            <NuxtLink to="/inicio" class="flex items-center flex-shrink-0 h-10">
               <img
                 class="h-8 w-auto object-contain my-auto"
                 src="/images/logo-nav.png"
@@ -191,7 +190,7 @@
                   item.disabled
                     ? 'text-gray-300 cursor-not-allowed'
                     : route.path === item.path ||
-                      (item.path === '/' && route.path === '/inicio')
+                      (item.path === '/inicio' && route.path === '/inicio')
                     ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
                     : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50 font-medium'
                 ]"
@@ -237,8 +236,18 @@ const showAllSections = import.meta.env.VITE_SHOW_ALL_SECTIONS !== 'false'
 
 // Navigation items array
 const navigationItems = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Noticias', path: '/noticias' },
+  {
+    name: 'Inicio',
+    path: '/inicio',
+    hasSubmenu: false,
+    disabled: false
+  },
+  { 
+    name: 'Noticias', 
+    path: '/noticias',
+    hasSubmenu: false,
+    disabled: false
+  },
   {
     name: 'Directorio',
     path: '/directorio',
