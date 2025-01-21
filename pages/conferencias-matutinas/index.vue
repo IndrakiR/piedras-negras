@@ -60,7 +60,7 @@
           <div class="relative pb-[56.25%] h-0">
             <iframe
               class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-              src="https://www.youtube.com/embed/videoseries?list=PLXAKjHw3s9dUMX5OPNUwJf1MM8scUga9l"
+              src="https://www.youtube.com/embed/videoseries?list=PLXAKjHw3s9dU5Thspp5RnAMtnGMg35wn9&autoplay=1&mute=1"
               title="Conferencias Matutinas Playlist"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
