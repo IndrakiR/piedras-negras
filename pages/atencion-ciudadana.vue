@@ -11,7 +11,7 @@
       {
         icon: 'fab fa-whatsapp',
         title: 'WhatsApp',
-        description: 'Escríbenos al 878 119 6958'
+        description: 'Escríbenos al 878 154 1512'
       },
       {
         icon: 'fas fa-envelope',
@@ -39,14 +39,14 @@
           </a>
 
           <!-- WhatsApp -->
-          <a href="https://wa.me/528781196958" target="_blank" rel="noopener noreferrer" class="block">
+          <a href="https://wa.me/528781541512" target="_blank" rel="noopener noreferrer" class="block">
             <div class="bg-white rounded-xl shadow-sm p-8 text-center hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:bg-gray-50 cursor-pointer">
               <div class="w-24 h-24 mx-auto mb-6">
                 <Icon name="mingcute:whatsapp-line" class="w-full h-full text-[#611232] transition-transform duration-300 transform group-hover:scale-110" />
               </div>
               <h3 class="text-xl font-semibold mb-3">WhatsApp</h3>
               <p class="text-gray-600 mb-4">Escríbenos al</p>
-              <p class="text-2xl font-bold text-[#611232]">878 119 6958</p>
+              <p class="text-2xl font-bold text-[#611232]">878 154 1512</p>
             </div>
           </a>
         </div>
