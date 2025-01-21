@@ -62,11 +62,11 @@
               </div>
               <div class="flex justify-between items-center border-b pb-2">
                 <span class="font-medium">Horario:</span>
-                <span>24 horas</span>
+                <span>7:00 AM - 10:45 PM (Lunes a Domingo)</span>
               </div>
               <div class="flex justify-between items-center border-b pb-2">
                 <span class="font-medium">Ubicación:</span>
-                <span>Centro de Piedras Negras</span>
+                <span>Calle Hidalgo, Zona Centro</span>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
               </div>
               <div class="flex justify-between items-center border-b pb-2">
                 <span class="font-medium">Ubicación:</span>
-                <span>Carretera 57</span>
+                <span>Lib. Fausto Martinez, Zona Centro</span>
               </div>
             </div>
           </div>
