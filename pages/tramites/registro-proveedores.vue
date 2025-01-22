@@ -45,28 +45,14 @@
           <p class="text-gray-600 mb-8 text-sm text-center">
             En base a la Ley de Obras Públicas y Servicios Relacionados con las mismas para el Estado de Coahuila de Zaragoza.
           </p>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="text-center group">
-              <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
-                <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Física</h3>
-                <NuxtLink
-                  to="/tramites/registro-contratista"
-                  class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
-                >
-                  Iniciar Registro
-                </NuxtLink>
-              </div>
-            </div>
-            <div class="text-center group">
-              <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
-                <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Moral</h3>
-                <NuxtLink
-                  to="/tramites/registro-contratista"
-                  class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
-                >
-                  Iniciar Registro
-                </NuxtLink>
-              </div>
+          <div class="text-center">
+            <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 hover:shadow-md max-w-md mx-auto">
+              <NuxtLink
+                to="/tramites/registro-contratista"
+                class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
+              >
+                Iniciar Registro
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -78,28 +64,14 @@
           <p class="text-gray-600 mb-8 text-sm text-center">
             En base a la Ley de Adquisiciones, Arrendamientos y Contratación de Servicios para el Estado de Coahuila de Zaragoza.
           </p>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="text-center group">
-              <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
-                <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Física</h3>
-                <NuxtLink
-                  to="/tramites/registro-proveedor"
-                  class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
-                >
-                  Iniciar Registro
-                </NuxtLink>
-              </div>
-            </div>
-            <div class="text-center group">
-              <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
-                <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Moral</h3>
-                <NuxtLink
-                  to="/tramites/registro-proveedor"
-                  class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
-                >
-                  Iniciar Registro
-                </NuxtLink>
-              </div>
+          <div class="text-center">
+            <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 hover:shadow-md max-w-md mx-auto">
+              <NuxtLink
+                to="/tramites/registro-proveedor"
+                class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
+              >
+                Iniciar Registro
+              </NuxtLink>
             </div>
           </div>
         </div>
