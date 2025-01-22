@@ -1,5 +1,15 @@
 <template>
   <form @submit.prevent="$emit('submit', formData)" class="space-y-6">
+    <div class="mb-6">
+      <a 
+        href="/files/requisitos/CONTRATISTA-PERSONA-MORAL-_Requisitos_.pdf"
+        target="_blank"
+        class="inline-flex items-center px-4 py-2 bg-[#611232] text-white rounded-lg hover:bg-[#7a1640] transition-colors"
+      >
+        <span class="mr-2">📄</span>
+        Descargar Lista de Requisitos
+      </a>
+    </div>
     <div class="grid md:grid-cols-2 gap-6">
       <!-- Company Information -->
       <div class="space-y-4">
