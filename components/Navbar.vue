@@ -270,7 +270,7 @@ const navigationItems = [
       { name: 'Información', path: '/tramites/informacion' }
     ]
   },
-  { name: 'Conferencias Matutinas', path: '/conferencias-matutinas' },
+  { name: 'Conferencias Matutinas', path: '/conferencias-matutinas', disabled: true },
   {
     name: 'Desarrollo Social',
     path: '/desarrollo-social',
