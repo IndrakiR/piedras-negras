@@ -49,25 +49,23 @@
             <div class="text-center group">
               <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
                 <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Física</h3>
-                <a
-                  href="/files/requisitos/CONTRATISTA PERSONA FISICA (Requisitos).pdf"
-                  target="_blank"
+                <NuxtLink
+                  to="/tramites/registro-contratista"
                   class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
                 >
-                  Ver requisitos
-                </a>
+                  Iniciar Registro
+                </NuxtLink>
               </div>
             </div>
             <div class="text-center group">
               <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
                 <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Moral</h3>
-                <a
-                  href="/files/requisitos/CONTRATISTA PERSONA MORAL (Requisitos).pdf"
-                  target="_blank"
+                <NuxtLink
+                  to="/tramites/registro-contratista"
                   class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
                 >
-                  Ver requisitos
-                </a>
+                  Iniciar Registro
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -84,25 +82,23 @@
             <div class="text-center group">
               <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
                 <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Física</h3>
-                <a
-                  href="/files/requisitos/PROVEEDOR PERSONAS FISICAS (Requisitos).pdf"
-                  target="_blank"
+                <NuxtLink
+                  to="/tramites/registro-proveedor"
                   class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
                 >
-                  Ver requisitos
-                </a>
+                  Iniciar Registro
+                </NuxtLink>
               </div>
             </div>
             <div class="text-center group">
               <div class="bg-gray-50 p-6 rounded-xl transition-all duration-300 group-hover:shadow-md">
                 <h3 class="text-xl font-medium mb-4 text-gray-800">Persona Moral</h3>
-                <a
-                  href="/files/requisitos/PROVEEDOR PERSONAS MORALES (Requisitos).pdf"
-                  target="_blank"
+                <NuxtLink
+                  to="/tramites/registro-proveedor"
                   class="inline-block w-full bg-[#611232] text-white py-3 px-6 rounded-xl hover:bg-[#4d0e28] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-opacity-50 transition-all duration-300 uppercase text-sm font-medium tracking-wider"
                 >
-                  Ver requisitos
-                </a>
+                  Iniciar Registro
+                </NuxtLink>
               </div>
             </div>
           </div>
