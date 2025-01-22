@@ -102,7 +102,141 @@ const sections = ref([
     id: 'desarrollo-urbano',
     title: 'Desarrollo Urbano',
     icon: 'heroicons:building-library',
-    tramites: []
+    tramites: [
+      {
+        id: 0,
+        nombre: 'Trámite de Desarrollo Urbano 0',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/0 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 1,
+        nombre: 'Trámite de Desarrollo Urbano 1',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/1DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 2,
+        nombre: 'Trámite de Desarrollo Urbano 2',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/2 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 3,
+        nombre: 'Trámite de Desarrollo Urbano 3',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/3 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 4,
+        nombre: 'Trámite de Desarrollo Urbano 4',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/4 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 5,
+        nombre: 'Trámite de Desarrollo Urbano 5',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/5 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 6,
+        nombre: 'Trámite de Desarrollo Urbano 6',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/6 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 7,
+        nombre: 'Trámite de Desarrollo Urbano 7',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/7 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 8,
+        nombre: 'Trámite de Desarrollo Urbano 8',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/8 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 9,
+        nombre: 'Trámite de Desarrollo Urbano 9',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/9 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 10,
+        nombre: 'Trámite de Desarrollo Urbano 10',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/10 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 11,
+        nombre: 'Trámite de Desarrollo Urbano 11',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/11DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 12,
+        nombre: 'Trámite de Desarrollo Urbano 12',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/12 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 13,
+        nombre: 'Trámite de Desarrollo Urbano 13',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/13 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 14,
+        nombre: 'Trámite de Desarrollo Urbano 14',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/14 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 15,
+        nombre: 'Trámite de Desarrollo Urbano 15',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/15 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 16,
+        nombre: 'Trámite de Desarrollo Urbano 16',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/16 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 17,
+        nombre: 'Trámite de Desarrollo Urbano 17',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/17 DESARROLLO URBANO.pdf'
+      },
+      {
+        id: 18,
+        nombre: 'Trámite de Desarrollo Urbano 18',
+        descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/18 DESARROLLO URBANO (1).pdf'
+      }
+    ]
   },
   {
     id: 'comercio',
