@@ -5,7 +5,7 @@ export default defineEventHandler(async (event): Promise<NewsResponse> => {
   try {
     // Get pagination parameters from query
     const query = getQuery(event)
-    const limit = query.limit || 100 // Default to 100 items
+    const limit = query.limit || 1000 // Default to 100 items
     const page = query.page || 1
 
     // Llamada a tu API de Payload para obtener todas las noticias
