@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="$emit('submit', formData)" class="space-y-6">
+  <form @submit.prevent="handleSubmit" class="space-y-6">
     <div class="mb-6">
       <a 
         href="/files/requisitos/CONTRATISTA-PERSONA-FISICA-_Requisitos_.pdf"
@@ -173,24 +173,29 @@ const formData = ref({
   documentos: null
 })
 
-const handleFileUpload = (event) => {
+const loading = ref(false)
+const message = ref('')
+
+async function handleFileUpload(event) {
   const file = event.target.files[0]
   if (file) {
-    // Verificar el tipo de archivo
-    if (file.type !== 'application/zip' && file.type !== 'application/x-zip-compressed') {
-      alert('Por favor, suba únicamente archivos ZIP')
-      event.target.value = ''
-      return
-    }
-    
-    // Verificar el tamaño (20 MB = 20 * 1024 * 1024 bytes)
-    if (file.size > 20 * 1024 * 1024) {
-      alert('El archivo es demasiado grande. El tamaño máximo permitido es 20 MB')
-      event.target.value = ''
-      return
-    }
-    
     formData.value.documentos = file
+  }
+}
+
+async function handleSubmit() {
+  try {
+    loading.value = true
+    const response = await $fetch('/api/tramites/submit', {
+      method: 'POST',
+      body: formData.value
+    })
+    message.value = response.message
+  } catch (error) {
+    console.error('Error:', error)
+    message.value = 'Error al enviar el formulario. Por favor intente nuevamente.'
+  } finally {
+    loading.value = false
   }
 }
 
