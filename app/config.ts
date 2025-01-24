@@ -1,8 +1,8 @@
-export default defineAppConfig({
-  nuxt: {
-    loading: {
-      color: '#5e1210',
-      height: '3px'
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'Piedras Negras'
     }
   }
 })
