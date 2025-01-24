@@ -6,7 +6,7 @@
       <Navbar />
       <NuxtRouteAnnouncer />
       <main class="flex-grow">
-        <NuxtLoadingIndicator />
+        <NuxtLoadingIndicator color="#5e1210" height="3px" />
         <NuxtPage />
       </main>
       <div class="relative">
