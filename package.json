@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.8.1",
+    "@payloadcms/richtext-lexical": "^3.19.0",
     "@types/nodemailer": "^6.4.17",
+    "lexical": "^0.23.1",
     "lucide-vue-next": "^0.469.0",
     "nodemailer": "^6.10.0",
     "nuxt": "^3.14.1592",

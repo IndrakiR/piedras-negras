@@ -35,6 +35,22 @@ export default defineEventHandler(async (event: H3Event): Promise<NewsItem> => {
       }))
     }
 
+    // Transform URLs in content
+    if (response.content?.root?.children) {
+      response.content.root.children = response.content.root.children.map(node => {
+        if (node.type === 'upload' && node.relationTo === 'media' && node.value?.url) {
+          return {
+            ...node,
+            value: {
+              ...node.value,
+              url: `${process.env.NUXT_PUBLIC_CMS_URL}${node.value.url}`
+            }
+          }
+        }
+        return node
+      })
+    }
+
     // Regresa la respuesta tal cual para mantener consistencia con el endpoint principal 
     return response
 
