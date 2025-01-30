@@ -63,14 +63,28 @@
                             <Icon name="heroicons:clock" class="w-4 h-4 mr-1.5" />
                             {{ tramite.tiempo }}
                           </span>
-                          <a 
-                            href="#"
-                            @click.prevent="openPDF(tramite.link)"
-                            class="text-[#611232] hover:text-[#4D0E28] text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#611232]/5 transition-colors"
-                          >
-                            Ver detalles
-                            <Icon name="heroicons:arrow-right" class="w-4 h-4" />
-                          </a>
+                          <template v-if="tramite.links">
+                            <a 
+                              v-for="link in tramite.links" 
+                              :key="link.nombre" 
+                              :href="link.link" 
+                              target="_blank"
+                              class="text-[#611232] hover:text-[#4D0E28] text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#611232]/5 transition-colors"
+                            >
+                              {{ link.nombre }}
+                              <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+                            </a>
+                          </template>
+                          <template v-else>
+                            <a 
+                              :href="tramite.link" 
+                              target="_blank"
+                              class="text-[#611232] hover:text-[#4D0E28] text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#611232]/5 transition-colors"
+                            >
+                              Ver detalles
+                              <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+                            </a>
+                          </template>
                         </div>
                       </div>
                     </div>
@@ -235,6 +249,41 @@ const sections = ref([
         descripcion: 'Servicios y trámites relacionados con desarrollo urbano',
         tiempo: '5 días hábiles',
         link: '/files/pdfs/18 DESARROLLO URBANO (1).pdf'
+      },
+      {
+        id: 19,
+        nombre: 'Protección Civil',
+        descripcion: 'Servicios y trámites relacionados con protección civil',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/PROTECCION CIVIL.pdf'
+      },
+      {
+        id: 20,
+        nombre: 'Fusión y Subdivisión',
+        descripcion: 'Solicitud para trámites de fusión y subdivisión de predios',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/SOL. FUSION Y SUBDIVISION.pdf'
+      },
+      {
+        id: 21,
+        nombre: 'Número Oficial',
+        descripcion: 'Solicitud para asignación de número oficial',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/SOL.- NUMERO OFICIAL.pdf'
+      },
+      {
+        id: 22,
+        nombre: 'Solicitud Múltiple 2025',
+        descripcion: 'Formato de solicitud múltiple para diversos trámites',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/SOLICITUD MULTIPLE 2025.pdf'
+      },
+      {
+        id: 23,
+        nombre: 'Solicitud SARE',
+        descripcion: 'Sistema de Apertura Rápida de Empresas',
+        tiempo: '5 días hábiles',
+        link: '/files/pdfs/SOLICITUD SARE.pdf'
       }
     ]
   },
@@ -307,6 +356,108 @@ const sections = ref([
         link: '/files/07 VERIFICACION VEHICULAR.pdf'
       }
     ]
+  },
+  {
+    id: 'ingenieria-vial',
+    title: 'Ingeniería Vial',
+    icon: 'heroicons:truck',
+    tramites: [
+      {
+        id: 1,
+        nombre: 'Estacionamiento Exclusivo',
+        descripcion: 'Solicitud para permiso de estacionamiento exclusivo',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- ESTACIONAMIENTO EXCLUSIVO.pdf'
+      },
+      {
+        id: 2,
+        nombre: 'Objeto Fijo o Delimitadores',
+        descripcion: 'Solicitud para instalación de objetos fijos o delimitadores',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- OBJETO FIJO O DELIMITADORES.pdf'
+      }
+    ]
+  },
+  {
+    id: 'ecologia-imagen-urbana',
+    title: 'Ecología e Imagen Urbana',
+    icon: 'lucide:leaf',
+    tramites: [
+      {
+        id: 1,
+        nombre: 'Comercio Móvil',
+        descripcion: 'Solicitud para permiso de comercio móvil',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- COMERCIO MOVIL.pdf'
+      },
+      {
+        id: 2,
+        nombre: 'Desechos No Peligrosos',
+        descripcion: 'Solicitud para manejo de desechos no peligrosos',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- DESECHOS NO PELIGROSOS.pdf'
+      },
+      {
+        id: 3,
+        nombre: 'Tala de Árbol',
+        descripcion: 'Solicitud para permiso de tala de árbol',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- TALA DE ARBOL.pdf'
+      }
+    ]
+  },
+  {
+    id: 'catastro',
+    title: 'Catastro',
+    icon: 'heroicons:map',
+    tramites: [
+      {
+        id: 1,
+        nombre: 'Deslinde',
+        descripcion: 'Solicitud para trámite de deslinde catastral',
+        tiempo: '5 días hábiles',
+        link: '/files/SOL.- DESLINDE.pdf'
+      }
+    ]
+  },
+  {
+    id: 'contraloria',
+    title: 'Contraloría',
+    icon: 'heroicons:document-check',
+    tramites: [
+      {
+        id: 1,
+        nombre: 'Registro de Contratista',
+        descripcion: 'Requisitos para registro como contratista (persona física o moral)',
+        tiempo: '5 días hábiles',
+        links: [
+          {
+            nombre: 'Persona Física',
+            link: '/files/CONTRATISTA PERSONA FISICA (Requisitos).pdf'
+          },
+          {
+            nombre: 'Persona Moral',
+            link: '/files/CONTRATISTA PERSONA  MORAL (Requisitos).pdf'
+          }
+        ]
+      },
+      {
+        id: 2,
+        nombre: 'Registro de Proveedor',
+        descripcion: 'Requisitos para registro como proveedor (persona física o moral)',
+        tiempo: '5 días hábiles',
+        links: [
+          {
+            nombre: 'Persona Física',
+            link: '/files/PROVEEDOR PERSONAS FISICAS (Requisitos).pdf'
+          },
+          {
+            nombre: 'Persona Moral',
+            link: '/files/PROVEEDOR PERSONAS MORALES (Requisitos).pdf'
+          }
+        ]
+      }
+    ]
   }
 ])
 
@@ -314,7 +465,11 @@ const openSections = ref({
   'desarrollo-urbano': false,
   'comercio': false,
   'proteccion-civil': false,
-  'medio-ambiente': false
+  'medio-ambiente': false,
+  'ingenieria-vial': false,
+  'ecologia-imagen-urbana': false,
+  'catastro': false,
+  'contraloria': false
 })
 
 const toggleSection = (sectionId) => {
