@@ -31,21 +31,6 @@
               @toggle="toggleSection('desarrollo-urbano')"
             />
             
-            <ComercioSection 
-              :is-open="openSections['comercio']"
-              @toggle="toggleSection('comercio')"
-            />
-            
-            <ProteccionCivilSection 
-              :is-open="openSections['proteccion-civil']"
-              @toggle="toggleSection('proteccion-civil')"
-            />
-
-            <MedioAmbienteSection 
-              :is-open="openSections['medio-ambiente']"
-              @toggle="toggleSection('medio-ambiente')"
-            />
-
             <IngenieriaVialSection 
               :is-open="openSections['ingenieria-vial']"
               @toggle="toggleSection('ingenieria-vial')"
@@ -60,7 +45,7 @@
               :is-open="openSections['catastro']"
               @toggle="toggleSection('catastro')"
             />
-            
+
             <ContraloriaSection 
               :is-open="openSections['contraloria']"
               @toggle="toggleSection('contraloria')"
@@ -76,9 +61,6 @@
 import { ref } from 'vue'
 import BannerSection from '~/components/BannerSection.vue'
 import DesarrolloUrbanoSection from '~/components/ventanilla-universal/DesarrolloUrbanoSection.vue'
-import ComercioSection from '~/components/ventanilla-universal/ComercioSection.vue'
-import ProteccionCivilSection from '~/components/ventanilla-universal/ProteccionCivilSection.vue'
-import MedioAmbienteSection from '~/components/ventanilla-universal/MedioAmbienteSection.vue'
 import IngenieriaVialSection from '~/components/ventanilla-universal/IngenieriaVialSection.vue'
 import EcologiaImagenUrbanaSection from '~/components/ventanilla-universal/EcologiaImagenUrbanaSection.vue'
 import CatastroSection from '~/components/ventanilla-universal/CatastroSection.vue'
@@ -90,9 +72,6 @@ definePageMeta({
 
 const openSections = ref({
   'desarrollo-urbano': false,
-  'comercio': false,
-  'proteccion-civil': false,
-  'medio-ambiente': false,
   'ingenieria-vial': false,
   'ecologia-imagen-urbana': false,
   'catastro': false,
