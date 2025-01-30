@@ -77,23 +77,45 @@
 import { Icon } from '#components'
 import { ref } from 'vue'
 
+const isOpen = defineModel('isOpen')
+const emit = defineEmits(['toggle'])
+
 const tramites = ref([
   {
     id: 1,
-    nombre: 'Declaración Patrimonial',
-    descripcion: 'Presentación de declaración patrimonial',
+    nombre: 'Registro de Contratista (Persona Física)',
+    descripcion: 'Registro en el padrón de contratistas para personas físicas que deseen participar en licitaciones y contratos de obra pública.',
     tiempo: '5 días hábiles',
-    link: '/files/DECLARACION PATRIMONIAL.pdf',
+    link: '/files/requisitos/CONTRATISTA-PERSONA-FISICA-_Requisitos_.pdf',
+    showDetails: false
+  },
+  {
+    id: 2,
+    nombre: 'Registro de Contratista (Persona Moral)',
+    descripcion: 'Registro en el padrón de contratistas para personas morales que deseen participar en licitaciones y contratos de obra pública.',
+    tiempo: '5 días hábiles',
+    link: '/files/requisitos/CONTRATISTA-PERSONA-MORAL-_Requisitos_.pdf',
+    showDetails: false
+  },
+  {
+    id: 3,
+    nombre: 'Registro de Proveedor (Persona Física)',
+    descripcion: 'Registro en el padrón de proveedores para personas físicas que deseen ofrecer bienes o servicios al municipio.',
+    tiempo: '5 días hábiles',
+    link: '/files/requisitos/PROVEEDOR-PERSONAS-FISICAS-_Requisitos_.pdf',
+    showDetails: false
+  },
+  {
+    id: 4,
+    nombre: 'Registro de Proveedor (Persona Moral)',
+    descripcion: 'Registro en el padrón de proveedores para personas morales que deseen ofrecer bienes o servicios al municipio.',
+    tiempo: '5 días hábiles',
+    link: '/files/requisitos/PROVEEDOR-PERSONAS-MORALES-_Requisitos_.pdf',
     showDetails: false
   }
 ])
 
-defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false
-  }
-})
-
-defineEmits(['toggle'])
+const toggle = () => {
+  emit('toggle')
+}
 </script>
