@@ -13,10 +13,11 @@
         {{ subtitle }}
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
-        <div 
+        <NuxtLink 
           v-for="(card, index) in cards" 
-          :key="index" 
-          class="bg-white/10 backdrop-blur-sm px-4 py-3 sm:p-5 md:p-6 rounded-lg text-center hover:bg-white/15 transition-all duration-300 flex flex-row sm:flex-col items-center sm:items-stretch gap-3 sm:gap-2"
+          :key="index"
+          :to="card.path"
+          class="bg-white/10 backdrop-blur-sm px-4 py-3 sm:p-5 md:p-6 rounded-lg text-center hover:bg-white/15 transition-all duration-300 flex flex-row sm:flex-col items-center sm:items-stretch gap-3 sm:gap-2 cursor-pointer"
         >
           <div class="text-white text-xl sm:text-3xl md:text-4xl shrink-0">
             <i :class="card.icon"></i>
@@ -27,7 +28,7 @@
               {{ card.description }}
             </p>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>

@@ -111,7 +111,10 @@
       <!-- Separador y Copyright -->
       <div class="border-t border-white/20 mt-12 pt-6 text-center">
         <p class="text-white/80 text-sm">
-          Copyright 2024 R. Ayuntamiento de Piedras Negras – <NuxtLink to="/aviso-de-privacidad" class="hover:text-white transition-colors">Aviso de Privacidad</NuxtLink>
+          &copy; 2024 Municipio de Piedras Negras. Todos los derechos reservados. 
+          <NuxtLink to="/aviso-de-privacidad" class="text-white hover:underline ml-2 transition-all duration-300">
+            Aviso de Privacidad
+          </NuxtLink>
         </p>
       </div>
     </div>
