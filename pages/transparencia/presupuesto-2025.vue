@@ -87,7 +87,7 @@ const documentos = ref([
   {
     nombre: '9. Proyecto de Presupuesto de Egresos',
     descripcion: 'Propuesta formal del presupuesto de egresos para el ejercicio fiscal 2025.',
-    url: '/files/Presupuesto 2025/9. PROYECTO DE PRESUPUESTO DE EGRESOS.pdf'
+    url: '/files/Presupuesto 2025/9. PROYECTO DE PRESUPUESTO DE EGRESOS_compressed.pdf'
   },
   {
     nombre: '10. Información Adicional al Proyecto de Presupuesto de Egresos',
@@ -97,7 +97,7 @@ const documentos = ref([
   {
     nombre: '11. Presupuesto de Egresos',
     descripcion: 'Documento final aprobado que establece el presupuesto de egresos para el ejercicio fiscal 2025.',
-    url: '/files/Presupuesto 2025/11. PRESUPUESTO DE EGRESOS.pdf'
+    url: '/files/Presupuesto 2025/11. PRESUPUESTO DE EGRESOS_compressed.pdf'
   },
   {
     nombre: '12. Acta de Aprobación del Presupuesto de Egresos',
