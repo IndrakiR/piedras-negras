@@ -55,7 +55,7 @@
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Informes Trimestrales</h3>
           <p class="text-gray-600 mb-4">Accede a los informes trimestrales de la gestión financiera.</p>
-          <NuxtLink to="/transparencia/gestion-financiera/informes" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/informes-trimestrales" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver más →
           </NuxtLink>
         </div>
@@ -78,6 +78,14 @@
           </ul>
         </div>
       </div>
+    </div>
+
+    <!-- Added a frame to load the Informes-Trimestrales page -->
+    <div class="frame">
+      <iframe src="/transparencia/informes-trimestrales" 
+              title="Informes Trimestrales" 
+              class="informes-frame">
+      </iframe>
     </div>
   </div>
 </template>
@@ -116,3 +124,19 @@ const documentos = ref([
   }
 ])
 </script>
+
+<style scoped>
+  /* existing styles */
+
+  /* Added style for the frame */
+  .frame {
+    margin-top: 2rem;
+    /* Customize the container styles as needed */
+  }
+
+  .informes-frame {
+    width: 100%;
+    height: 500px; /* adjust height as needed */
+    border: none;
+  }
+</style>
