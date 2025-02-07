@@ -79,7 +79,7 @@
                             </label>
                             <div class="relative group">
                                 <select 
-                                    v-model="formData.tipoDenuncia"
+                                    v-model="formData.tipo"
                                     class="w-full px-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all appearance-none placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                     required
                                 >
@@ -95,48 +95,107 @@
                             </div>
                         </div>
 
-                        <!-- Dependencia -->
+                        <!-- Fecha -->
                         <div class="relative">
                             <label class="block text-sm font-medium text-gray-700 mb-1.5">
-                                Dependencia o Área <span class="text-[#611232]">*</span>
+                                Fecha <span class="text-[#611232]">*</span>
                             </label>
                             <div class="relative group">
                                 <input 
-                                    type="text"
-                                    v-model="formData.dependencia"
+                                    type="date"
+                                    v-model="formData.fecha"
                                     class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
                                     required
-                                    placeholder="Ej: Tesorería, Obras Públicas"
                                 >
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
-                                    <i class="fas fa-building text-xl"></i>
+                                    <i class="fas fa-calendar text-xl"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Descripción -->
-                    <div class="relative">
-                        <label class="block text-sm font-medium text-gray-700 mb-1.5">
-                            Descripción de los Hechos <span class="text-[#611232]">*</span>
-                        </label>
-                        <div class="relative group">
-                            <textarea 
-                                v-model="formData.descripcion"
-                                rows="6"
-                                class="w-full px-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
-                                required
-                                placeholder="Describa detalladamente los hechos..."
-                                maxlength="1000"
-                            ></textarea>
-                            <div class="absolute bottom-3 right-3 px-2 py-1 bg-[#611232]/10 rounded-md text-xs text-[#611232] font-medium">
-                                {{ formData.descripcion.length }}/1000
+                    <!-- Nombre y Domicilio -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nombre -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                                Nombre <span class="text-[#611232]">*</span>
+                            </label>
+                            <div class="relative group">
+                                <input 
+                                    type="text"
+                                    v-model="formData.nombre"
+                                    class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
+                                    required
+                                >
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                    <i class="fas fa-user text-xl"></i>
+                                </div>
                             </div>
                         </div>
-                        <p class="mt-1.5 text-sm text-gray-500 flex items-center">
-                            <i class="fas fa-info-circle mr-2 text-[#611232]"></i>
-                            Proporcione detalles específicos que ayuden en la investigación
-                        </p>
+
+                        <!-- Domicilio -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                                Domicilio <span class="text-[#611232]">*</span>
+                            </label>
+                            <div class="relative group">
+                                <input 
+                                    type="text"
+                                    v-model="formData.domicilio"
+                                    class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
+                                    required
+                                >
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fecha de los Hechos y Descripción -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Fecha de los Hechos -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                                Fecha de los Hechos <span class="text-[#611232]">*</span>
+                            </label>
+                            <div class="relative group">
+                                <input 
+                                    type="date"
+                                    v-model="formData.fechaHechos"
+                                    class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
+                                    required
+                                >
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
+                                    <i class="fas fa-calendar text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">
+                                Descripción de los Hechos <span class="text-[#611232]">*</span>
+                            </label>
+                            <div class="relative group">
+                                <textarea 
+                                    v-model="formData.descripcion"
+                                    rows="6"
+                                    class="w-full px-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
+                                    required
+                                    placeholder="Describa detalladamente los hechos..."
+                                    maxlength="1000"
+                                ></textarea>
+                                <div class="absolute bottom-3 right-3 px-2 py-1 bg-[#611232]/10 rounded-md text-xs text-[#611232] font-medium">
+                                    {{ formData.descripcion.length }}/1000
+                                </div>
+                            </div>
+                            <p class="mt-1.5 text-sm text-gray-500 flex items-center">
+                                <i class="fas fa-info-circle mr-2 text-[#611232]"></i>
+                                Proporcione detalles específicos que ayuden en la investigación
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Información de Contacto -->
@@ -153,17 +212,17 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label class="block text-sm font-medium text-gray-700 mb-1.5">
-                                        Nombre
+                                        Teléfono
                                     </label>
                                     <div class="relative group">
                                         <input 
-                                            type="text"
-                                            v-model="formData.nombre"
+                                            type="tel"
+                                            v-model="formData.telefono"
                                             class="w-full pl-14 pr-8 py-5 rounded-xl bg-white border-2 border-gray-200 focus:border-[#611232] focus:ring focus:ring-[#611232]/20 transition-all placeholder-gray-500 hover:border-[#611232]/50 text-gray-700 text-lg tracking-wider"
-                                            placeholder="Su nombre (opcional)"
+                                            placeholder="Su teléfono (opcional)"
                                         >
                                         <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none text-gray-400 group-hover:text-[#611232] transition-colors">
-                                            <i class="fas fa-user text-xl"></i>
+                                            <i class="fas fa-phone text-xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -210,62 +269,40 @@
 
 <script setup>
 definePageMeta({
-  middleware: ['inicio']
-})
-import { ref, onMounted } from 'vue'
-import BannerV2 from '~/components/BannerV2.vue'
-
-const emits = defineEmits(['page-ready'])
-
-onMounted(() => {
-  // Signal that the page is ready
-  emits('page-ready')
+    middleware: ['inicio']
 })
 
-const isSubmitting = ref(false)
 const formData = ref({
-    tipoDenuncia: '',
-    dependencia: '',
-    descripcion: '',
+    tipo: '',
+    fecha: '',
     nombre: '',
+    domicilio: '',
+    fechaHechos: '',
+    descripcion: '',
+    telefono: '',
     email: ''
 })
 
-const currentStep = ref(1)
-
-const bannerCards = [
-    {
-        icon: 'fas fa-file-alt',
-        title: 'Formulario Seguro',
-        description: 'Tu denuncia será tratada con total confidencialidad'
-    },
-    {
-        icon: 'fas fa-shield-alt',
-        title: 'Protección',
-        description: 'Garantizamos la protección de tus datos personales'
-    },
-    {
-        icon: 'fas fa-check-circle',
-        title: 'Seguimiento',
-        description: 'Daremos seguimiento oportuno a tu denuncia'
-    }
-]
+const isSubmitting = ref(false)
 
 const submitForm = async () => {
     try {
         isSubmitting.value = true
         await new Promise(resolve => setTimeout(resolve, 1500))
-        alert('Su denuncia ha sido enviada exitosamente.')
+        alert('Su formulario ha sido enviado exitosamente.')
         formData.value = {
-            tipoDenuncia: '',
-            dependencia: '',
-            descripcion: '',
+            tipo: '',
+            fecha: '',
             nombre: '',
+            domicilio: '',
+            fechaHechos: '',
+            descripcion: '',
+            telefono: '',
             email: ''
         }
     } catch (error) {
         console.error('Error al enviar el formulario:', error)
-        alert('Hubo un error al enviar su denuncia. Por favor, intente nuevamente.')
+        alert('Hubo un error al enviar su formulario. Por favor, intente nuevamente.')
     } finally {
         isSubmitting.value = false
     }
