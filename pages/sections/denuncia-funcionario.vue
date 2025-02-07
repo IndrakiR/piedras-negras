@@ -212,8 +212,15 @@
 definePageMeta({
   middleware: ['inicio']
 })
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import BannerV2 from '~/components/BannerV2.vue'
+
+const emits = defineEmits(['page-ready'])
+
+onMounted(() => {
+  // Signal that the page is ready
+  emits('page-ready')
+})
 
 const isSubmitting = ref(false)
 const formData = ref({

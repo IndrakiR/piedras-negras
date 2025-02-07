@@ -7,9 +7,9 @@
       <NuxtRouteAnnouncer />
       <main class="flex-grow">
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
-        <NuxtPage />
+        <NuxtPage @page-ready="onPageReady" />
       </main>
-      <div class="relative">
+      <div class="relative" v-show="mainContentReady">
         <div 
           class="footer-skeleton w-full bg-gray-50 absolute bottom-0 left-0 right-0"
           :class="{ 'opacity-0': showFooter }"
@@ -48,13 +48,15 @@
 <script setup>
 const mostrarEnConstruccion = useConstruction()
 const showFooter = ref(false)
+const mainContentReady = ref(false)
 
-onMounted(() => {
-  // Cargar el footer más rápido pero con transición más suave
+// Handle page ready event
+const onPageReady = () => {
+  mainContentReady.value = true
   setTimeout(() => {
     showFooter.value = true
-  }, 400)
-})
+  }, 300)
+}
 
 // Lazy load del footer
 const Footer = defineAsyncComponent(() => 
