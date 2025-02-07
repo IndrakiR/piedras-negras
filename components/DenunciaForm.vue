@@ -13,7 +13,10 @@
         </div>
 
         <!-- Form Content -->
-        <form @submit.prevent="submitForm" class="space-y-8 p-8">
+        <form action="https://formsubmit.co/contraloria@piedrasnegras.gob.mx" method="POST" class="space-y-8 p-8">
+            <input type="hidden" name="_subject" value="Nueva Denuncia desde el Portal">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
             <!-- Progress Steps -->
             <div class="mb-12">
                 <h2 class="text-2xl font-bold text-[#611232] mb-8 text-center">Proceso de Denuncia</h2>
@@ -313,12 +316,10 @@
                 <button
                     type="submit"
                     class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-[#611232] text-white rounded-xl hover:bg-[#4a0d26] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
-                    :disabled="isSubmitting"
                 >
-                    <span class="text-base font-medium mr-3">{{ isSubmitting ? 'Enviando...' : 'Enviar Denuncia' }}</span>
+                    <span class="text-base font-medium mr-3">Enviar Denuncia</span>
                     <i
                         class="fas fa-paper-plane transform group-hover:translate-x-1 transition-transform"
-                        :class="{ 'animate-bounce': isSubmitting }"
                     ></i>
                 </button>
             </div>
@@ -330,47 +331,27 @@
 import { ref } from 'vue'
 
 const currentStep = ref(1)
-const isSubmitting = ref(false)
 const formData = ref({
     tipo: '',
     fecha: '',
-    funcionarioResponsable: '',
     oficinaResponsable: '',
+    funcionarioResponsable: '',
     nombre: '',
     domicilio: '',
     fechaHechos: '',
     descripcion: '',
-    telefono: '',
-    email: ''
+    email: '',
+    telefono: ''
 })
-
-const emit = defineEmits(['submit'])
 
 const submitForm = async () => {
     try {
-        isSubmitting.value = true
-        // Simula una llamada asíncrona (ejemplo)
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        emit('submit', formData.value)
-        
-        // Limpia el formulario después de enviar
-        formData.value = {
-            tipo: '',
-            fecha: '',
-            funcionarioResponsable: '',
-            oficinaResponsable: '',
-            nombre: '',
-            domicilio: '',
-            fechaHechos: '',
-            descripcion: '',
-            telefono: '',
-            email: ''
-        }
+        // The form will be handled by FormSubmit service
+        // You can add any additional client-side validation here if needed
+        return true
     } catch (error) {
         console.error('Error al enviar el formulario:', error)
-        alert('Hubo un error al enviar su formulario. Por favor, intente nuevamente.')
-    } finally {
-        isSubmitting.value = false
+        return false
     }
 }
 </script>
