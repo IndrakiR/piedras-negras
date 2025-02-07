@@ -70,7 +70,6 @@
 import BannerV2 from '~/components/BannerV2.vue'
 
 definePageMeta({
-  middleware: ['inicio']
 })
 </script>
 

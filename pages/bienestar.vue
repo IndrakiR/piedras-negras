@@ -73,7 +73,5 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: ['inicio']
-})
+definePageMeta({})
 </script>

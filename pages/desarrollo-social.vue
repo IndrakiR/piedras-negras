@@ -185,8 +185,7 @@ import { definePageMeta } from '#imports'
 
 definePageMeta({
   title: 'Desarrollo Social',
-  layout: 'default',
-  middleware: ['inicio']
+  layout: 'default'
 })
 </script>
 

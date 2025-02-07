@@ -12,9 +12,7 @@
 </template>
 
 <script setup>
-definePageMeta({
-    middleware: ['inicio']
-})
+definePageMeta({})
 
 const bannerCards = [
     {
