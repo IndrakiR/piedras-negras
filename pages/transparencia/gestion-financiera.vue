@@ -29,9 +29,9 @@
           <div class="text-[#611232] mb-4">
             <Icon name="mdi:cash" class="w-8 h-8" />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Presupuesto</h3>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Proceso Presupuestario 2025</h3>
           <p class="text-gray-600 mb-4">Información sobre el presupuesto municipal y su ejercicio.</p>
-          <NuxtLink to="/transparencia/gestion-financiera/presupuesto" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="presupuesto-2025" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver más →
           </NuxtLink>
         </div>
@@ -55,7 +55,7 @@
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Informes Trimestrales</h3>
           <p class="text-gray-600 mb-4">Accede a los informes trimestrales de la gestión financiera.</p>
-          <NuxtLink to="/transparencia/gestion-financiera/informes" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <NuxtLink to="/transparencia/informes-trimestrales" class="text-[#611232] hover:text-[#4D0E28] font-medium">
             Ver más →
           </NuxtLink>
         </div>
@@ -79,6 +79,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Added a frame to load the Informes-Trimestrales page -->
+    <div class="frame">
+      <iframe src="/transparencia/informes-trimestrales" 
+              title="Informes Trimestrales" 
+              class="informes-frame">
+      </iframe>
+    </div>
   </div>
 </template>
 
@@ -87,16 +95,48 @@ import BannerV2 from '~/components/BannerV2.vue'
 
 const documentos = ref([
   {
-    nombre: 'Presupuesto Anual 2024',
-    url: '/transparencia/gestion-financiera/documentos/presupuesto-2024'
+    nombre: 'Anteproyecto de Ley de Ingresos 2025',
+    url: '/files/Presupuesto 2025/ANTEPROYECTO DE LEY DE INGRESOS.pdf'
   },
   {
-    nombre: 'Cuenta Pública 2023',
-    url: '/transparencia/gestion-financiera/documentos/cuenta-publica-2023'
+    nombre: 'Proyecto de Presupuesto de Ley de Ingresos 2025',
+    url: '/files/Presupuesto 2025/PROYECTO DE PRESUPUESTO DE LEY DE INGRESOS.pdf'
   },
   {
-    nombre: 'Informe Trimestral Q4 2023',
-    url: '/transparencia/gestion-financiera/documentos/informe-q4-2023'
+    nombre: 'Acta de Aprobación Proyectos 2025',
+    url: '/files/Presupuesto 2025/ACTA DE APROBACION PROYECTOS DE L.I. Y P.E..pdf'
+  },
+  {
+    nombre: 'Iniciativa de Ley de Ingresos 2025',
+    url: '/files/Presupuesto 2025/INICIATIVA DE LEY DE INGRESOS.pdf'
+  },
+  {
+    nombre: 'Dictamen de la Comisión de Hacienda 2025',
+    url: '/files/Presupuesto 2025/DICTAMEN DE LA COMISION DE HACIENDA, PATRIMONIO Y CUENTA PUB.pdf'
+  },
+  {
+    nombre: 'Información Adicional Iniciativa Ley de Ingresos 2025',
+    url: '/files/Presupuesto 2025/INFORMACION ADICIONAL INICIATIVA LEY DE INGRESOS.pdf'
+  },
+  {
+    nombre: 'Calendario Ingresos Base Mensual 2025',
+    url: '/files/Presupuesto 2025/CALENDARIO INGRESOS BASE MENSUAL.pdf'
   }
 ])
 </script>
+
+<style scoped>
+  /* existing styles */
+
+  /* Added style for the frame */
+  .frame {
+    margin-top: 2rem;
+    /* Customize the container styles as needed */
+  }
+
+  .informes-frame {
+    width: 100%;
+    height: 500px; /* adjust height as needed */
+    border: none;
+  }
+</style>
