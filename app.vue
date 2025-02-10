@@ -9,37 +9,8 @@
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
         <NuxtPage @page-ready="onPageReady" />
       </main>
-      <div class="relative" v-show="mainContentReady">
-        <div 
-          class="footer-skeleton w-full bg-gray-50 absolute bottom-0 left-0 right-0"
-          :class="{ 'opacity-0': showFooter }"
-        >
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div class="h-6 bg-gray-200 rounded w-3/4 mb-4 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
-              </div>
-              <div>
-                <div class="h-6 bg-gray-200 rounded w-3/4 mb-4 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
-              </div>
-              <div>
-                <div class="h-6 bg-gray-200 rounded w-3/4 mb-4 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
-                <div class="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div 
-          class="footer-content"
-          :class="{ 'opacity-100': showFooter, 'opacity-0': !showFooter }"
-        >
-          <Footer />
-        </div>
+      <div class="relative">
+        <Footer />
       </div>
     </div>
   </div>
@@ -47,16 +18,6 @@
 
 <script setup>
 const mostrarEnConstruccion = useConstruction()
-const showFooter = ref(false)
-const mainContentReady = ref(false)
-
-// Handle page ready event
-const onPageReady = () => {
-  mainContentReady.value = true
-  setTimeout(() => {
-    showFooter.value = true
-  }, 300)
-}
 
 // Lazy load del footer
 const Footer = defineAsyncComponent(() => 
