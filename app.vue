@@ -9,7 +9,7 @@
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
         <NuxtPage @page-ready="onPageReady" />
       </main>
-      <div class="relative">
+      <div class="relative" v-show="isMainContentLoaded">
         <Footer />
       </div>
     </div>
@@ -17,7 +17,10 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 const mostrarEnConstruccion = useConstruction()
+const isMainContentLoaded = ref(false)
 
 // Lazy load del footer
 const Footer = defineAsyncComponent(() => 
@@ -41,6 +44,11 @@ useHead({
     }
   ]
 })
+
+// Handle page ready event
+const onPageReady = () => {
+  isMainContentLoaded.value = true
+}
 </script>
 
 <style>
