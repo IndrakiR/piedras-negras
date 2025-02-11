@@ -201,14 +201,10 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
-    <Footer />
   </div>
 </template>
 
 <script setup>
 import BannerV2 from '~/components/BannerV2.vue'
-import Footer from '~/components/Footer.vue'
 import Icon from '~/components/inicio/Icon.vue'
 </script>

@@ -181,14 +181,10 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
-    <Footer />
   </div>
 </template>
 
 <script setup>
 import BannerV2 from '~/components/BannerV2.vue'
 import DifSections from '~/components/DifSections.vue'
-import Footer from '~/components/Footer.vue'
 </script>

@@ -9,9 +9,7 @@
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
         <NuxtPage @page-ready="onPageReady" />
       </main>
-      <div class="relative" v-show="isMainContentLoaded">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   </div>
 </template>
