@@ -31,10 +31,10 @@
               </li>
             </ul>
             <div class="mt-6">
-              <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#611232] text-white rounded-lg hover:bg-[#7a1741] transition-colors">
+              <NuxtLink to="/casa-del-adolescente" class="inline-flex items-center gap-2 px-4 py-2 bg-[#611232] text-white rounded-lg hover:bg-[#7a1741] transition-colors">
                 Más información
                 <Icon name="mdi:arrow-right" class="w-4 h-4" />
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -68,10 +68,10 @@
               </li>
             </ul>
             <div class="mt-6">
-              <button class="inline-flex items-center gap-2 px-4 py-2 bg-[#611232] text-white rounded-lg hover:bg-[#7a1741] transition-colors">
+              <NuxtLink to="/centro-mayores" class="inline-flex items-center gap-2 px-4 py-2 bg-[#611232] text-white rounded-lg hover:bg-[#7a1741] transition-colors">
                 Más información
                 <Icon name="mdi:arrow-right" class="w-4 h-4" />
-              </button>
+              </NuxtLink>
             </div>
           </div>
         </div>
