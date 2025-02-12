@@ -9,13 +9,13 @@
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
         <NuxtPage @page-ready="onPageReady" />
       </main>
-      <Footer />
+      <Footer v-show="isMainContentLoaded" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const mostrarEnConstruccion = useConstruction()
 const isMainContentLoaded = ref(false)
@@ -45,8 +45,21 @@ useHead({
 
 // Handle page ready event
 const onPageReady = () => {
-  isMainContentLoaded.value = true
+  // Small delay to ensure content is rendered
+  setTimeout(() => {
+    isMainContentLoaded.value = true
+  }, 100)
 }
+
+// Set initial state
+onMounted(() => {
+  // If page is already loaded when component mounts
+  if (process.client) {
+    setTimeout(() => {
+      isMainContentLoaded.value = true
+    }, 100)
+  }
+})
 </script>
 
 <style>
@@ -99,14 +112,5 @@ input, select, textarea {
 
 .footer-content {
   transition: opacity 0.8s ease-in-out;
-  z-index: 2;
-}
-
-.opacity-0 {
-  opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
 }
 </style>
