@@ -7,18 +7,24 @@
       <NuxtRouteAnnouncer />
       <main class="flex-grow">
         <NuxtLoadingIndicator color="#5e1210" height="3px" />
-        <NuxtPage @page-ready="onPageReady" />
+        <NuxtPage />
       </main>
-      <Footer v-show="isMainContentLoaded" />
+      <ClientOnly>
+        <Suspense>
+          <Footer v-if="showFooter" />
+        </Suspense>
+      </ClientOnly>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const mostrarEnConstruccion = useConstruction()
-const isMainContentLoaded = ref(false)
+const showFooter = ref(false)
 
 // Lazy load del footer
 const Footer = defineAsyncComponent(() => 
@@ -43,22 +49,11 @@ useHead({
   ]
 })
 
-// Handle page ready event
-const onPageReady = () => {
-  // Small delay to ensure content is rendered
-  setTimeout(() => {
-    isMainContentLoaded.value = true
-  }, 100)
-}
-
-// Set initial state
+// Show footer after a delay
 onMounted(() => {
-  // If page is already loaded when component mounts
-  if (process.client) {
-    setTimeout(() => {
-      isMainContentLoaded.value = true
-    }, 100)
-  }
+  setTimeout(() => {
+    showFooter.value = true
+  }, 1000)
 })
 </script>
 
@@ -85,32 +80,5 @@ button, a {
 /* Improve form elements on mobile */
 input, select, textarea {
   font-size: 16px !important; /* Prevents zoom on focus in iOS */
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Transiciones del footer */
-.footer-skeleton {
-  transition: opacity 0.8s ease-in-out;
-  z-index: 1;
-}
-
-.footer-content {
-  transition: opacity 0.8s ease-in-out;
 }
 </style>

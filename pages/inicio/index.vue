@@ -36,4 +36,3 @@ import UltimasNoticias from '~/components/inicio/UltimasNoticias.vue'
   transform: translateY(20px);
 }
 </style>
-
