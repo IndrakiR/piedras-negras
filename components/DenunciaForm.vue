@@ -13,10 +13,10 @@
         </div>
 
         <!-- Form Content -->
-        <form action="https://formsubmit.co/contraloria@piedrasnegras.gob.mx" method="POST" class="space-y-8 p-8">
-            <input type="hidden" name="_subject" value="Nueva Denuncia desde el Portal">
-            <input type="hidden" name="_template" value="table">
+        <form @submit.prevent="submitForm" class="space-y-8 p-8">
+            <input type="hidden" name="_next" value="false">
             <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table">
             <!-- Progress Steps -->
             <div class="mb-12">
                 <h2 class="text-2xl font-bold text-[#611232] mb-8 text-center">Proceso de Denuncia</h2>
@@ -315,15 +315,30 @@
                 </p>
                 <button
                     type="submit"
+                    :disabled="isSubmitting"
                     class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-[#611232] text-white rounded-xl hover:bg-[#4a0d26] focus:outline-none focus:ring-2 focus:ring-[#611232] focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl group"
                 >
-                    <span class="text-base font-medium mr-3">Enviar Denuncia</span>
+                    <span v-if="!isSubmitting" class="text-base font-medium mr-3">Enviar Denuncia</span>
+                    <span v-else class="text-base font-medium mr-3">Enviando...</span>
                     <i
-                        class="fas fa-paper-plane transform group-hover:translate-x-1 transition-transform"
+                        class="fas"
+                        :class="[
+                            {'animate-spin': isSubmitting},
+                            isSubmitting ? 'fa-circle-notch' : 'fa-paper-plane transform group-hover:translate-x-1 transition-transform'
+                        ]"
                     ></i>
                 </button>
             </div>
         </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div v-if="showSuccessModal" class="fixed inset-0 bg-black/50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+            <h2 class="text-2xl font-bold text-[#611232] mb-4">¡Denuncia Enviada con Éxito!</h2>
+            <p class="text-lg text-gray-700 mb-6">Su denuncia ha sido enviada correctamente. Le agradecemos su participación.</p>
+            <button @click="closeSuccessModal" class="bg-[#611232] text-white rounded-xl py-3 px-6 hover:bg-[#4a0d26] transition-all">Cerrar</button>
+        </div>
     </div>
 </template>
 
@@ -331,6 +346,8 @@
 import { ref } from 'vue'
 
 const currentStep = ref(1)
+const showSuccessModal = ref(false)
+const isSubmitting = ref(false)
 const formData = ref({
     tipo: '',
     fecha: '',
@@ -344,14 +361,61 @@ const formData = ref({
     telefono: ''
 })
 
-const submitForm = async () => {
+const closeSuccessModal = () => {
+    showSuccessModal.value = false
+    // Reset form after closing modal
+    formData.value = {
+        tipo: '',
+        fecha: '',
+        oficinaResponsable: '',
+        funcionarioResponsable: '',
+        nombre: '',
+        domicilio: '',
+        fechaHechos: '',
+        descripcion: '',
+        email: '',
+        telefono: ''
+    }
+}
+
+const submitForm = async (e) => {
+    e.preventDefault()
+    if (isSubmitting.value) return // Prevent double submission
+
+    isSubmitting.value = true
     try {
-        // The form will be handled by FormSubmit service
-        // You can add any additional client-side validation here if needed
-        return true
+        // Create FormData object from form values
+        const form = new FormData()
+        for (const [key, value] of Object.entries(formData.value)) {
+            if (value) form.append(key, value)
+        }
+        
+        // Add required FormSubmit.co fields
+        form.append('_subject', 'Nueva Denuncia desde el Portal')
+        form.append('_template', 'table')
+        form.append('_captcha', 'true')
+
+        // Send to FormSubmit
+        const response = await fetch('https://formsubmit.co/ajax/buzondequejas@piedrasnegras.gob.mx', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json'
+            },
+            body: form
+        })
+
+        const result = await response.json()
+        
+        if (result.success === 'true' || result.success === true) {
+            showSuccessModal.value = true
+        } else {
+            throw new Error('Error en el envío')
+        }
     } catch (error) {
         console.error('Error al enviar el formulario:', error)
-        return false
+        alert('Hubo un error al enviar el formulario. Por favor intente de nuevo.')
+    } finally {
+        isSubmitting.value = false
     }
 }
 </script>
