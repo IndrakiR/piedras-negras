@@ -38,7 +38,57 @@
                      class="group relative"
                      :class="{'opacity-0 animate-slide-up': !loading}"
                      :style="{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }">
-                    <NuxtLink :to="section.link" 
+                    <template v-if="section.link === '/sections/obras-servicios-publicos' || section.link === '/sections/dispensario-medico'">
+                        <div class="block relative overflow-hidden cursor-pointer"
+                             :aria-label="section.title">
+                            <!-- Card Container -->
+                            <div class="bg-gray-50 rounded-2xl p-8 transition-all duration-300 
+                                        group-hover:bg-white group-hover:shadow-xl group-hover:-translate-y-1
+                                        focus-within:ring-2 focus-within:ring-[#611232]">
+                                <!-- Icon -->
+                                <div class="relative w-20 h-20 mb-6">
+                                    <div class="absolute inset-0 bg-[#611232]/10 rounded-xl transform 
+                                                rotate-6 transition-transform group-hover:rotate-12"></div>
+                                    <div class="absolute inset-0 bg-white rounded-xl transform 
+                                                -rotate-3 transition-transform group-hover:rotate-0">
+                                        <img v-if="section.image" :src="section.image" 
+                                             :alt="section.title"
+                                             class="w-full h-full object-contain p-3"
+                                             loading="lazy" />
+                                        <Icon v-else :name="section.icon" class="text-[#611232] w-12 h-12 m-auto flex items-center justify-center h-full" />
+                                    </div>
+                                </div>
+
+                                <!-- Content -->
+                                <h2 class="text-xl font-bold text-gray-900 mb-2 
+                                           group-hover:text-[#611232] transition-colors">
+                                    {{ section.title }}
+                                </h2>
+                                <p class="text-gray-600 mb-4">{{ section.description }}</p>
+
+                                <!-- Action indicator -->
+                                <div class="flex items-center text-[#611232] text-sm font-medium">
+                                    <span class="mr-2">Explorar</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                         class="h-4 w-4 transform transition-transform group-hover:translate-x-1" 
+                                         fill="none" 
+                                         viewBox="0 0 24 24" 
+                                         stroke="currentColor">
+                                        <path stroke-linecap="round" 
+                                              stroke-linejoin="round" 
+                                              stroke-width="2" 
+                                              d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Decorative corner pattern -->
+                            <div class="absolute top-0 right-0 w-24 h-24 transform translate-x-1/2 -translate-y-1/2
+                                        bg-gradient-to-br from-[#611232]/20 to-[#611232]/5 rounded-full opacity-0
+                                        group-hover:opacity-50 transition-opacity"></div>
+                        </div>
+                    </template>
+                    <NuxtLink v-else :to="section.link" 
                              class="block relative overflow-hidden"
                              :aria-label="section.title">
                         <!-- Card Container -->
