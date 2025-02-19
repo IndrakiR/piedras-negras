@@ -54,12 +54,14 @@
                     <NuxtLink
                       v-for="subItem in item.submenu"
                       :key="subItem.path"
-                      :to="subItem.path"
-                      class="block px-4 py-3 text-sm text-gray-700 hover:bg-pink-50 hover:text-[#9D2449] transition-colors duration-200"
+                      :to="subItem.disabled ? '' : subItem.path"
+                      class="block px-4 py-3 text-sm hover:bg-pink-50 transition-colors duration-200"
                       :class="{
-                        'text-[#9D2449] bg-pink-50 font-medium':
-                          route.path === subItem.path
+                        'text-[#9D2449] bg-pink-50 font-medium': route.path === subItem.path,
+                        'text-gray-700 hover:text-[#9D2449]': !subItem.disabled,
+                        'text-gray-300 cursor-not-allowed': subItem.disabled
                       }"
+                      @click="subItem.disabled && $event.preventDefault()"
                     >
                       {{ subItem.name }}
                     </NuxtLink>
@@ -168,14 +170,16 @@
                     <NuxtLink
                       v-for="subItem in item.submenu"
                       :key="subItem.path"
-                      :to="subItem.path"
+                      :to="subItem.disabled ? '' : subItem.path"
                       class="block pl-8 py-2 transition-colors duration-300"
                       :class="[ 
                         route.path === subItem.path
-                          ? 'text-[#9D2449] font-medium border-l-4 border-[#9D2449] bg-pink-50'
-                          : 'text-[#2D2D2D] hover:text-[#9D2449] hover:bg-gray-50'
+                          ? 'text-[#9D2449] font-medium'
+                          : subItem.disabled
+                            ? 'text-gray-300 cursor-not-allowed'
+                            : 'text-[#2D2D2D] hover:text-[#9D2449]'
                       ]"
-                      @click="closeMenu"
+                      @click="subItem.disabled && $event.preventDefault()"
                     >
                       {{ subItem.name }}
                     </NuxtLink>
@@ -232,8 +236,6 @@ const isMenuOpen = ref(false)
 const openSubmenu = ref(null)
 const submenuHeight = ref(150) // Adjust this value based on your submenu content
 
-const showAllSections = import.meta.env.VITE_SHOW_ALL_SECTIONS !== 'false'
-
 // Navigation items array
 const navigationItems = [
   {
@@ -252,7 +254,7 @@ const navigationItems = [
     name: 'Directorio',
     path: '/directorio',
     hasSubmenu: true,
-    disabled: !showAllSections,
+    disabled: true,
     submenu: [
       { name: 'Cabildo', path: '/directorio/cabildo' },
       { name: 'Directores', path: '/directorio/directores' },
@@ -263,23 +265,23 @@ const navigationItems = [
     name: 'Trámites',
     path: '/tramites',
     hasSubmenu: true,
-    disabled: !showAllSections,
+    disabled: false,
     submenu: [
       { name: 'Registro de proveedores', path: '/tramites/registro-proveedores' },
       { name: 'Ventanilla Universal', path: '/tramites/ventanilla-universal' },
-      { name: 'Información', path: '/tramites/informacion' }
+      { name: 'Información', path: '/tramites/informacion', disabled: true }
     ]
   },
   { name: 'Conferencias Matutinas', path: '/conferencias-matutinas', disabled: true },
   {
     name: 'Desarrollo Social',
     path: '/desarrollo-social',
-    disabled: !showAllSections
+    disabled: false
   },
   {
     name: 'Transparencia',
     path: '/transparencia',
-    disabled: !showAllSections
+    disabled: false
   }
 ]
 

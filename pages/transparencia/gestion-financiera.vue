@@ -43,9 +43,9 @@
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Estados Financieros</h3>
           <p class="text-gray-600 mb-4">Consulta los estados financieros del municipio.</p>
-          <NuxtLink to="/transparencia/gestion-financiera/estados-financieros" class="text-[#611232] hover:text-[#4D0E28] font-medium">
+          <div class="text-gray-400 font-medium cursor-not-allowed">
             Ver más →
-          </NuxtLink>
+          </div>
         </div>
 
         <!-- Sección de Informes -->
@@ -71,21 +71,13 @@
                 <Icon name="mdi:file-document" class="w-6 h-6" />
               </div>
               <span class="text-gray-900">{{ doc.nombre }}</span>
-              <NuxtLink :to="doc.url" class="ml-auto text-[#611232] hover:text-[#4D0E28] font-medium">
+              <div class="ml-auto text-gray-400 font-medium cursor-not-allowed">
                 Descargar →
-              </NuxtLink>
+              </div>
             </li>
           </ul>
         </div>
       </div>
-    </div>
-
-    <!-- Added a frame to load the Informes-Trimestrales page -->
-    <div class="frame">
-      <iframe src="/transparencia/informes-trimestrales" 
-              title="Informes Trimestrales" 
-              class="informes-frame">
-      </iframe>
     </div>
   </div>
 </template>
@@ -127,16 +119,4 @@ const documentos = ref([
 
 <style scoped>
   /* existing styles */
-
-  /* Added style for the frame */
-  .frame {
-    margin-top: 2rem;
-    /* Customize the container styles as needed */
-  }
-
-  .informes-frame {
-    width: 100%;
-    height: 500px; /* adjust height as needed */
-    border: none;
-  }
 </style>
