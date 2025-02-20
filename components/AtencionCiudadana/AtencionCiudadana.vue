@@ -299,25 +299,50 @@ const resetForm = () => {
 
 <style scoped>
 .form-group {
-  @apply relative space-y-1;
+  position: relative;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .form-label {
-  @apply block text-sm font-medium text-gray-700;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
 }
 
 .form-input {
-  @apply w-full px-4 py-3 rounded-xl border border-gray-300 
-         focus:border-[#611232] focus:ring-2 focus:ring-[#611232] focus:ring-opacity-20 
-         transition-all duration-300 bg-gray-50;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #D1D5DB;
+  transition-property: all;
+  transition-duration: 300ms;
+  background-color: #F9FAFB;
+}
+
+.form-input:focus {
+  border-color: #611232;
+  box-shadow: 0 0 0 2px rgba(97, 18, 50, 0.2);
+  outline: none;
 }
 
 .form-input.error {
-  @apply border-red-500 bg-red-50 focus:border-red-500 focus:ring-red-500;
+  border-color: #EF4444;
+  background-color: #FEF2F2;
+}
+
+.form-input.error:focus {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
 }
 
 .error-message {
-  @apply absolute -bottom-5 left-0 text-xs text-red-500;
+  position: absolute;
+  bottom: -1.25rem;
+  left: 0;
+  font-size: 0.75rem;
+  color: #EF4444;
 }
 
 @keyframes fadeIn {

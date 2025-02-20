@@ -77,7 +77,7 @@
               v-else-if="node.type === 'quote'" 
               class="border-l-4 border-[#5e1210] pl-4 my-6 italic"
             >
-              {{ node.children[0]?.children[0]?.text }}
+              {{ node.children[0]?.text }}
             </blockquote>
 
             <!-- Uploads -->
@@ -112,7 +112,7 @@
                     :key="cellIndex"
                     class="border p-2"
                   >
-                    {{ cell.children[0]?.children[0]?.text }}
+                    {{ cell.children[0]?.text }}
                   </td>
                 </tr>
               </tbody>
@@ -127,69 +127,96 @@
 <script setup lang="ts">
 import { computed, defineProps, ref } from 'vue'
 
-interface TextNode {
-  type: 'text'
-  text: string
-  bold?: boolean
-  italic?: boolean
-  underline?: boolean
-  strikethrough?: boolean
-  code?: boolean
+interface BaseNode {
+  type: string;
+  children?: any[];
 }
 
-interface LinkNode {
-  type: 'link'
-  url: string
-  newTab?: boolean
-  children: TextNode[]
+interface TextNode extends BaseNode {
+  type: 'text';
+  text: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
 }
 
-interface UploadNode {
-  type: 'upload'
-  relationTo: string
-  value?: {
-    url: string
-    alt?: string
-  }
+interface LinkNode extends BaseNode {
+  type: 'link';
+  url: string;
+  newTab?: boolean;
+  children: TextNode[];
 }
 
-interface ListItemNode {
-  type: 'listItem'
-  checked?: boolean
-  children: TextNode[]
+interface UploadNode extends BaseNode {
+  type: 'upload';
+  relationTo: string;
+  value: {
+    url: string;
+    alt?: string;
+    caption?: string;
+  };
 }
 
-interface HeadingNode {
-  type: 'heading'
-  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  children: TextNode[]
+interface TableCellNode extends BaseNode {
+  type: 'tableCell';
+  children: TextNode[];
 }
 
-interface ParagraphNode {
-  type: 'paragraph'
-  children: (TextNode | LinkNode)[]
+interface TableRowNode extends BaseNode {
+  type: 'tableRow';
+  children: TableCellNode[];
 }
 
-interface ListNode {
-  type: 'list'
-  listType: 'bullet' | 'number' | 'check'
-  children: ListItemNode[]
+interface TableNode extends BaseNode {
+  type: 'table';
+  children: TableRowNode[];
 }
 
-interface QuoteNode {
-  type: 'quote'
-  children: ParagraphNode[]
+interface QuoteNode extends BaseNode {
+  type: 'quote';
+  children: Array<{ text: string }>;
 }
+
+interface ListItemNode extends BaseNode {
+  type: 'listItem';
+  children: TextNode[];
+  checked?: boolean;
+}
+
+interface ListNode extends BaseNode {
+  type: 'list';
+  listType: 'bullet' | 'number' | 'check';
+  children: ListItemNode[];
+}
+
+interface HeadingNode extends BaseNode {
+  type: 'heading';
+  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  children: TextNode[];
+}
+
+interface ParagraphNode extends BaseNode {
+  type: 'paragraph';
+  children: (TextNode | LinkNode)[];
+}
+
+interface HrNode extends BaseNode {
+  type: 'hr';
+}
+
+type RichTextNode = TextNode | LinkNode | UploadNode | TableNode | QuoteNode | ListNode | HeadingNode | ParagraphNode | HrNode;
 
 interface SerializedEditorState {
   root: {
-    children: (ParagraphNode | ListNode | HeadingNode | QuoteNode | UploadNode)[]
-  }
+    children: RichTextNode[];
+  };
 }
 
 const props = defineProps<{
-  content: SerializedEditorState | null
-}>()
+  content: SerializedEditorState | null;
+}>();
 
 const isLoading = ref(false)
 const error = ref<Error | null>(null)
@@ -231,50 +258,93 @@ const ErrorBoundary = defineComponent({
 
 <style>
 .rich-text {
-  @apply text-gray-800 leading-relaxed;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: #374151;
 }
 
 .rich-text h1 {
-  @apply text-4xl font-bold mb-4;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #111827;
 }
 
 .rich-text h2 {
-  @apply text-3xl font-bold mb-4;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 0.875rem;
+  font-weight: 700;
+  color: #111827;
 }
 
 .rich-text h3 {
-  @apply text-2xl font-bold mb-4;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #111827;
 }
 
-.rich-text h4 {
-  @apply text-xl font-bold mb-4;
+.rich-text p {
+  margin-bottom: 1rem;
 }
 
-.rich-text h5 {
-  @apply text-lg font-bold mb-4;
+.rich-text a {
+  color: #5e1210;
+  text-decoration: none;
 }
 
-.rich-text h6 {
-  @apply text-base font-bold mb-4;
+.rich-text a:hover {
+  text-decoration: underline;
 }
 
-.rich-text :deep(a) {
-  @apply text-[#5e1210] hover:underline;
+.rich-text ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.rich-text :deep(ul) {
-  @apply pl-6;
+.rich-text ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.rich-text :deep(ol) {
-  @apply pl-6;
+.rich-text li {
+  margin-bottom: 0.5rem;
 }
 
-.rich-text :deep(table) {
-  @apply w-full my-6 border-collapse;
+.rich-text blockquote {
+  border-left: 4px solid #5e1210;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #4B5563;
 }
 
-.rich-text :deep(td) {
-  @apply border p-2;
+.rich-text hr {
+  border: 0;
+  border-top: 2px solid #E5E7EB;
+  margin: 2rem 0;
+}
+
+.rich-text figure {
+  margin: 1.5rem 0;
+}
+
+.rich-text figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6B7280;
+  margin-top: 0.5rem;
+}
+
+.rich-text img {
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 </style>

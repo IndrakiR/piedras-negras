@@ -154,11 +154,13 @@ definePageMeta({
 </script>
 
 <style scoped>
+/* Base styles */
 .container {
   position: relative;
   z-index: 10;
 }
 
+/* Animations */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -181,146 +183,19 @@ definePageMeta({
   }
 }
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes bounce-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% { transform: scale(0.9); }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Enhanced hover animations */
-@keyframes shine {
-  0% {
-    background-position: -100% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px rgba(97, 18, 50, 0.1);
+    box-shadow: 0 0 5px rgba(97, 18, 50, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px rgba(97, 18, 50, 0.2);
+    box-shadow: 0 0 20px rgba(97, 18, 50, 0.4);
   }
   100% {
-    box-shadow: 0 0 5px rgba(97, 18, 50, 0.1);
+    box-shadow: 0 0 5px rgba(97, 18, 50, 0.2);
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-slide-in {
-  animation: slide-in 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-bounce-in {
-  animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-  opacity: 0;
-}
-
-/* Enhanced hover effects */
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 10px 25px rgba(97, 18, 50, 0.15);
-  animation: float 2s ease-in-out infinite;
-}
-
-.button-hover {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(97, 18, 50, 0.05) 50%,
-    transparent 100%
-  ) 0 0 / 200% 100%;
-}
-
-.button-hover:hover {
-  animation: shine 1.5s infinite linear;
-  background-color: rgba(97, 18, 50, 0.08);
-}
-
-.button-hover:hover .text-gray-700 {
-  color: #611232;
-  transition: color 0.3s ease;
-}
-
-/* Icon animations */
-@keyframes icon-pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.icon-animate {
-  animation: icon-pulse 2s infinite ease-in-out;
-}
-
-/* Card hover effects */
-.bg-white {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.bg-white:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(97, 18, 50, 0.1);
-}
-
-/* Header hover effects */
+/* Hover effects */
 .bg-gray-50 {
   transition: all 0.3s ease;
 }
@@ -336,27 +211,36 @@ definePageMeta({
 }
 
 /* Button icon hover */
-.group:hover .text-[#611232] {
+.group:hover .text-[\#611232] {
   transform: translateX(5px) scale(1.2);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Glow effect on hover */
+/* Glow effect */
 .hover-glow:hover {
   animation: glow 2s infinite ease-in-out;
 }
 
-/* Gradient text effect */
+/* Gradient text */
 .gradient-text {
   background: linear-gradient(45deg, #611232, #7a1640);
-  -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
 }
 
 .gradient-text:hover {
   opacity: 0.8;
   transform: scale(1.05);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
 }
 </style>
