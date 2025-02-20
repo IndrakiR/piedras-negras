@@ -17,7 +17,7 @@
 
         <!-- Government Logo -->
         <img 
-          src="/images/logo.png" 
+          src="/images/logo-nav.png" 
           alt="Gobierno Municipal de Piedras Negras"
           class="mx-auto h-16 mb-6"
         />
